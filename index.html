@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700&display=swap');
         
@@ -89,7 +88,7 @@
         <img src="mindimage.png" alt="MindImage" class="logo">
         <div class="welcome-text">Welcome In Knowledge World</div>
         <h2>Student Login</h2>
-        <p id="error-message" class="error" style="display: none;">Invalid username or password</p>
+        <p id="error-message" class="error" style="display: none;"></p>
         <form id="login-form">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -100,29 +99,6 @@
             <button type="submit">Login</button>
         </form>
     </div>
-
-    <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            let username = document.getElementById("username").value.trim();
-            let password = document.getElementById("password").value.trim();
-            let errorMessage = document.getElementById("error-message");
-
-            // Correct student names as usernames and student IDs as passwords
-            let validUsers = {
-                "Aryan Singh": "Ar2016",
-                "Aditya Singh": "Ad2017"
-            };
-
-            // Check if the entered username exists and matches the correct password
-            if (validUsers[username] && validUsers[username] === password) {
-                localStorage.setItem("loggedInUser", username); // Store the student's name
-                window.location.href = "subjects.html"; // ✅ Redirect to subjects page (Fixed)
-            } else {
-                errorMessage.style.display = "block"; // Show error message
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
