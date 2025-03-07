@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #a8d0e6, #dff6ff);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quiz-container {
+            background: linear-gradient(to right, #0a3d62, #1e5799);
+            width: 80%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            color: white;
+        }
+        
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffeb3b;
+            padding-bottom: 15px;
+        }
+        
+        .student-info {
+            text-align: left;
+        }
+        
+        .student-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffeb3b;
+            margin-bottom: 5px;
+        }
+        
+        .subject-name {
+            font-size: 18px;
+            color: #ffffff;
+        }
+        
+        .quiz-status {
+            text-align: right;
+        }
+        
+        .question-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffeb3b;
+            margin-bottom: 5px;
+        }
+        
+        .timer {
+            font-size: 18px;
+            color: #ffffff;
+        }
+        
+        .question-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .question-text {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .option {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .option.selected {
+            background: rgba(255, 235, 59, 0.3);
+            border-color: #ffeb3b;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .prev-button {
+            background-color: #80b3ff;
+            color: #333;
+        }
+        
+        .prev-button:hover {
+            background-color: #6090e0;
+        }
+        
+        .next-button, .submit-button {
+            background-color: #ffeb3b;
+            color: #333;
+        }
+        
+        .next-button:hover, .submit-button:hover {
+            background-color: #ffd700;
+        }
+        
+        .exit-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        
+        .exit-button:hover {
+            background-color: #ff4444;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <div class="student-info">
+                <div class="student-name" id="student-name">Student Name</div>
+                <div class="subject-name" id="subject-name">Subject Name</div>
+            </div>
+            <div class="quiz-status">
+                <div class="question-number" id="question-number">Question 01</div>
+                <div class="timer" id="timer">Time Left - 90 sec</div>
+            </div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-text" id="question-text">Question text will appear here...</div>
+            <div class="options-container" id="options-container">
+                <!-- Options will be dynamically added here -->
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button class="nav-button prev-button" id="prev-button">Previous</button>
+            <button class="nav-button exit-button" id="exit-button">Exit Quiz</button>
+            <button class="nav-button next-button" id="next-button">Next</button>
+            <button class="nav-button submit-button hidden" id="submit-button">Submit Quiz</button>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

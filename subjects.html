@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Subject</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #a8d0e6, #dff6ff);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #1e5799;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        button {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            background: #ffeb3b;
+            border: none;
+            color: black;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Subject</h1>
+        <p id="welcome-message"></p>
+        <button onclick="startQuiz('General Awareness')">General Awareness</button>
+        <button onclick="startQuiz('Science')">Science</button>
+        <button onclick="startQuiz('Math')">Math</button>
+        <button onclick="startQuiz('English')">English</button>
+    </div>
+
+    <script>
+        let loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+            window.location.href = "index.html"; // Redirect to login if not logged in
+        } else {
+            document.getElementById("welcome-message").innerText = `Welcome, ${loggedInUser}! Please select a subject.`;
+        }
+
+        function startQuiz(subject) {
+            localStorage.setItem("selectedSubject", subject); // Store selected subject
+            window.location.href = "quiz.html"; // Redirect to quiz page
+        }
+    </script>
+</body>
+</html>
