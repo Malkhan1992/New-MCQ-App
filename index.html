@@ -4,25 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #a8d0e6, #dff6ff);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            color: white;
+        }
+        .login-container {
+            background: linear-gradient(to right, #0a3d62, #1e5799);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+        .welcome-text {
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffeb3b;
+            margin-bottom: 20px;
+            font-family: 'Comic Neue', cursive;
+            text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.3);
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 5px 0;
+            color: white;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ffeb3b;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ffeb3b;
+            border: none;
+            color: #333;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #ffd700;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
-        <img src="mindimage.png" alt="MindImage Logo" class="logo">
-        <h1>Welcome In Knowledge World</h1>
+        <img src="mindimage.png" alt="MindImage" class="logo">
+        <div class="welcome-text">Welcome In Knowledge World</div>
         <h2>Student Login</h2>
-        <p id="error-message"></p> <!-- Error message display -->
-
+        <p id="error-message" class="error" style="display: none;">Invalid username or password</p>
         <form id="login-form">
-            <label>Username</label>
-            <input type="text" id="username" required>
-
-            <label>Password</label>
-            <input type="password" id="password" required>
-
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
             <button type="submit">Login</button>
         </form>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let errorMessage = document.getElementById("error-message");
+
+            // Correct student names as usernames and student IDs as passwords
+            let validUsers = {
+                "Aryan Singh": "Ar2016",
+                "Aditya Singh": "Ad2017"
+            };
+
+            // Check if the entered username exists and matches the correct password
+            if (validUsers[username] && validUsers[username] === password) {
+                localStorage.setItem("loggedInUser", username); // Store the student's name
+                window.location.href = "subjects.html"; // ✅ Redirect to subjects page (Fixed)
+            } else {
+                errorMessage.style.display = "block"; // Show error message
+            }
+        });
+    </script>
 </body>
 </html>
