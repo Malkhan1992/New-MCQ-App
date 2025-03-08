@@ -7,7 +7,7 @@ if (!loggedInUser || !selectedSubject) {
     window.location.href = "subjects.html";
 }
 
-// Sample questions for each subject (you can add more later)
+// Sample questions for each subject (kept the same as your original)
 const allQuestions = {
     "General Awareness": [
         {
@@ -100,7 +100,7 @@ const allQuestions = {
     ]
 };
 
-// DOM elements
+// DOM elements - Make sure all these elements exist in your HTML
 const studentNameElement = document.getElementById("student-name");
 const subjectNameElement = document.getElementById("subject-name");
 const questionNumberElement = document.getElementById("question-number");
@@ -124,11 +124,40 @@ let questionTimers = Array(totalQuestions).fill(90); // Time left for each quest
 let questionTimeSpent = Array(totalQuestions).fill(0); // Time spent on each question
 let questionCompleted = Array(totalQuestions).fill(false); // Track if a question's time is up
 
+// Debug helper function to check if DOM elements exist
+function checkElements() {
+    console.log("Student name element:", studentNameElement);
+    console.log("Subject name element:", subjectNameElement);
+    console.log("Question number element:", questionNumberElement);
+    console.log("Timer element:", timerElement);
+    console.log("Question text element:", questionTextElement);
+    console.log("Options container element:", optionsContainerElement);
+    console.log("Previous button:", prevButton);
+    console.log("Next button:", nextButton);
+    console.log("Exit button:", exitButton);
+    console.log("Submit button:", submitButton);
+    
+    // Check if any element is null
+    if (!studentNameElement || !subjectNameElement || !questionNumberElement || 
+        !timerElement || !questionTextElement || !optionsContainerElement || 
+        !prevButton || !nextButton || !exitButton || !submitButton) {
+        console.error("One or more DOM elements are missing!");
+        return false;
+    }
+    return true;
+}
+
 // Initialize the quiz
 function initializeQuiz() {
+    // Check if all elements exist
+    if (!checkElements()) {
+        alert("Error initializing quiz. Some elements are missing.");
+        return;
+    }
+    
     // Display student name and subject
-    studentNameElement.textContent = loggedInUser;
-    subjectNameElement.textContent = selectedSubject;
+    studentNameElement.textContent = loggedInUser || "Student";
+    subjectNameElement.textContent = selectedSubject || "Subject";
     
     // Hide previous button on first question
     updateNavigationButtons();
@@ -136,12 +165,27 @@ function initializeQuiz() {
     // Load the first question
     loadQuestion(currentQuestionIndex);
     
+    // Log the currently loaded question for debugging
+    console.log("Loaded question:", questions[currentQuestionIndex]);
+    
     // Start the timer
     startTimer();
 }
 
 // Load a question by index
 function loadQuestion(index) {
+    // Check if questions exist
+    if (!questions || questions.length === 0) {
+        questionTextElement.textContent = "No questions available for this subject.";
+        return;
+    }
+    
+    // Check if index is valid
+    if (index < 0 || index >= questions.length) {
+        console.error("Invalid question index:", index);
+        return;
+    }
+    
     // Clear previous timer
     clearInterval(timerInterval);
     
@@ -215,50 +259,32 @@ function selectOption(optionIndex) {
     });
 }
 
-// Start the timer for current question
+// Start the timer for current question - FIXED TIME CALCULATION
 function startTimer() {
     clearInterval(timerInterval);
     
     // Use the saved time for this question
     let timeLeft = questionTimers[currentQuestionIndex];
     
-    // Set the initial timer display
     updateTimerDisplay();
     
-    // Record the start time when this function is called
-    const startTimestamp = Date.now();
+    // Store exact start time to calculate elapsed time correctly
+    const startTime = Date.now();
     
     timerInterval = setInterval(() => {
-        // Calculate exact time elapsed since timer started
-        const elapsedSeconds = Math.floor((Date.now() - startTimestamp) / 1000);
+        // Calculate elapsed time in seconds since this timer started
+        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
         
-        // Update time left based on initial time and elapsed seconds
+        // Calculate remaining time by subtracting elapsed time from previous timeLeft
         timeLeft = questionTimers[currentQuestionIndex] - elapsedSeconds;
         
         // Update time spent on this question
         questionTimeSpent[currentQuestionIndex] = 90 - timeLeft;
         
-        // Start the timer for current question
-function startTimer() {
-    clearInterval(timerInterval);
-    
-    // Use the saved time for this question
-    let timeLeft = questionTimers[currentQuestionIndex];
-    
-    // Update timer display immediately
-    updateTimerDisplay();
-    
-    timerInterval = setInterval(() => {
-        // Decrement by exactly 1 second
-        timeLeft = timeLeft - 1;
-        
-        // Update the saved time for this question
+        // Save current time for this question
         questionTimers[currentQuestionIndex] = timeLeft;
         
-        // Update time spent on this question
-        questionTimeSpent[currentQuestionIndex] = 90 - timeLeft;
-        
-        // Update the timer display
+        // Handle timer completion
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             questionTimers[currentQuestionIndex] = 0;
@@ -279,8 +305,8 @@ function startTimer() {
                 autoMoveToNextQuestion();
             }, 1500);
         } else {
-            // Update timer display
-            timerElement.textContent = `Time Left - ${timeLeft} sec`;
+            // Update timer display - fix to show whole numbers
+            timerElement.textContent = `Time Left - ${Math.floor(timeLeft)} sec`;
             
             // Change color when time is running out
             if (timeLeft <= 10) {
@@ -289,8 +315,9 @@ function startTimer() {
                 timerElement.style.color = '#ffffff';
             }
         }
-    }, 1000);
+    }, 1000); // Update exactly every 1 second
 }
+
 // Update timer display based on current question
 function updateTimerDisplay() {
     const timeLeft = questionTimers[currentQuestionIndex];
@@ -299,7 +326,7 @@ function updateTimerDisplay() {
         timerElement.textContent = "Time's Up!";
         timerElement.style.color = '#ff6b6b';
     } else {
-        timerElement.textContent = `Time Left - ${timeLeft} sec`;
+        timerElement.textContent = `Time Left - ${Math.floor(timeLeft)} sec`;
         
         if (timeLeft <= 10) {
             timerElement.style.color = '#ff6b6b';
@@ -448,11 +475,28 @@ function exitQuiz() {
     }
 }
 
-// Event listeners
-prevButton.addEventListener('click', goToPreviousQuestion);
-nextButton.addEventListener('click', goToNextQuestion);
-exitButton.addEventListener('click', exitQuiz);
-submitButton.addEventListener('click', finishQuiz);
+// Event listeners - Make sure these are working
+function setupEventListeners() {
+    if (prevButton) prevButton.addEventListener('click', goToPreviousQuestion);
+    if (nextButton) nextButton.addEventListener('click', goToNextQuestion);
+    if (exitButton) exitButton.addEventListener('click', exitQuiz);
+    if (submitButton) submitButton.addEventListener('click', finishQuiz);
+    
+    // Log to console when buttons are clicked (for debugging)
+    if (prevButton) prevButton.addEventListener('click', () => console.log("Previous button clicked"));
+    if (nextButton) nextButton.addEventListener('click', () => console.log("Next button clicked"));
+    if (exitButton) exitButton.addEventListener('click', () => console.log("Exit button clicked"));
+    if (submitButton) submitButton.addEventListener('click', () => console.log("Submit button clicked"));
+}
+
+// Call to set up event listeners
+setupEventListeners();
 
 // Initialize the quiz when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded");
+    initializeQuiz();
+});
+
+// Also try to initialize immediately in case the script runs after DOM is already loaded
 initializeQuiz();
