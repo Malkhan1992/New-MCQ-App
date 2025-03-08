@@ -238,8 +238,25 @@ function startTimer() {
         // Update time spent on this question
         questionTimeSpent[currentQuestionIndex] = 90 - timeLeft;
         
-        // Save the current time left for this question
+        // Start the timer for current question
+function startTimer() {
+    clearInterval(timerInterval);
+    
+    // Use the saved time for this question
+    let timeLeft = questionTimers[currentQuestionIndex];
+    
+    // Update timer display immediately
+    updateTimerDisplay();
+    
+    timerInterval = setInterval(() => {
+        // Decrement by exactly 1 second
+        timeLeft = timeLeft - 1;
+        
+        // Update the saved time for this question
         questionTimers[currentQuestionIndex] = timeLeft;
+        
+        // Update time spent on this question
+        questionTimeSpent[currentQuestionIndex] = 90 - timeLeft;
         
         // Update the timer display
         if (timeLeft <= 0) {
@@ -274,7 +291,6 @@ function startTimer() {
         }
     }, 1000);
 }
-
 // Update timer display based on current question
 function updateTimerDisplay() {
     const timeLeft = questionTimers[currentQuestionIndex];
