@@ -221,17 +221,25 @@ function startTimer() {
     
     // Use the saved time for this question
     let timeLeft = questionTimers[currentQuestionIndex];
-    let startTime = Date.now();
     
+    // Set the initial timer display
     updateTimerDisplay();
     
+    // Record the start time when this function is called
+    const startTimestamp = Date.now();
+    
     timerInterval = setInterval(() => {
-        // Calculate elapsed time
-        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+        // Calculate exact time elapsed since timer started
+        const elapsedSeconds = Math.floor((Date.now() - startTimestamp) / 1000);
+        
+        // Update time left based on initial time and elapsed seconds
         timeLeft = questionTimers[currentQuestionIndex] - elapsedSeconds;
         
         // Update time spent on this question
         questionTimeSpent[currentQuestionIndex] = 90 - timeLeft;
+        
+        // Save the current time left for this question
+        questionTimers[currentQuestionIndex] = timeLeft;
         
         // Update the timer display
         if (timeLeft <= 0) {
@@ -256,9 +264,6 @@ function startTimer() {
         } else {
             // Update timer display
             timerElement.textContent = `Time Left - ${timeLeft} sec`;
-            
-            // Save current time for this question
-            questionTimers[currentQuestionIndex] = timeLeft;
             
             // Change color when time is running out
             if (timeLeft <= 10) {
