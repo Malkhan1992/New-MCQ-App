@@ -10,94 +10,214 @@ if (!loggedInUser || !selectedSubject) {
 // Sample questions for each subject (you can add more later)
 const allQuestions = {
     "General Awareness": [
-        {
-            question: "Who is the current Prime Minister of India?",
-            options: ["Narendra Modi", "Rahul Gandhi", "Amit Shah", "Manmohan Singh"],
-            answer: "Narendra Modi"
-        },
-        {
-            question: "What is the capital of Japan?",
-            options: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
-            answer: "Tokyo"
-        }
-    ],
+    {
+        question: "Who is the current President of India?",
+        options: ["Droupadi Murmu", "Narendra Modi", "Pratibha Patil", "Ram Nath Kovind"],
+        answer: "Droupadi Murmu"
+    },
+    {
+        question: "What is the national animal of India?",
+        options: ["Lion", "Tiger", "Elephant", "Leopard"],
+        answer: "Tiger"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Venus", "Mars", "Jupiter"],
+        answer: "Mars"
+    },
+    {
+        question: "What is the tallest mountain in the world?",
+        options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
+        answer: "Mount Everest"
+    },
+    {
+        question: "Who invented the telephone?",
+        options: ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Albert Einstein"],
+        answer: "Alexander Graham Bell"
+    },
+    {
+        question: "What is the largest ocean on Earth?",
+        options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        answer: "Pacific Ocean"
+    },
+    {
+        question: "Who wrote the national anthem of India?",
+        options: ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Sarojini Naidu", "Subhas Chandra Bose"],
+        answer: "Rabindranath Tagore"
+    },
+    {
+        question: "What is the capital city of Maharashtra?",
+        options: ["Mumbai", "Pune", "Nagpur", "Nashik"],
+        answer: "Mumbai"
+    },
+    {
+        question: "What is the boiling point of water at sea level?",
+        options: ["0°C", "50°C", "100°C", "200°C"],
+        answer: "100°C"
+    },
+    {
+        question: "Who was the first person to step on the moon?",
+        options: ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"],
+        answer: "Neil Armstrong"
+    }
+],
     "Science": [
-        {
-            question: "What planet is known as the Red Planet?",
-            options: ["Earth", "Mars", "Jupiter", "Venus"],
-            answer: "Mars"
-        },
-        {
-            question: "What is the chemical symbol for water?",
-            options: ["H2O", "CO2", "O2", "N2"],
-            answer: "H2O"
-        },
-        {
-            question: "Which organ in the human body pumps blood?",
-            options: ["Brain", "Heart", "Lungs", "Liver"],
-            answer: "Heart"
-        },
-        {
-            question: "What gas do plants absorb during photosynthesis?",
-            options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
-            answer: "Carbon Dioxide"
-        },
-        {
-            question: "What is the main source of energy for life on Earth?",
-            options: ["The Moon", "The Sun", "Wind", "Water"],
-            answer: "The Sun"
-        },
-        {
-            question: "Which part of the plant is responsible for photosynthesis?",
-            options: ["Roots", "Stem", "Leaves", "Flowers"],
-            answer: "Leaves"
-        },
-        {
-            question: "What is the process of changing from a solid to a liquid called?",
-            options: ["Freezing", "Evaporation", "Melting", "Condensation"],
-            answer: "Melting"
-        },
-        {
-            question: "What is the largest planet in our solar system?",
-            options: ["Mars", "Earth", "Saturn", "Jupiter"],
-            answer: "Jupiter"
-        },
-        {
-            question: "What is the hardest natural substance found on Earth?",
-            options: ["Gold", "Iron", "Diamond", "Silver"],
-            answer: "Diamond"
-        },
-        {
-            question: "What do we call animals that only eat plants?",
-            options: ["Carnivores", "Herbivores", "Omnivores", "Insectivores"],
-            answer: "Herbivores"
-        }
-    ],
+    {
+        question: "What is the smallest unit of life?",
+        options: ["Atom", "Cell", "Tissue", "Molecule"],
+        answer: "Cell"
+    },
+    {
+        question: "What is the main gas found in the air we breathe?",
+        options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        answer: "Nitrogen"
+    },
+    {
+        question: "Which force keeps us on the ground?",
+        options: ["Magnetism", "Gravity", "Friction", "Electric Force"],
+        answer: "Gravity"
+    },
+    {
+        question: "What do we call water when it is in its gas form?",
+        options: ["Ice", "Steam", "Rain", "Cloud"],
+        answer: "Steam"
+    },
+    {
+        question: "What is the main organ of the nervous system?",
+        options: ["Heart", "Brain", "Lungs", "Liver"],
+        answer: "Brain"
+    },
+    {
+        question: "Which energy resource is non-renewable?",
+        options: ["Solar Energy", "Wind Energy", "Coal", "Hydropower"],
+        answer: "Coal"
+    },
+    {
+        question: "What type of energy does a moving object have?",
+        options: ["Kinetic Energy", "Potential Energy", "Thermal Energy", "Electric Energy"],
+        answer: "Kinetic Energy"
+    },
+    {
+        question: "What is the outer layer of the Earth called?",
+        options: ["Core", "Mantle", "Crust", "Lithosphere"],
+        answer: "Crust"
+    },
+    {
+        question: "Which part of the eye controls the amount of light entering it?",
+        options: ["Pupil", "Retina", "Cornea", "Lens"],
+        answer: "Pupil"
+    },
+    {
+        question: "What do plants release into the air during photosynthesis?",
+        options: ["Carbon Dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+        answer: "Oxygen"
+    }
+],
     
     "Math": [
-        {
-            question: "What is the value of π (pi) to two decimal places?",
-            options: ["3.14", "3.41", "3.12", "3.21"],
-            answer: "3.14"
-        },
-        {
-            question: "If x + y = 10 and x - y = 4, what is the value of x?",
-            options: ["5", "6", "7", "8"],
-            answer: "7"
-        }
-    ],
+    {
+        question: "What is 345 + 678?",
+        options: ["1023", "1003", "1022", "1005"],
+        answer: "1023"
+    },
+    {
+        question: "What is 957 - 432?",
+        options: ["535", "525", "515", "545"],
+        answer: "525"
+    },
+    {
+        question: "What is 45 × 6?",
+        options: ["250", "270", "280", "260"],
+        answer: "270"
+    },
+    {
+        question: "What is 144 ÷ 12?",
+        options: ["10", "11", "12", "14"],
+        answer: "12"
+    },
+    {
+        question: "Which number is even?",
+        options: ["37", "42", "59", "73"],
+        answer: "42"
+    },
+    {
+        question: "Which number is odd?",
+        options: ["62", "80", "49", "28"],
+        answer: "49"
+    },
+    {
+        question: "What is the place value of 5 in 4521?",
+        options: ["5", "50", "500", "5000"],
+        answer: "500"
+    },
+    {
+        question: "What is the face value of 6 in 7634?",
+        options: ["6", "60", "600", "6000"],
+        answer: "6"
+    },
+    {
+        question: "If a basket contains 24 apples and 36 oranges, how many fruits are there in total?",
+        options: ["50", "60", "70", "80"],
+        answer: "60"
+    },
+    {
+        question: "If a jar has 100 candies and you eat 25, how many candies are left?",
+        options: ["65", "75", "85", "95"],
+        answer: "75"
+    }
+],
     "English": [
-        {
-            question: "Which of the following is a proper noun?",
-            options: ["Book", "London", "Happy", "Running"],
-            answer: "London"
-        },
-        {
-            question: "What is the past tense of 'swim'?",
-            options: ["Swimming", "Swam", "Swum", "Swimmed"],
-            answer: "Swam"
-        }
-    ]
+    {
+        question: "Which of the following is a common noun?",
+        options: ["London", "Book", "Eiffel Tower", "Mount Everest"],
+        answer: "Book"
+    },
+    {
+        question: "What type of noun is 'happiness'?",
+        options: ["Proper Noun", "Common Noun", "Abstract Noun", "Collective Noun"],
+        answer: "Abstract Noun"
+    },
+    {
+        question: "Which of these is a collective noun?",
+        options: ["Chair", "Team", "India", "Kindness"],
+        answer: "Team"
+    },
+    {
+        question: "What is the gender of the noun 'actor'?",
+        options: ["Masculine", "Feminine", "Neuter", "Common"],
+        answer: "Masculine"
+    },
+    {
+        question: "Which is the feminine form of 'lion'?",
+        options: ["Tiger", "Lioness", "Cheetah", "Tigress"],
+        answer: "Lioness"
+    },
+    {
+        question: "What is the singular form of 'children'?",
+        options: ["Child", "Childs", "Childes", "Childies"],
+        answer: "Child"
+    },
+    {
+        question: "What is the plural form of 'knife'?",
+        options: ["Knives", "Knifes", "Knifs", "Knive"],
+        answer: "Knives"
+    },
+    {
+        question: "Which of the following is a proper noun?",
+        options: ["River", "Ganga", "Book", "Bird"],
+        answer: "Ganga"
+    },
+    {
+        question: "What type of noun is 'India'?",
+        options: ["Abstract Noun", "Proper Noun", "Collective Noun", "Common Noun"],
+        answer: "Proper Noun"
+    },
+    {
+        question: "What is the plural form of 'person'?",
+        options: ["Persons", "People", "Persones", "Peoples"],
+        answer: "People"
+    }
+]
 };
 
 // DOM elements
