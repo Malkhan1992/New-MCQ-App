@@ -10,214 +10,213 @@ if (!loggedInUser || !selectedSubject) {
 // Sample questions for each subject (you can add more later)
 const allQuestions = {
     "General Awareness": [
-    {
-        question: "Who is the current President of India?",
-        options: ["Droupadi Murmu", "Narendra Modi", "Pratibha Patil", "Ram Nath Kovind"],
-        answer: "Droupadi Murmu"
-    },
-    {
-        question: "What is the national animal of India?",
-        options: ["Lion", "Tiger", "Elephant", "Leopard"],
-        answer: "Tiger"
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Venus", "Mars", "Jupiter"],
-        answer: "Mars"
-    },
-    {
-        question: "What is the tallest mountain in the world?",
-        options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
-        answer: "Mount Everest"
-    },
-    {
-        question: "Who invented the telephone?",
-        options: ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Albert Einstein"],
-        answer: "Alexander Graham Bell"
-    },
-    {
-        question: "What is the largest ocean on Earth?",
-        options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-        answer: "Pacific Ocean"
-    },
-    {
-        question: "Who wrote the national anthem of India?",
-        options: ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Sarojini Naidu", "Subhas Chandra Bose"],
-        answer: "Rabindranath Tagore"
-    },
-    {
-        question: "What is the capital city of Maharashtra?",
-        options: ["Mumbai", "Pune", "Nagpur", "Nashik"],
-        answer: "Mumbai"
-    },
-    {
-        question: "What is the boiling point of water at sea level?",
-        options: ["0°C", "50°C", "100°C", "200°C"],
-        answer: "100°C"
-    },
-    {
-        question: "Who was the first person to step on the moon?",
-        options: ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"],
-        answer: "Neil Armstrong"
-    }
-],
+        {
+            question: "What comes next in the series: 3, 6, 9, 12, __?",
+            options: ["15", "13", "18", "14"],
+            answer: "15"
+        },
+        {
+            question: "What is the capital of Kerala?",
+            options: ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur"],
+            answer: "Thiruvananthapuram"
+        },
+        {
+            question: "What is the currency of the USA?",
+            options: ["Euro", "Yen", "Pound", "Dollar"],
+            answer: "Dollar"
+        },
+        {
+            question: "What is the capital of Canada?",
+            options: ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+            answer: "Ottawa"
+        },
+        {
+            question: "Which Indian state has Bengaluru as its capital?",
+            options: ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"],
+            answer: "Karnataka"
+        },
+        {
+            question: "What comes next in the series: 2, 5, 10, 17, __?",
+            options: ["26", "25", "28", "29"],
+            answer: "26"
+        },
+        {
+            question: "Which country has the capital city of Berlin?",
+            options: ["France", "Germany", "Italy", "Spain"],
+            answer: "Germany"
+        },
+        {
+            question: "What is the currency of Australia?",
+            options: ["Dollar", "Euro", "Pound", "Rupee"],
+            answer: "Dollar"
+        },
+        {
+            question: "What comes next in the series: 1, 4, 9, 16, __?",
+            options: ["20", "24", "25", "30"],
+            answer: "25"
+        },
+        {
+            question: "What is the capital of Madhya Pradesh?",
+            options: ["Bhopal", "Indore", "Jabalpur", "Gwalior"],
+            answer: "Bhopal"
+        }
+    ],
     "Science": [
-    {
-        question: "What is the smallest unit of life?",
-        options: ["Atom", "Cell", "Tissue", "Molecule"],
-        answer: "Cell"
-    },
-    {
-        question: "What is the main gas found in the air we breathe?",
-        options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-        answer: "Nitrogen"
-    },
-    {
-        question: "Which force keeps us on the ground?",
-        options: ["Magnetism", "Gravity", "Friction", "Electric Force"],
-        answer: "Gravity"
-    },
-    {
-        question: "What do we call water when it is in its gas form?",
-        options: ["Ice", "Steam", "Rain", "Cloud"],
-        answer: "Steam"
-    },
-    {
-        question: "What is the main organ of the nervous system?",
-        options: ["Heart", "Brain", "Lungs", "Liver"],
-        answer: "Brain"
-    },
-    {
-        question: "Which energy resource is non-renewable?",
-        options: ["Solar Energy", "Wind Energy", "Coal", "Hydropower"],
-        answer: "Coal"
-    },
-    {
-        question: "What type of energy does a moving object have?",
-        options: ["Kinetic Energy", "Potential Energy", "Thermal Energy", "Electric Energy"],
-        answer: "Kinetic Energy"
-    },
-    {
-        question: "What is the outer layer of the Earth called?",
-        options: ["Core", "Mantle", "Crust", "Lithosphere"],
-        answer: "Crust"
-    },
-    {
-        question: "Which part of the eye controls the amount of light entering it?",
-        options: ["Pupil", "Retina", "Cornea", "Lens"],
-        answer: "Pupil"
-    },
-    {
-        question: "What do plants release into the air during photosynthesis?",
-        options: ["Carbon Dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-        answer: "Oxygen"
-    }
-],
-    
+        {
+            question: "Which planet is known as the Morning Star?",
+            options: ["Mercury", "Venus", "Mars", "Jupiter"],
+            answer: "Venus"
+        },
+        {
+            question: "Which part of a plant conducts photosynthesis?",
+            options: ["Roots", "Stem", "Leaves", "Flowers"],
+            answer: "Leaves"
+        },
+        {
+            question: "What is the hottest planet in the solar system?",
+            options: ["Mercury", "Venus", "Mars", "Earth"],
+            answer: "Venus"
+        },
+        {
+            question: "What do plants absorb from the soil?",
+            options: ["Light", "Water", "Carbon dioxide", "Oxygen"],
+            answer: "Water"
+        },
+        {
+            question: "Which planet is also called the Earth's twin?",
+            options: ["Mars", "Venus", "Jupiter", "Saturn"],
+            answer: "Venus"
+        },
+        {
+            question: "What is the process by which plants make their food?",
+            options: ["Respiration", "Digestion", "Photosynthesis", "Absorption"],
+            answer: "Photosynthesis"
+        },
+        {
+            question: "Which planet has the Great Red Spot?",
+            options: ["Mars", "Saturn", "Jupiter", "Neptune"],
+            answer: "Jupiter"
+        },
+        {
+            question: "What is the primary source of energy for plants?",
+            options: ["Soil", "Water", "Sunlight", "Air"],
+            answer: "Sunlight"
+        },
+        {
+            question: "Which planet is farthest from the Sun?",
+            options: ["Uranus", "Neptune", "Pluto", "Saturn"],
+            answer: "Neptune"
+        },
+        {
+            question: "What is the function of stems in plants?",
+            options: ["Absorbing water", "Transporting nutrients", "Releasing oxygen", "Producing flowers"],
+            answer: "Transporting nutrients"
+        }
+    ],
     "Math": [
-    {
-        question: "What is 345 + 678?",
-        options: ["1023", "1003", "1022", "1005"],
-        answer: "1023"
-    },
-    {
-        question: "What is 957 - 432?",
-        options: ["535", "525", "515", "545"],
-        answer: "525"
-    },
-    {
-        question: "What is 45 × 6?",
-        options: ["250", "270", "280", "260"],
-        answer: "270"
-    },
-    {
-        question: "What is 144 ÷ 12?",
-        options: ["10", "11", "12", "14"],
-        answer: "12"
-    },
-    {
-        question: "Which number is even?",
-        options: ["37", "42", "59", "73"],
-        answer: "42"
-    },
-    {
-        question: "Which number is odd?",
-        options: ["62", "80", "49", "28"],
-        answer: "49"
-    },
-    {
-        question: "What is the place value of 5 in 4521?",
-        options: ["5", "50", "500", "5000"],
-        answer: "500"
-    },
-    {
-        question: "What is the face value of 6 in 7634?",
-        options: ["6", "60", "600", "6000"],
-        answer: "6"
-    },
-    {
-        question: "If a basket contains 24 apples and 36 oranges, how many fruits are there in total?",
-        options: ["50", "60", "70", "80"],
-        answer: "60"
-    },
-    {
-        question: "If a jar has 100 candies and you eat 25, how many candies are left?",
-        options: ["65", "75", "85", "95"],
-        answer: "75"
-    }
-],
+        {
+            question: "What is 128 + 256?",
+            options: ["372", "384", "368", "382"],
+            answer: "384"
+        },
+        {
+            question: "What is 765 - 432?",
+            options: ["323", "333", "335", "343"],
+            answer: "333"
+        },
+        {
+            question: "What is 7 × 9?",
+            options: ["63", "72", "54", "49"],
+            answer: "63"
+        },
+        {
+            question: "What is 144 ÷ 12?",
+            options: ["12", "10", "14", "16"],
+            answer: "12"
+        },
+        {
+            question: "Which number is even?",
+            options: ["73", "58", "71", "53"],
+            answer: "58"
+        },
+        {
+            question: "Which number is odd?",
+            options: ["64", "32", "19", "84"],
+            answer: "19"
+        },
+        {
+            question: "What is the place value of 8 in 3842?",
+            options: ["8", "80", "800", "8000"],
+            answer: "800"
+        },
+        {
+            question: "What is the face value of 7 in 5724?",
+            options: ["700", "70", "7", "7000"],
+            answer: "7"
+        },
+        {
+            question: "What is 456 × 2?",
+            options: ["900", "912", "922", "932"],
+            answer: "912"
+        },
+        {
+            question: "If a box contains 18 chocolates and you eat 6, how many are left?",
+            options: ["10", "12", "14", "15"],
+            answer: "12"
+        }
+    ],
     "English": [
-    {
-        question: "Which of the following is a common noun?",
-        options: ["London", "Book", "Eiffel Tower", "Mount Everest"],
-        answer: "Book"
-    },
-    {
-        question: "What type of noun is 'happiness'?",
-        options: ["Proper Noun", "Common Noun", "Abstract Noun", "Collective Noun"],
-        answer: "Abstract Noun"
-    },
-    {
-        question: "Which of these is a collective noun?",
-        options: ["Chair", "Team", "India", "Kindness"],
-        answer: "Team"
-    },
-    {
-        question: "What is the gender of the noun 'actor'?",
-        options: ["Masculine", "Feminine", "Neuter", "Common"],
-        answer: "Masculine"
-    },
-    {
-        question: "Which is the feminine form of 'lion'?",
-        options: ["Tiger", "Lioness", "Cheetah", "Tigress"],
-        answer: "Lioness"
-    },
-    {
-        question: "What is the singular form of 'children'?",
-        options: ["Child", "Childs", "Childes", "Childies"],
-        answer: "Child"
-    },
-    {
-        question: "What is the plural form of 'knife'?",
-        options: ["Knives", "Knifes", "Knifs", "Knive"],
-        answer: "Knives"
-    },
-    {
-        question: "Which of the following is a proper noun?",
-        options: ["River", "Ganga", "Book", "Bird"],
-        answer: "Ganga"
-    },
-    {
-        question: "What type of noun is 'India'?",
-        options: ["Abstract Noun", "Proper Noun", "Collective Noun", "Common Noun"],
-        answer: "Proper Noun"
-    },
-    {
-        question: "What is the plural form of 'person'?",
-        options: ["Persons", "People", "Persones", "Peoples"],
-        answer: "People"
-    }
-]
+        {
+            question: "What is the plural form of 'goose'?",
+            options: ["Geese", "Gooses", "Goosies", "Goosen"],
+            answer: "Geese"
+        },
+        {
+            question: "Which of the following is a pronoun?",
+            options: ["He", "John", "Run", "Blue"],
+            answer: "He"
+        },
+        {
+            question: "Which of the following is a verb?",
+            options: ["Eat", "Delicious", "Apple", "Quick"],
+            answer: "Eat"
+        },
+        {
+            question: "What is the singular form of 'teeth'?",
+            options: ["Tooth", "Teeth", "Tooths", "Toothies"],
+            answer: "Tooth"
+        },
+        {
+            question: "Which of the following is an adverb?",
+            options: ["Brightly", "Bright", "Brightness", "Brighter"],
+            answer: "Brightly"
+        },
+        {
+            question: "What is the plural form of 'leaf'?",
+            options: ["Leafs", "Leaves", "Leafes", "Leafies"],
+            answer: "Leaves"
+        },
+        {
+            question: "Which of the following is a common noun?",
+            options: ["City", "Delhi", "Asia", "Taj Mahal"],
+            answer: "City"
+        },
+        {
+            question: "Which of these is a proper noun?",
+            options: ["Car", "London", "River", "Tree"],
+            answer: "London"
+        },
+        {
+            question: "What is the gender of the noun 'princess'?",
+            options: ["Masculine", "Feminine", "Neuter", "Common"],
+            answer: "Feminine"
+        },
+        {
+            question: "Which of these is an abstract noun?",
+            options: ["Happiness", "Mountain", "Chair", "Apple"],
+            answer: "Happiness"
+        }
+    ]
 };
 
 // DOM elements
