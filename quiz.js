@@ -11,212 +11,217 @@ if (!loggedInUser || !selectedSubject) {
 const allQuestions = {
     "General Awareness": [
         {
-            question: "What comes next in the series: 3, 6, 9, 12, __?",
-            options: ["15", "13", "18", "14"],
-            answer: "15"
+            question: "What comes next in the series: 2, 4, 8, 16, __?",
+            options: ["20", "24", "32", "40"],
+            answer: "32"
         },
         {
-            question: "What is the capital of Kerala?",
-            options: ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur"],
-            answer: "Thiruvananthapuram"
+            question: "What is the capital of West Bengal?",
+            options: ["Kolkata", "Darjeeling", "Siliguri", "Howrah"],
+            answer: "Kolkata"
         },
         {
-            question: "What is the currency of the USA?",
-            options: ["Euro", "Yen", "Pound", "Dollar"],
-            answer: "Dollar"
+            question: "What is the currency of China?",
+            options: ["Yuan", "Yen", "Rupee", "Won"],
+            answer: "Yuan"
         },
         {
-            question: "What is the capital of Canada?",
-            options: ["Toronto", "Vancouver", "Ottawa", "Montreal"],
-            answer: "Ottawa"
+            question: "What is the capital city of Italy?",
+            options: ["Paris", "Rome", "Madrid", "Berlin"],
+            answer: "Rome"
         },
         {
-            question: "Which Indian state has Bengaluru as its capital?",
-            options: ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh"],
-            answer: "Karnataka"
+            question: "Which Indian state has Lucknow as its capital?",
+            options: ["Bihar", "Uttar Pradesh", "Punjab", "Madhya Pradesh"],
+            answer: "Uttar Pradesh"
         },
         {
-            question: "What comes next in the series: 2, 5, 10, 17, __?",
-            options: ["26", "25", "28", "29"],
-            answer: "26"
+            question: "What comes next in the series: 1, 3, 6, 10, 15, __?",
+            options: ["18", "21", "24", "20"],
+            answer: "21"
         },
         {
-            question: "Which country has the capital city of Berlin?",
-            options: ["France", "Germany", "Italy", "Spain"],
-            answer: "Germany"
+            question: "Which country has Tokyo as its capital?",
+            options: ["China", "Japan", "South Korea", "Vietnam"],
+            answer: "Japan"
         },
         {
-            question: "What is the currency of Australia?",
-            options: ["Dollar", "Euro", "Pound", "Rupee"],
-            answer: "Dollar"
+            question: "What is the capital of New Zealand?",
+            options: ["Wellington", "Auckland", "Christchurch", "Hamilton"],
+            answer: "Wellington"
         },
         {
-            question: "What comes next in the series: 1, 4, 9, 16, __?",
-            options: ["20", "24", "25", "30"],
-            answer: "25"
+            question: "What comes next in the series: 5, 10, 20, 40, __?",
+            options: ["50", "60", "80", "100"],
+            answer: "80"
         },
         {
-            question: "What is the capital of Madhya Pradesh?",
-            options: ["Bhopal", "Indore", "Jabalpur", "Gwalior"],
-            answer: "Bhopal"
+            question: "What is the capital of Haryana?",
+            options: ["Panchkula", "Chandigarh", "Ambala", "Faridabad"],
+            answer: "Chandigarh"
         }
     ],
-    "Science": [
-        {
-            question: "Which planet is known as the Morning Star?",
-            options: ["Mercury", "Venus", "Mars", "Jupiter"],
-            answer: "Venus"
-        },
-        {
-            question: "Which part of a plant conducts photosynthesis?",
-            options: ["Roots", "Stem", "Leaves", "Flowers"],
-            answer: "Leaves"
-        },
-        {
-            question: "What is the hottest planet in the solar system?",
-            options: ["Mercury", "Venus", "Mars", "Earth"],
-            answer: "Venus"
-        },
-        {
-            question: "What do plants absorb from the soil?",
-            options: ["Light", "Water", "Carbon dioxide", "Oxygen"],
-            answer: "Water"
-        },
-        {
-            question: "Which planet is also called the Earth's twin?",
-            options: ["Mars", "Venus", "Jupiter", "Saturn"],
-            answer: "Venus"
-        },
-        {
-            question: "What is the process by which plants make their food?",
-            options: ["Respiration", "Digestion", "Photosynthesis", "Absorption"],
-            answer: "Photosynthesis"
-        },
-        {
-            question: "Which planet has the Great Red Spot?",
-            options: ["Mars", "Saturn", "Jupiter", "Neptune"],
-            answer: "Jupiter"
-        },
-        {
-            question: "What is the primary source of energy for plants?",
-            options: ["Soil", "Water", "Sunlight", "Air"],
-            answer: "Sunlight"
-        },
-        {
-            question: "Which planet is farthest from the Sun?",
-            options: ["Uranus", "Neptune", "Pluto", "Saturn"],
-            answer: "Neptune"
-        },
-        {
-            question: "What is the function of stems in plants?",
-            options: ["Absorbing water", "Transporting nutrients", "Releasing oxygen", "Producing flowers"],
-            answer: "Transporting nutrients"
-        }
-    ],
+   "Science": [
+    {
+        question: "What does a resistor do in an electrical circuit?",
+        options: ["Stores electricity", "Controls the flow of current", "Generates light", "Produces sound"],
+        answer: "Controls the flow of current"
+    },
+    {
+        question: "Which device converts electrical energy into mechanical energy?",
+        options: ["Motor", "Resistor", "Switch", "Solar Cell"],
+        answer: "Motor"
+    },
+    {
+        question: "What is the function of an LED in a circuit?",
+        options: ["To control voltage", "To emit light", "To store energy", "To measure current"],
+        answer: "To emit light"
+    },
+    {
+        question: "What is a switch used for in an electrical circuit?",
+        options: ["To store energy", "To connect or disconnect the circuit", "To reduce current flow", "To convert energy"],
+        answer: "To connect or disconnect the circuit"
+    },
+    {
+        question: "What energy does a solar cell convert into electrical energy?",
+        options: ["Wind energy", "Chemical energy", "Light energy", "Heat energy"],
+        answer: "Light energy"
+    },
+    {
+        question: "What happens to the brightness of an LED if more current flows through it?",
+        options: ["It dims", "It gets brighter", "It stops working", "It becomes cooler"],
+        answer: "It gets brighter"
+    },
+    {
+        question: "What type of energy does a motor produce?",
+        options: ["Mechanical energy", "Thermal energy", "Light energy", "Electrical energy"],
+        answer: "Mechanical energy"
+    },
+    {
+        question: "Which device can turn a circuit on or off?",
+        options: ["Resistor", "Solar Cell", "Switch", "LED"],
+        answer: "Switch"
+    },
+    {
+        question: "Where are solar cells commonly used?",
+        options: ["In refrigerators", "In solar panels", "In electric motors", "In resistors"],
+        answer: "In solar panels"
+    },
+    {
+        question: "What is the unit of resistance measured by a resistor?",
+        options: ["Ampere", "Ohm", "Volt", "Watt"],
+        answer: "Ohm"
+    }
+],
     "Math": [
         {
-            question: "What is 128 + 256?",
-            options: ["372", "384", "368", "382"],
-            answer: "384"
+            question: "What is 567 + 432?",
+            options: ["999", "1000", "998", "997"],
+            answer: "999"
         },
         {
-            question: "What is 765 - 432?",
-            options: ["323", "333", "335", "343"],
-            answer: "333"
+            question: "What is 834 - 567?",
+            options: ["267", "277", "287", "297"],
+            answer: "267"
         },
         {
-            question: "What is 7 × 9?",
-            options: ["63", "72", "54", "49"],
-            answer: "63"
+            question: "What is 12 × 8?",
+            options: ["92", "96", "94", "98"],
+            answer: "96"
         },
         {
             question: "What is 144 ÷ 12?",
-            options: ["12", "10", "14", "16"],
+            options: ["12", "11", "10", "14"],
             answer: "12"
         },
         {
             question: "Which number is even?",
-            options: ["73", "58", "71", "53"],
-            answer: "58"
+            options: ["53", "29", "44", "57"],
+            answer: "44"
         },
         {
             question: "Which number is odd?",
-            options: ["64", "32", "19", "84"],
-            answer: "19"
+            options: ["22", "40", "35", "68"],
+            answer: "35"
         },
         {
-            question: "What is the place value of 8 in 3842?",
-            options: ["8", "80", "800", "8000"],
-            answer: "800"
+            question: "What is the place value of 6 in 4623?",
+            options: ["60", "6", "600", "6000"],
+            answer: "600"
         },
         {
-            question: "What is the face value of 7 in 5724?",
-            options: ["700", "70", "7", "7000"],
-            answer: "7"
+            question: "What is the face value of 9 in 3917?",
+            options: ["900", "90", "9", "9000"],
+            answer: "9"
         },
         {
-            question: "What is 456 × 2?",
-            options: ["900", "912", "922", "932"],
-            answer: "912"
+            question: "What is 238 × 3?",
+            options: ["704", "712", "714", "718"],
+            answer: "714"
         },
         {
-            question: "If a box contains 18 chocolates and you eat 6, how many are left?",
-            options: ["10", "12", "14", "15"],
-            answer: "12"
+            question: "If you have 12 candies and divide them among 4 friends, how many candies does each friend get?",
+            options: ["3", "4", "6", "8"],
+            answer: "3"
         }
     ],
     "English": [
-        {
-            question: "What is the plural form of 'goose'?",
-            options: ["Geese", "Gooses", "Goosies", "Goosen"],
-            answer: "Geese"
-        },
-        {
-            question: "Which of the following is a pronoun?",
-            options: ["He", "John", "Run", "Blue"],
-            answer: "He"
-        },
-        {
-            question: "Which of the following is a verb?",
-            options: ["Eat", "Delicious", "Apple", "Quick"],
-            answer: "Eat"
-        },
-        {
-            question: "What is the singular form of 'teeth'?",
-            options: ["Tooth", "Teeth", "Tooths", "Toothies"],
-            answer: "Tooth"
-        },
-        {
-            question: "Which of the following is an adverb?",
-            options: ["Brightly", "Bright", "Brightness", "Brighter"],
-            answer: "Brightly"
-        },
-        {
-            question: "What is the plural form of 'leaf'?",
-            options: ["Leafs", "Leaves", "Leafes", "Leafies"],
-            answer: "Leaves"
-        },
-        {
-            question: "Which of the following is a common noun?",
-            options: ["City", "Delhi", "Asia", "Taj Mahal"],
-            answer: "City"
-        },
-        {
-            question: "Which of these is a proper noun?",
-            options: ["Car", "London", "River", "Tree"],
-            answer: "London"
-        },
-        {
-            question: "What is the gender of the noun 'princess'?",
-            options: ["Masculine", "Feminine", "Neuter", "Common"],
-            answer: "Feminine"
-        },
-        {
-            question: "Which of these is an abstract noun?",
-            options: ["Happiness", "Mountain", "Chair", "Apple"],
-            answer: "Happiness"
-        }
-    ]
+    {
+        question: "Which word is a synonym for 'happy'?",
+        options: ["Sad", "Excited", "Cheerful", "Angry"],
+        answer: "Cheerful"
+    },
+    {
+        question: "Which of the following is an interjection?",
+        options: ["Wow!", "Run", "Beautiful", "Table"],
+        answer: "Wow!"
+    },
+    {
+        question: "Which of these sentences uses the correct punctuation?",
+        options: [
+            "where is your bag.",
+            "Where is your bag?",
+            "Where is your bag!",
+            "where is your bag!"
+        ],
+        answer: "Where is your bag?"
+    },
+    {
+        question: "What is the past tense of 'eat'?",
+        options: ["Eating", "Ate", "Eaten", "Eats"],
+        answer: "Ate"
+    },
+    {
+        question: "Which part of speech is the word 'quickly'?",
+        options: ["Adjective", "Adverb", "Noun", "Pronoun"],
+        answer: "Adverb"
+    },
+    {
+        question: "What is the opposite of 'strong'?",
+        options: ["Weak", "Happy", "Powerful", "Healthy"],
+        answer: "Weak"
+    },
+    {
+        question: "Which of these is a compound word?",
+        options: ["Sunlight", "Bright", "Quick", "Run"],
+        answer: "Sunlight"
+    },
+    {
+        question: "Which word in this sentence is a noun: 'The dog is barking loudly.'?",
+        options: ["Dog", "Barking", "Loudly", "Is"],
+        answer: "Dog"
+    },
+    {
+        question: "What is the plural form of 'sheep'?",
+        options: ["Sheeps", "Sheep", "Sheepen", "Sheepes"],
+        answer: "Sheep"
+    },
+    {
+        question: "Which of the following is an example of a proper noun?",
+        options: ["City", "River", "New York", "Mountain"],
+        answer: "New York"
+    }
+]
 };
 
 // DOM elements
