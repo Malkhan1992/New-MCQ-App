@@ -7,224 +7,435 @@ if (!loggedInUser || !selectedSubject) {
     window.location.href = "subjects.html";
 }
 
-// Sample questions for each subject (you can add more later)
+// Sample questions for each subject and user
 const allQuestions = {
-    "General Awareness": [
-        {
-            question: "What comes next in the series: 2, 4, 8, 16, __?",
-            options: ["20", "24", "32", "40"],
-            answer: "32"
-        },
-        {
-            question: "What is the capital of West Bengal?",
-            options: ["Kolkata", "Darjeeling", "Siliguri", "Howrah"],
-            answer: "Kolkata"
-        },
-        {
-            question: "What is the currency of China?",
-            options: ["Yuan", "Yen", "Rupee", "Won"],
-            answer: "Yuan"
-        },
-        {
-            question: "What is the capital city of Italy?",
-            options: ["Paris", "Rome", "Madrid", "Berlin"],
-            answer: "Rome"
-        },
-        {
-            question: "Which Indian state has Lucknow as its capital?",
-            options: ["Bihar", "Uttar Pradesh", "Punjab", "Madhya Pradesh"],
-            answer: "Uttar Pradesh"
-        },
-        {
-            question: "What comes next in the series: 1, 3, 6, 10, 15, __?",
-            options: ["18", "21", "24", "20"],
-            answer: "21"
-        },
-        {
-            question: "Which country has Tokyo as its capital?",
-            options: ["China", "Japan", "South Korea", "Vietnam"],
-            answer: "Japan"
-        },
-        {
-            question: "What is the capital of New Zealand?",
-            options: ["Wellington", "Auckland", "Christchurch", "Hamilton"],
-            answer: "Wellington"
-        },
-        {
-            question: "What comes next in the series: 5, 10, 20, 40, __?",
-            options: ["50", "60", "80", "100"],
-            answer: "80"
-        },
-        {
-            question: "What is the capital of Haryana?",
-            options: ["Panchkula", "Chandigarh", "Ambala", "Faridabad"],
-            answer: "Chandigarh"
-        }
-    ],
-   "Science": [
-    {
-        question: "What does a resistor do in an electrical circuit?",
-        options: ["Stores electricity", "Controls the flow of current", "Generates light", "Produces sound"],
-        answer: "Controls the flow of current"
-    },
-    {
-        question: "Which device converts electrical energy into mechanical energy?",
-        options: ["Motor", "Resistor", "Switch", "Solar Cell"],
-        answer: "Motor"
-    },
-    {
-        question: "What is the function of an LED in a circuit?",
-        options: ["To control voltage", "To emit light", "To store energy", "To measure current"],
-        answer: "To emit light"
-    },
-    {
-        question: "What is a switch used for in an electrical circuit?",
-        options: ["To store energy", "To connect or disconnect the circuit", "To reduce current flow", "To convert energy"],
-        answer: "To connect or disconnect the circuit"
-    },
-    {
-        question: "What energy does a solar cell convert into electrical energy?",
-        options: ["Wind energy", "Chemical energy", "Light energy", "Heat energy"],
-        answer: "Light energy"
-    },
-    {
-        question: "What happens to the brightness of an LED if more current flows through it?",
-        options: ["It dims", "It gets brighter", "It stops working", "It becomes cooler"],
-        answer: "It gets brighter"
-    },
-    {
-        question: "What type of energy does a motor produce?",
-        options: ["Mechanical energy", "Thermal energy", "Light energy", "Electrical energy"],
-        answer: "Mechanical energy"
-    },
-    {
-        question: "Which device can turn a circuit on or off?",
-        options: ["Resistor", "Solar Cell", "Switch", "LED"],
-        answer: "Switch"
-    },
-    {
-        question: "Where are solar cells commonly used?",
-        options: ["In refrigerators", "In solar panels", "In electric motors", "In resistors"],
-        answer: "In solar panels"
-    },
-    {
-        question: "What is the unit of resistance measured by a resistor?",
-        options: ["Ampere", "Ohm", "Volt", "Watt"],
-        answer: "Ohm"
-    }
-],
-    "Math": [
-        {
-            question: "What is 567 + 432?",
-            options: ["999", "1000", "998", "997"],
-            answer: "999"
-        },
-        {
-            question: "What is 834 - 567?",
-            options: ["267", "277", "287", "297"],
-            answer: "267"
-        },
-        {
-            question: "What is 12 × 8?",
-            options: ["92", "96", "94", "98"],
-            answer: "96"
-        },
-        {
-            question: "What is 144 ÷ 12?",
-            options: ["12", "11", "10", "14"],
-            answer: "12"
-        },
-        {
-            question: "Which number is even?",
-            options: ["53", "29", "44", "57"],
-            answer: "44"
-        },
-        {
-            question: "Which number is odd?",
-            options: ["22", "40", "35", "68"],
-            answer: "35"
-        },
-        {
-            question: "What is the place value of 6 in 4623?",
-            options: ["60", "6", "600", "6000"],
-            answer: "600"
-        },
-        {
-            question: "What is the face value of 9 in 3917?",
-            options: ["900", "90", "9", "9000"],
-            answer: "9"
-        },
-        {
-            question: "What is 238 × 3?",
-            options: ["704", "712", "714", "718"],
-            answer: "714"
-        },
-        {
-            question: "If you have 12 candies and divide them among 4 friends, how many candies does each friend get?",
-            options: ["3", "4", "6", "8"],
-            answer: "3"
-        }
-    ],
-    "English": [
-    {
-        question: "Which word is a synonym for 'happy'?",
-        options: ["Sad", "Excited", "Cheerful", "Angry"],
-        answer: "Cheerful"
-    },
-    {
-        question: "Which of the following is an interjection?",
-        options: ["Wow!", "Run", "Beautiful", "Table"],
-        answer: "Wow!"
-    },
-    {
-        question: "Which of these sentences uses the correct punctuation?",
-        options: [
-            "where is your bag.",
-            "Where is your bag?",
-            "Where is your bag!",
-            "where is your bag!"
+    "Aryan Singh": {
+        "General Awareness": [
+            {
+                question: "What is the capital of Gujarat?",
+                options: ["Ahmedabad", "Surat", "Gandhinagar", "Rajkot"],
+                answer: "Gandhinagar"
+            },
+            {
+                question: "Who is the Chief Minister of Maharashtra?",
+                options: ["Aaditya Thackeray", "Devendra Fadnavis", "Eknath Shinde", "Sharad Pawar"],
+                answer: "Eknath Shinde"
+            },
+            {
+                question: "Which number comes next: 2, 4, 6, 8...?",
+                options: ["9", "10", "12", "11"],
+                answer: "10"
+            },
+            {
+                question: "What is the capital of Rajasthan?",
+                options: ["Jaipur", "Jodhpur", "Udaipur", "Kota"],
+                answer: "Jaipur"
+            },
+            {
+                question: "Which place is known as the 'Pink City'?",
+                options: ["Udaipur", "Jaipur", "Jaisalmer", "Ajmer"],
+                answer: "Jaipur"
+            },
+            {
+                question: "What is the next figure in this series: □, ○, □, ○...?",
+                options: ["□", "○", "△", "◇"],
+                answer: "□"
+            },
+            {
+                question: "The capital of Bihar is?",
+                options: ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur"],
+                answer: "Patna"
+            },
+            {
+                question: "Which state is famous for the Taj Mahal?",
+                options: ["Uttar Pradesh", "Rajasthan", "Gujarat", "Madhya Pradesh"],
+                answer: "Uttar Pradesh"
+            },
+            {
+                question: "Who is the current Chief Minister of Karnataka?",
+                options: ["Siddaramaiah", "Basavaraj Bommai", "D.K. Shivakumar", "H.D. Kumaraswamy"],
+                answer: "Siddaramaiah"
+            },
+            {
+                question: "What comes next in the number series: 5, 10, 15, 20...?",
+                options: ["25", "30", "35", "40"],
+                answer: "25"
+            }
         ],
-        answer: "Where is your bag?"
+        "Science": [
+            {
+                question: "What organ pumps blood throughout the body?",
+                options: ["Heart", "Liver", "Brain", "Lungs"],
+                answer: "Heart"
+            },
+            {
+                question: "Which organ helps us breathe?",
+                options: ["Lungs", "Stomach", "Kidneys", "Skin"],
+                answer: "Lungs"
+            },
+            {
+                question: "What is the largest organ in the human body?",
+                options: ["Skin", "Liver", "Brain", "Heart"],
+                answer: "Skin"
+            },
+            {
+                question: "What connects bones in the human body?",
+                options: ["Ligaments", "Arteries", "Veins", "Muscles"],
+                answer: "Ligaments"
+            },
+            {
+                question: "Which organ filters waste from the blood?",
+                options: ["Kidneys", "Liver", "Stomach", "Heart"],
+                answer: "Kidneys"
+            },
+            {
+                question: "What organ controls the body and mind?",
+                options: ["Brain", "Heart", "Lungs", "Eyes"],
+                answer: "Brain"
+            },
+            {
+                question: "Which part of the body helps in digestion of food?",
+                options: ["Stomach", "Lungs", "Brain", "Heart"],
+                answer: "Stomach"
+            },
+            {
+                question: "What organ removes carbon dioxide from the body?",
+                options: ["Lungs", "Kidneys", "Skin", "Heart"],
+                answer: "Lungs"
+            },
+            {
+                question: "What is the function of red blood cells?",
+                options: ["Carry oxygen", "Fight infections", "Control temperature", "Send signals"],
+                answer: "Carry oxygen"
+            },
+            {
+                question: "Which organ helps us see?",
+                options: ["Eyes", "Ears", "Skin", "Tongue"],
+                answer: "Eyes"
+            }
+        ],
+        "Math": [
+            {
+                question: "Add: 458 + 367",
+                options: ["825", "815", "845", "835"],
+                answer: "825"
+            },
+            {
+                question: "Subtract: 890 - 345",
+                options: ["545", "525", "555", "565"],
+                answer: "545"
+            },
+            {
+                question: "Multiply: 23 × 4",
+                options: ["92", "102", "82", "112"],
+                answer: "92"
+            },
+            {
+                question: "Divide: 48 ÷ 6",
+                options: ["7", "8", "6", "9"],
+                answer: "8"
+            },
+            {
+                question: "What is the place value of 5 in 458?",
+                options: ["5", "50", "500", "8"],
+                answer: "50"
+            },
+            {
+                question: "Find the face value of 7 in 672.",
+                options: ["7", "700", "70", "72"],
+                answer: "7"
+            },
+            {
+                question: "Which number is even: 23, 46, 57, 89?",
+                options: ["46", "23", "57", "89"],
+                answer: "46"
+            },
+            {
+                question: "Which number is odd: 12, 24, 35, 88?",
+                options: ["35", "12", "24", "88"],
+                answer: "35"
+            },
+            {
+                question: "Add: 124 + 876",
+                options: ["1000", "999", "998", "1010"],
+                answer: "1000"
+            },
+            {
+                question: "Subtract: 643 - 234",
+                options: ["409", "400", "405", "419"],
+                answer: "409"
+            }
+        ],
+        "English": [
+            {
+                question: "Identify the personal pronoun: She is reading a book.",
+                options: ["She", "Book", "Reading", "Is"],
+                answer: "She"
+            },
+            {
+                question: "Choose the possessive pronoun: This book is mine.",
+                options: ["Book", "Mine", "Is", "This"],
+                answer: "Mine"
+            },
+            {
+                question: "Which is a noun in this sentence: The cat is sleeping on the mat.",
+                options: ["Sleeping", "On", "Mat", "Cat"],
+                answer: "Cat"
+            },
+            {
+                question: "Find the adjective: The red balloon flew away.",
+                options: ["Red", "Balloon", "Flew", "Away"],
+                answer: "Red"
+            },
+            {
+                question: "Identify the personal pronoun: We are going to the park.",
+                options: ["Going", "Park", "We", "To"],
+                answer: "We"
+            },
+            {
+                question: "Which is a possessive pronoun: This house is theirs.",
+                options: ["House", "Is", "Theirs", "This"],
+                answer: "Theirs"
+            },
+            {
+                question: "Select the noun: The children are playing cricket.",
+                options: ["Playing", "Cricket", "The", "Are"],
+                answer: "Cricket"
+            },
+            {
+                question: "Find the adjective: The delicious cake was eaten quickly.",
+                options: ["Delicious", "Cake", "Was", "Quickly"],
+                answer: "Delicious"
+            },
+            {
+                question: "Identify the personal pronoun: He is my best friend.",
+                options: ["He", "Friend", "Is", "My"],
+                answer: "He"
+            },
+            {
+                question: "Choose the possessive pronoun: The bicycle is hers.",
+                options: ["Bicycle", "Hers", "Is", "The"],
+                answer: "Hers"
+            }
+        ]
     },
-    {
-        question: "What is the past tense of 'eat'?",
-        options: ["Eating", "Ate", "Eaten", "Eats"],
-        answer: "Ate"
-    },
-    {
-        question: "Which part of speech is the word 'quickly'?",
-        options: ["Adjective", "Adverb", "Noun", "Pronoun"],
-        answer: "Adverb"
-    },
-    {
-        question: "What is the opposite of 'strong'?",
-        options: ["Weak", "Happy", "Powerful", "Healthy"],
-        answer: "Weak"
-    },
-    {
-        question: "Which of these is a compound word?",
-        options: ["Sunlight", "Bright", "Quick", "Run"],
-        answer: "Sunlight"
-    },
-    {
-        question: "Which word in this sentence is a noun: 'The dog is barking loudly.'?",
-        options: ["Dog", "Barking", "Loudly", "Is"],
-        answer: "Dog"
-    },
-    {
-        question: "What is the plural form of 'sheep'?",
-        options: ["Sheeps", "Sheep", "Sheepen", "Sheepes"],
-        answer: "Sheep"
-    },
-    {
-        question: "Which of the following is an example of a proper noun?",
-        options: ["City", "River", "New York", "Mountain"],
-        answer: "New York"
-    }
-]
+    
+    "Aditya Singh": {
+        "General Awareness": [
+            {
+                question: "What is the capital of Madhya Pradesh?",
+                options: ["Indore", "Bhopal", "Gwalior", "Jabalpur"],
+                answer: "Bhopal"
+            },
+            {
+                question: "Which place is known as the 'City of Lakes'?",
+                options: ["Udaipur", "Jaipur", "Agra", "Bhopal"],
+                answer: "Udaipur"
+            },
+            {
+                question: "What comes next in this series: 3, 6, 9, 12...?",
+                options: ["14", "15", "18", "20"],
+                answer: "15"
+            },
+            {
+                question: "What is the capital of Karnataka?",
+                options: ["Bengaluru", "Mysuru", "Hubli", "Mangaluru"],
+                answer: "Bengaluru"
+            },
+            {
+                question: "What is the national flower of India?",
+                options: ["Rose", "Lotus", "Sunflower", "Marigold"],
+                answer: "Lotus"
+            },
+            {
+                question: "What is the next shape in this pattern: ▲, ■, ○, ▲, ■...?",
+                options: ["■", "○", "▲", "◇"],
+                answer: "○"
+            },
+            {
+                question: "Which state is famous for the Charminar?",
+                options: ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
+                answer: "Telangana"
+            },
+            {
+                question: "Which Indian state is known for the Sun Temple in Konark?",
+                options: ["Odisha", "West Bengal", "Assam", "Chhattisgarh"],
+                answer: "Odisha"
+            },
+            {
+                question: "Who is the current Prime Minister of India?",
+                options: ["Narendra Modi", "Manmohan Singh", "Rahul Gandhi", "Amit Shah"],
+                answer: "Narendra Modi"
+            },
+            {
+                question: "What comes next in this pattern: 7, 14, 21, 28...?",
+                options: ["35", "34", "36", "37"],
+                answer: "35"
+            }
+        ],
+        "Science": [
+            {
+                question: "Which organ is responsible for pumping oxygen-rich blood to the body?",
+                options: ["Lungs", "Brain", "Heart", "Liver"],
+                answer: "Heart"
+            },
+            {
+                question: "Which organ helps in removing waste and toxins from the blood?",
+                options: ["Kidneys", "Liver", "Lungs", "Stomach"],
+                answer: "Kidneys"
+            },
+            {
+                question: "What do white blood cells do in the body?",
+                options: ["Carry oxygen", "Fight infections", "Provide energy", "Regulate temperature"],
+                answer: "Fight infections"
+            },
+            {
+                question: "Which part of the body is made up of bones and protects the brain?",
+                options: ["Skull", "Ribs", "Spine", "Pelvis"],
+                answer: "Skull"
+            },
+            {
+                question: "What helps in digesting food in the stomach?",
+                options: ["Bile", "Saliva", "Digestive juices", "Blood"],
+                answer: "Digestive juices"
+            },
+            {
+                question: "Which organ controls the rest of the body?",
+                options: ["Brain", "Heart", "Lungs", "Stomach"],
+                answer: "Brain"
+            },
+            {
+                question: "Which organ removes carbon dioxide from the body?",
+                options: ["Lungs", "Skin", "Kidneys", "Heart"],
+                answer: "Lungs"
+            },
+            {
+                question: "What gives our body shape and support?",
+                options: ["Muscles", "Bones", "Skin", "Veins"],
+                answer: "Bones"
+            },
+            {
+                question: "Where is the smallest bone in the body located?",
+                options: ["Ear", "Finger", "Toe", "Nose"],
+                answer: "Ear"
+            },
+            {
+                question: "What does the liver produce to help digest fat?",
+                options: ["Bile", "Blood", "Enzymes", "Hormones"],
+                answer: "Bile"
+            }
+        ],
+        "Math": [
+            {
+                question: "Add: 56 + 78",
+                options: ["133", "134", "135", "136"],
+                answer: "134"
+            },
+            {
+                question: "Subtract: 105 - 67",
+                options: ["37", "38", "39", "40"],
+                answer: "38"
+            },
+            {
+                question: "Multiply: 12 × 4",
+                options: ["46", "48", "49", "50"],
+                answer: "48"
+            },
+            {
+                question: "Divide: 64 ÷ 8",
+                options: ["7", "8", "9", "10"],
+                answer: "8"
+            },
+            {
+                question: "What is the place value of 8 in 482?",
+                options: ["8", "80", "800", "482"],
+                answer: "80"
+            },
+            {
+                question: "What is the face value of 6 in 762?",
+                options: ["6", "60", "600", "762"],
+                answer: "6"
+            },
+            {
+                question: "Which number is even: 31, 42, 55, 67?",
+                options: ["42", "31", "55", "67"],
+                answer: "42"
+            },
+            {
+                question: "Which number is odd: 24, 36, 45, 60?",
+                options: ["45", "24", "36", "60"],
+                answer: "45"
+            },
+            {
+                question: "Add: 128 + 256",
+                options: ["384", "382", "386", "388"],
+                answer: "384"
+            },
+            {
+                question: "Subtract: 543 - 321",
+                options: ["222", "221", "223", "224"],
+                answer: "222"
+            }
+        ],
+        "English": [
+            {
+                question: "Which is a personal pronoun: He likes ice cream.",
+                options: ["He", "Likes", "Ice", "Cream"],
+                answer: "He"
+            },
+            {
+                question: "Which is a possessive pronoun: This bag is hers.",
+                options: ["Bag", "Hers", "This", "Is"],
+                answer: "Hers"
+            },
+            {
+                question: "Pick the noun: The bird is flying high.",
+                options: ["Bird", "Flying", "High", "Is"],
+                answer: "Bird"
+            },
+            {
+                question: "Find the adjective: The fluffy cat is sleeping.",
+                options: ["Fluffy", "Cat", "Sleeping", "Is"],
+                answer: "Fluffy"
+            },
+            {
+                question: "Which is a personal pronoun: We are going to school.",
+                options: ["We", "Going", "School", "Are"],
+                answer: "We"
+            },
+            {
+                question: "Select the possessive pronoun: The house is theirs.",
+                options: ["House", "Theirs", "Is", "The"],
+                answer: "Theirs"
+            },
+            {
+                question: "Choose the noun: The stars are shining brightly.",
+                options: ["Stars", "Shining", "Brightly", "Are"],
+                answer: "Stars"
+            },
+            {
+                question: "Pick the adjective: The tall tree is near the gate.",
+                options: ["Tall", "Tree", "Gate", "Near"],
+                answer: "Tall"
+            },
+            {
+                question: "Identify the personal pronoun: She is drawing a picture.",
+                options: ["She", "Drawing", "Picture", "Is"],
+                answer: "She"
+            },
+            {
+                question: "Find the possessive pronoun: The toy is ours.",
+                options: ["Toy", "Ours", "Is", "The"],
+                answer: "Ours"
+            }
+        ]
+    }    
 };
 
-// DOM elements
+// Use the questions assigned to the student
+const questions = allQuestions[loggedInUser][selectedSubject];
+
+// DOM elements and other variables remain the same
 const studentNameElement = document.getElementById("student-name");
 const subjectNameElement = document.getElementById("subject-name");
 const questionNumberElement = document.getElementById("question-number");
@@ -239,7 +450,6 @@ const submitButton = document.getElementById("submit-button");
 // Quiz variables
 let currentQuestionIndex = 0;
 let timerInterval;
-const questions = allQuestions[selectedSubject] || [];
 const totalQuestions = questions.length;
 
 // Track user answers, time spent, and question states
@@ -247,6 +457,8 @@ let userAnswers = Array(totalQuestions).fill(null);
 let questionTimers = Array(totalQuestions).fill(90); // Time left for each question
 let questionTimeSpent = Array(totalQuestions).fill(0); // Time spent on each question
 let questionCompleted = Array(totalQuestions).fill(false); // Track if a question's time is up
+
+// The rest of the code remains the same...
 
 // Initialize the quiz
 function initializeQuiz() {
