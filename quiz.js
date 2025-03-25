@@ -12,425 +12,373 @@ const allQuestions = {
     "Aryan Singh": {
         "General Awareness": [
             {
-                question: "What is the capital of Gujarat?",
-                options: ["Ahmedabad", "Surat", "Gandhinagar", "Rajkot"],
-                answer: "Gandhinagar"
+                "question": "Which Indian state has its capital in 'Dispur'?",
+                "options": ["Assam", "Arunachal Pradesh", "Meghalaya", "Nagaland"],
+                "answer": "Assam"
             },
             {
-                question: "Who is the Chief Minister of Maharashtra?",
-                options: ["Aaditya Thackeray", "Devendra Fadnavis", "Eknath Shinde", "Sharad Pawar"],
-                answer: "Eknath Shinde"
+                "question": "Who was the first Prime Minister of India?",
+                "options": ["Sardar Patel", "Mahatma Gandhi", "Jawaharlal Nehru", "Dr. Rajendra Prasad"],
+                "answer": "Jawaharlal Nehru"
             },
             {
-                question: "Which number comes next: 2, 4, 6, 8...?",
-                options: ["9", "10", "12", "11"],
-                answer: "10"
+                "question": "Which is the oldest mountain range in India?",
+                "options": ["Himalayas", "Aravalli Range", "Vindhyas", "Satpura Range"],
+                "answer": "Aravalli Range"
             },
             {
-                question: "What is the capital of Rajasthan?",
-                options: ["Jaipur", "Jodhpur", "Udaipur", "Kota"],
-                answer: "Jaipur"
+                "question": "Where is the Gateway of India located?",
+                "options": ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+                "answer": "Mumbai"
             },
             {
-                question: "Which place is known as the 'Pink City'?",
-                options: ["Udaipur", "Jaipur", "Jaisalmer", "Ajmer"],
-                answer: "Jaipur"
+                "question": "Which Indian state is the largest producer of tea?",
+                "options": ["West Bengal", "Assam", "Kerala", "Tamil Nadu"],
+                "answer": "Assam"
             },
             {
-                question: "What is the next figure in this series: □, ○, □, ○...?",
-                options: ["□", "○", "△", "◇"],
-                answer: "□"
+                "question": "What comes next in this pattern: ▲, ◼, ▲, ◼, ...?",
+                "options": ["▲", "◼", "○", "◇"],
+                "answer": "▲"
             },
             {
-                question: "The capital of Bihar is?",
-                options: ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur"],
-                answer: "Patna"
+                "question": "What is the main festival of Kerala?",
+                "options": ["Onam", "Diwali", "Pongal", "Holi"],
+                "answer": "Onam"
             },
             {
-                question: "Which state is famous for the Taj Mahal?",
-                options: ["Uttar Pradesh", "Rajasthan", "Gujarat", "Madhya Pradesh"],
-                answer: "Uttar Pradesh"
+                "question": "Which state is famous for the Charminar?",
+                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
+                "answer": "Telangana"
             },
             {
-                question: "Who is the current Chief Minister of Karnataka?",
-                options: ["Siddaramaiah", "Basavaraj Bommai", "D.K. Shivakumar", "H.D. Kumaraswamy"],
-                answer: "Siddaramaiah"
+                "question": "Name the current President of India.",
+                "options": ["Droupadi Murmu", "Ramnath Kovind", "Pranab Mukherjee", "Manmohan Singh"],
+                "answer": "Droupadi Murmu"
             },
             {
-                question: "What comes next in the number series: 5, 10, 15, 20...?",
-                options: ["25", "30", "35", "40"],
-                answer: "25"
+                "question": "Which monument in Delhi is also called the 'Symbol of Love'?",
+                "options": ["India Gate", "Qutub Minar", "Lotus Temple", "None of the above"],
+                "answer": "None of the above"
             }
         ],
         "Science": [
             {
-                question: "What organ pumps blood throughout the body?",
-                options: ["Heart", "Liver", "Brain", "Lungs"],
-                answer: "Heart"
+                "question": "What is the smallest bone in the human body?",
+                "options": ["Femur", "Stapes", "Tibia", "Ulna"],
+                "answer": "Stapes"
             },
             {
-                question: "Which organ helps us breathe?",
-                options: ["Lungs", "Stomach", "Kidneys", "Skin"],
-                answer: "Lungs"
+                "question": "Which organ produces insulin?",
+                "options": ["Liver", "Pancreas", "Kidneys", "Heart"],
+                "answer": "Pancreas"
             },
             {
-                question: "What is the largest organ in the human body?",
-                options: ["Skin", "Liver", "Brain", "Heart"],
-                answer: "Skin"
+                "question": "What part of the brain controls memory?",
+                "options": ["Cerebrum", "Cerebellum", "Medulla", "Hippocampus"],
+                "answer": "Hippocampus"
             },
             {
-                question: "What connects bones in the human body?",
-                options: ["Ligaments", "Arteries", "Veins", "Muscles"],
-                answer: "Ligaments"
+                "question": "What is the main function of white blood cells?",
+                "options": ["Carrying oxygen", "Fighting infections", "Producing energy", "Clotting blood"],
+                "answer": "Fighting infections"
             },
             {
-                question: "Which organ filters waste from the blood?",
-                options: ["Kidneys", "Liver", "Stomach", "Heart"],
-                answer: "Kidneys"
+                "question": "Which element is essential for the formation of bones and teeth?",
+                "options": ["Calcium", "Iron", "Magnesium", "Potassium"],
+                "answer": "Calcium"
             },
             {
-                question: "What organ controls the body and mind?",
-                options: ["Brain", "Heart", "Lungs", "Eyes"],
-                answer: "Brain"
+                "question": "What organ is protected by the ribcage?",
+                "options": ["Lungs", "Brain", "Liver", "Eyes"],
+                "answer": "Lungs"
             },
             {
-                question: "Which part of the body helps in digestion of food?",
-                options: ["Stomach", "Lungs", "Brain", "Heart"],
-                answer: "Stomach"
+                "question": "Which system in the body controls all other systems?",
+                "options": ["Circulatory system", "Nervous system", "Digestive system", "Respiratory system"],
+                "answer": "Nervous system"
             },
             {
-                question: "What organ removes carbon dioxide from the body?",
-                options: ["Lungs", "Kidneys", "Skin", "Heart"],
-                answer: "Lungs"
+                "question": "Which gas do humans exhale during respiration?",
+                "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"],
+                "answer": "Carbon dioxide"
             },
             {
-                question: "What is the function of red blood cells?",
-                options: ["Carry oxygen", "Fight infections", "Control temperature", "Send signals"],
-                answer: "Carry oxygen"
+                "question": "What part of the eye is responsible for vision?",
+                "options": ["Lens", "Pupil", "Retina", "Cornea"],
+                "answer": "Retina"
             },
             {
-                question: "Which organ helps us see?",
-                options: ["Eyes", "Ears", "Skin", "Tongue"],
-                answer: "Eyes"
+                "question": "What causes the common cold?",
+                "options": ["Bacteria", "Virus", "Fungus", "Protozoa"],
+                "answer": "Virus"
             }
         ],
         "Math": [
             {
-                question: "Add: 458 + 367",
-                options: ["825", "815", "845", "835"],
-                answer: "825"
+                "question": "What is the sum of the first 5 odd numbers?",
+                "options": ["25", "15", "30", "35"],
+                "answer": "25"
             },
             {
-                question: "Subtract: 890 - 345",
-                options: ["545", "525", "555", "565"],
-                answer: "545"
+                "question": "Simplify: 15 × (3 + 2) ÷ 5.",
+                "options": ["12", "15", "9", "10"],
+                "answer": "15"
             },
             {
-                question: "Multiply: 23 × 4",
-                options: ["92", "102", "82", "112"],
-                answer: "92"
+                "question": "What is the square of 12?",
+                "options": ["144", "121", "169", "132"],
+                "answer": "144"
             },
             {
-                question: "Divide: 48 ÷ 6",
-                options: ["7", "8", "6", "9"],
-                answer: "8"
+                "question": "What is 64 ÷ 8?",
+                "options": ["7", "8", "9", "6"],
+                "answer": "8"
             },
             {
-                question: "What is the place value of 5 in 458?",
-                options: ["5", "50", "500", "8"],
-                answer: "50"
+                "question": "What is the place value of 2 in 7,421?",
+                "options": ["20", "200", "2", "2000"],
+                "answer": "200"
             },
             {
-                question: "Find the face value of 7 in 672.",
-                options: ["7", "700", "70", "72"],
-                answer: "7"
+                "question": "What is the product of 14 and 6?",
+                "options": ["60", "82", "84", "96"],
+                "answer": "84"
             },
             {
-                question: "Which number is even: 23, 46, 57, 89?",
-                options: ["46", "23", "57", "89"],
-                answer: "46"
+                "question": "What is the cube of 3?",
+                "options": ["27", "9", "18", "36"],
+                "answer": "27"
             },
             {
-                question: "Which number is odd: 12, 24, 35, 88?",
-                options: ["35", "12", "24", "88"],
-                answer: "35"
+                "question": "What is the remainder when 50 is divided by 7?",
+                "options": ["5", "6", "3", "1"],
+                "answer": "1"
             },
             {
-                question: "Add: 124 + 876",
-                options: ["1000", "999", "998", "1010"],
-                answer: "1000"
+                "question": "If 25 × 4 = 100, then what is 100 ÷ 4?",
+                "options": ["25", "20", "30", "15"],
+                "answer": "25"
             },
             {
-                question: "Subtract: 643 - 234",
-                options: ["409", "400", "405", "419"],
-                answer: "409"
-            }
-        ],
-        "English": [
-            {
-                question: "Identify the personal pronoun: She is reading a book.",
-                options: ["She", "Book", "Reading", "Is"],
-                answer: "She"
-            },
-            {
-                question: "Choose the possessive pronoun: This book is mine.",
-                options: ["Book", "Mine", "Is", "This"],
-                answer: "Mine"
-            },
-            {
-                question: "Which is a noun in this sentence: The cat is sleeping on the mat.",
-                options: ["Sleeping", "On", "Mat", "Cat"],
-                answer: "Cat"
-            },
-            {
-                question: "Find the adjective: The red balloon flew away.",
-                options: ["Red", "Balloon", "Flew", "Away"],
-                answer: "Red"
-            },
-            {
-                question: "Identify the personal pronoun: We are going to the park.",
-                options: ["Going", "Park", "We", "To"],
-                answer: "We"
-            },
-            {
-                question: "Which is a possessive pronoun: This house is theirs.",
-                options: ["House", "Is", "Theirs", "This"],
-                answer: "Theirs"
-            },
-            {
-                question: "Select the noun: The children are playing cricket.",
-                options: ["Playing", "Cricket", "The", "Are"],
-                answer: "Cricket"
-            },
-            {
-                question: "Find the adjective: The delicious cake was eaten quickly.",
-                options: ["Delicious", "Cake", "Was", "Quickly"],
-                answer: "Delicious"
-            },
-            {
-                question: "Identify the personal pronoun: He is my best friend.",
-                options: ["He", "Friend", "Is", "My"],
-                answer: "He"
-            },
-            {
-                question: "Choose the possessive pronoun: The bicycle is hers.",
-                options: ["Bicycle", "Hers", "Is", "The"],
-                answer: "Hers"
+                "question": "What is the smallest prime number?",
+                "options": ["0", "1", "2", "3"],
+                "answer": "2"
             }
         ]
-    },
+    },    
     
     "Aditya Singh": {
         "General Awareness": [
             {
-                question: "What is the capital of Madhya Pradesh?",
-                options: ["Indore", "Bhopal", "Gwalior", "Jabalpur"],
-                answer: "Bhopal"
+                "question": "Which state has its capital at 'Itanagar'?",
+                "options": ["Arunachal Pradesh", "Assam", "Meghalaya", "Nagaland"],
+                "answer": "Arunachal Pradesh"
             },
             {
-                question: "Which place is known as the 'City of Lakes'?",
-                options: ["Udaipur", "Jaipur", "Agra", "Bhopal"],
-                answer: "Udaipur"
+                "question": "Which city is known as the 'Silicon Valley of India'?",
+                "options": ["Hyderabad", "Bengaluru", "Pune", "Chennai"],
+                "answer": "Bengaluru"
             },
             {
-                question: "What comes next in this series: 3, 6, 9, 12...?",
-                options: ["14", "15", "18", "20"],
-                answer: "15"
+                "question": "What comes next in this series: 5, 10, 15, 20...?",
+                "options": ["22", "25", "30", "35"],
+                "answer": "25"
             },
             {
-                question: "What is the capital of Karnataka?",
-                options: ["Bengaluru", "Mysuru", "Hubli", "Mangaluru"],
-                answer: "Bengaluru"
+                "question": "Which is the largest state in India by area?",
+                "options": ["Rajasthan", "Madhya Pradesh", "Maharashtra", "Uttar Pradesh"],
+                "answer": "Rajasthan"
             },
             {
-                question: "What is the national flower of India?",
-                options: ["Rose", "Lotus", "Sunflower", "Marigold"],
-                answer: "Lotus"
+                "question": "What is the national fruit of India?",
+                "options": ["Mango", "Apple", "Banana", "Guava"],
+                "answer": "Mango"
             },
             {
-                question: "What is the next shape in this pattern: ▲, ■, ○, ▲, ■...?",
-                options: ["■", "○", "▲", "◇"],
-                answer: "○"
+                "question": "What comes next in this pattern: ▲, ○, ■, ▲, ○...?",
+                "options": ["○", "■", "▲", "◇"],
+                "answer": "■"
             },
             {
-                question: "Which state is famous for the Charminar?",
-                options: ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
-                answer: "Telangana"
+                "question": "Which state is famous for the Charminar?",
+                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
+                "answer": "Telangana"
             },
             {
-                question: "Which Indian state is known for the Sun Temple in Konark?",
-                options: ["Odisha", "West Bengal", "Assam", "Chhattisgarh"],
-                answer: "Odisha"
+                "question": "Which Indian city is called the 'City of Joy'?",
+                "options": ["Kolkata", "Mumbai", "Delhi", "Chennai"],
+                "answer": "Kolkata"
             },
             {
-                question: "Who is the current Prime Minister of India?",
-                options: ["Narendra Modi", "Manmohan Singh", "Rahul Gandhi", "Amit Shah"],
-                answer: "Narendra Modi"
+                "question": "Who was the first female Prime Minister of India?",
+                "options": ["Indira Gandhi", "Pratibha Patil", "Sarojini Naidu", "Sushma Swaraj"],
+                "answer": "Indira Gandhi"
             },
             {
-                question: "What comes next in this pattern: 7, 14, 21, 28...?",
-                options: ["35", "34", "36", "37"],
-                answer: "35"
+                "question": "Which place is famous as the 'Land of Five Rivers'?",
+                "options": ["Punjab", "Haryana", "Rajasthan", "Uttar Pradesh"],
+                "answer": "Punjab"
             }
         ],
         "Science": [
             {
-                question: "Which organ is responsible for pumping oxygen-rich blood to the body?",
-                options: ["Lungs", "Brain", "Heart", "Liver"],
-                answer: "Heart"
+                "question": "What is the main gas in the Earth's atmosphere?",
+                "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+                "answer": "Nitrogen"
             },
             {
-                question: "Which organ helps in removing waste and toxins from the blood?",
-                options: ["Kidneys", "Liver", "Lungs", "Stomach"],
-                answer: "Kidneys"
+                "question": "Which organ produces bile to aid digestion?",
+                "options": ["Liver", "Pancreas", "Stomach", "Gallbladder"],
+                "answer": "Liver"
             },
             {
-                question: "What do white blood cells do in the body?",
-                options: ["Carry oxygen", "Fight infections", "Provide energy", "Regulate temperature"],
-                answer: "Fight infections"
+                "question": "Which vitamin is produced in the skin when exposed to sunlight?",
+                "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+                "answer": "Vitamin D"
             },
             {
-                question: "Which part of the body is made up of bones and protects the brain?",
-                options: ["Skull", "Ribs", "Spine", "Pelvis"],
-                answer: "Skull"
+                "question": "What is the chemical symbol for water?",
+                "options": ["H2O", "O2", "CO2", "HO"],
+                "answer": "H2O"
             },
             {
-                question: "What helps in digesting food in the stomach?",
-                options: ["Bile", "Saliva", "Digestive juices", "Blood"],
-                answer: "Digestive juices"
+                "question": "What is the hardest substance in the human body?",
+                "options": ["Bone", "Enamel", "Keratin", "Cartilage"],
+                "answer": "Enamel"
             },
             {
-                question: "Which organ controls the rest of the body?",
-                options: ["Brain", "Heart", "Lungs", "Stomach"],
-                answer: "Brain"
+                "question": "Which gas is necessary for photosynthesis?",
+                "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Methane"],
+                "answer": "Carbon Dioxide"
             },
             {
-                question: "Which organ removes carbon dioxide from the body?",
-                options: ["Lungs", "Skin", "Kidneys", "Heart"],
-                answer: "Lungs"
+                "question": "What is the approximate temperature of the human body?",
+                "options": ["36°C", "37°C", "38°C", "35°C"],
+                "answer": "37°C"
             },
             {
-                question: "What gives our body shape and support?",
-                options: ["Muscles", "Bones", "Skin", "Veins"],
-                answer: "Bones"
+                "question": "Which layer of the Earth lies between the crust and the core?",
+                "options": ["Mantle", "Outer Core", "Inner Core", "Lithosphere"],
+                "answer": "Mantle"
             },
             {
-                question: "Where is the smallest bone in the body located?",
-                options: ["Ear", "Finger", "Toe", "Nose"],
-                answer: "Ear"
+                "question": "What type of joint is present in the human elbow?",
+                "options": ["Hinge Joint", "Ball and Socket Joint", "Pivot Joint", "Gliding Joint"],
+                "answer": "Hinge Joint"
             },
             {
-                question: "What does the liver produce to help digest fat?",
-                options: ["Bile", "Blood", "Enzymes", "Hormones"],
-                answer: "Bile"
+                "question": "Which organ is responsible for pumping blood throughout the body?",
+                "options": ["Heart", "Lungs", "Brain", "Liver"],
+                "answer": "Heart"
             }
         ],
         "Math": [
-            {
-                question: "Add: 56 + 78",
-                options: ["133", "134", "135", "136"],
-                answer: "134"
-            },
-            {
-                question: "Subtract: 105 - 67",
-                options: ["37", "38", "39", "40"],
-                answer: "38"
-            },
-            {
-                question: "Multiply: 12 × 4",
-                options: ["46", "48", "49", "50"],
-                answer: "48"
-            },
-            {
-                question: "Divide: 64 ÷ 8",
-                options: ["7", "8", "9", "10"],
-                answer: "8"
-            },
-            {
-                question: "What is the place value of 8 in 482?",
-                options: ["8", "80", "800", "482"],
-                answer: "80"
-            },
-            {
-                question: "What is the face value of 6 in 762?",
-                options: ["6", "60", "600", "762"],
-                answer: "6"
-            },
-            {
-                question: "Which number is even: 31, 42, 55, 67?",
-                options: ["42", "31", "55", "67"],
-                answer: "42"
-            },
-            {
-                question: "Which number is odd: 24, 36, 45, 60?",
-                options: ["45", "24", "36", "60"],
-                answer: "45"
-            },
-            {
-                question: "Add: 128 + 256",
-                options: ["384", "382", "386", "388"],
-                answer: "384"
-            },
-            {
-                question: "Subtract: 543 - 321",
-                options: ["222", "221", "223", "224"],
-                answer: "222"
-            }
-        ],
+        {
+            "question": "Add: 245 + 378",
+            "options": ["613", "623", "633", "643"],
+            "answer": "623"
+        },
+        {
+            "question": "Subtract: 975 - 438",
+            "options": ["537", "547", "537", "545"],
+            "answer": "537"
+        },
+        {
+            "question": "Multiply: 23 × 6",
+            "options": ["128", "138", "148", "138"],
+            "answer": "138"
+        },
+        {
+            "question": "Word Problem: Ravi has 45 apples, and his friend gives him 30 more apples. How many apples does Ravi have now?",
+            "options": ["75", "85", "65", "80"],
+            "answer": "75"
+        },
+        {
+            "question": "Word Problem: A train has 350 passengers. At the next station, 125 passengers get off, and 90 new passengers board the train. How many passengers are on the train now?",
+            "options": ["315", "325", "340", "365"],
+            "answer": "315"
+        },
+        {
+            "question": "Word Problem: A baker bakes 12 cakes each hour. How many cakes does the baker bake in 8 hours?",
+            "options": ["92", "96", "108", "112"],
+            "answer": "96"
+        },
+        {
+            "question": "Add: 1234 + 4321",
+            "options": ["5555", "5545", "5565", "5550"],
+            "answer": "5555"
+        },
+        {
+            "question": "Subtract: 2048 - 1537",
+            "options": ["511", "519", "521", "511"],
+            "answer": "511"
+        },
+        {
+            "question": "Multiply: 16 × 25",
+            "options": ["400", "425", "375", "450"],
+            "answer": "400"
+        },
+        {
+            "question": "Word Problem: Priya buys 3 packets of candies, each containing 15 candies. How many candies does Priya have in total?",
+            "options": ["30", "45", "60", "50"],
+            "answer": "45"
+        }
+    ],
         "English": [
             {
-                question: "Which is a personal pronoun: He likes ice cream.",
-                options: ["He", "Likes", "Ice", "Cream"],
-                answer: "He"
+                "question": "Which is a personal pronoun: She is reading a book.",
+                "options": ["She", "Book", "Reading", "Is"],
+                "answer": "She"
             },
             {
-                question: "Which is a possessive pronoun: This bag is hers.",
-                options: ["Bag", "Hers", "This", "Is"],
-                answer: "Hers"
+                "question": "Which is a possessive pronoun: The pen is mine.",
+                "options": ["Mine", "Pen", "The", "Is"],
+                "answer": "Mine"
             },
             {
-                question: "Pick the noun: The bird is flying high.",
-                options: ["Bird", "Flying", "High", "Is"],
-                answer: "Bird"
+                "question": "Pick the noun: The dog is barking.",
+                "options": ["Dog", "Is", "Barking", "The"],
+                "answer": "Dog"
             },
             {
-                question: "Find the adjective: The fluffy cat is sleeping.",
-                options: ["Fluffy", "Cat", "Sleeping", "Is"],
-                answer: "Fluffy"
+                "question": "Find the adjective: The bright star is visible.",
+                "options": ["Bright", "Star", "Visible", "Is"],
+                "answer": "Bright"
             },
             {
-                question: "Which is a personal pronoun: We are going to school.",
-                options: ["We", "Going", "School", "Are"],
-                answer: "We"
+                "question": "Which is a reflexive pronoun: He blamed himself for the mistake.",
+                "options": ["Himself", "Blamed", "He", "Mistake"],
+                "answer": "Himself"
             },
             {
-                question: "Select the possessive pronoun: The house is theirs.",
-                options: ["House", "Theirs", "Is", "The"],
-                answer: "Theirs"
+                "question": "Select the possessive pronoun: The bicycle is theirs.",
+                "options": ["Theirs", "Bicycle", "Is", "The"],
+                "answer": "Theirs"
             },
             {
-                question: "Choose the noun: The stars are shining brightly.",
-                options: ["Stars", "Shining", "Brightly", "Are"],
-                answer: "Stars"
+                "question": "Choose the noun: The birds are flying high.",
+                "options": ["Birds", "Flying", "High", "Are"],
+                "answer": "Birds"
             },
             {
-                question: "Pick the adjective: The tall tree is near the gate.",
-                options: ["Tall", "Tree", "Gate", "Near"],
-                answer: "Tall"
+                "question": "Pick the adjective: The blue car is parked outside.",
+                "options": ["Blue", "Car", "Outside", "Parked"],
+                "answer": "Blue"
             },
             {
-                question: "Identify the personal pronoun: She is drawing a picture.",
-                options: ["She", "Drawing", "Picture", "Is"],
-                answer: "She"
+                "question": "Identify the demonstrative pronoun: This is my bag.",
+                "options": ["This", "My", "Bag", "Is"],
+                "answer": "This"
             },
             {
-                question: "Find the possessive pronoun: The toy is ours.",
-                options: ["Toy", "Ours", "Is", "The"],
-                answer: "Ours"
+                "question": "Which is an abstract noun: Honesty is the best policy.",
+                "options": ["Honesty", "Policy", "Best", "Is"],
+                "answer": "Honesty"
             }
         ]
-    }    
-};
+    }
+};    
 
 // Use the questions assigned to the student
 const questions = allQuestions[loggedInUser][selectedSubject];
