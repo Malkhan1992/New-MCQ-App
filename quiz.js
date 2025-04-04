@@ -46,16 +46,34 @@ async function loadQuestions() {
         const user = formatUserName(loggedInUser);
         const subject = formatSubjectName(selectedSubject);
         
-        const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
+        // Load questions from the server
+        const response = await fetch(`http://localhost:8000/database/${user}/${subject}.json`);
         if (!response.ok) {
             throw new Error(`Failed to load questions: ${response.status}`);
         }
         
         const data = await response.json();
+        
+        // Validate the data structure
+        if (!data || !Array.isArray(data.questions)) {
+            throw new Error('Invalid question data format');
+        }
+        
         // Ensure only 10 questions are loaded
         return data.questions.slice(0, 10) || [];
     } catch (error) {
         console.error('Error loading questions:', error);
+        document.getElementById('quiz-container').innerHTML = `
+            <div class="error" style="text-align: center; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 10px; margin: 20px;">
+                <h2 style="color: #ff6b6b; margin-bottom: 10px;">Error Loading Questions</h2>
+                <p style="color: white;">Unable to load questions for ${selectedSubject}.</p>
+                <p style="color: #aaa; font-size: 14px; margin-top: 10px;">Error: ${error.message}</p>
+                <button onclick="window.location.href='subjects.html'" 
+                        style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer;">
+                    Back to Subjects
+                </button>
+            </div>
+        `;
         return [];
     }
 }
@@ -316,9 +334,123 @@ function finishQuiz() {
     showDetailedResults(results);
 }
 
+// Function to get medal type based on percentage
+function getMedalType(percentage) {
+    if (percentage >= 98) return 'gold1';
+    if (percentage >= 94) return 'Silver';
+    if (percentage >= 90) return 'Bronze';
+    return null;
+}
+
+// Function to get motivational message based on medal type
+function getMotivationalMessage(medalType) {
+    if (medalType === 'gold1') {
+        return 'Excellence is not a skill, it\'s an attitude. You\'ve proved it!';
+    } else if (medalType === 'Silver') {
+        return 'Great achievement comes from great dedication. Well done!';
+    } else {
+        return 'Success is the sum of small efforts repeated day in and day out.';
+    }
+}
+
+// Function to print certificate
+function printCertificate(results, medalType) {
+    // Create a new window for the certificate
+    const certificateWindow = window.open('', '_blank');
+    
+    // Certificate HTML content
+    certificateWindow.document.write(`
+        <html>
+        <head>
+            <title>Certificate of Achievement - ${results.user}</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 40px;
+                    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                }
+                .certificate {
+                    background: white;
+                    padding: 50px;
+                    border-radius: 20px;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                    text-align: center;
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+                .medal-image {
+                    width: 150px;
+                    margin: 20px 0;
+                }
+                .trophy-image {
+                    width: 100px;
+                    margin: 20px 0;
+                }
+                h1 {
+                    color: #2c3e50;
+                    font-size: 36px;
+                    margin-bottom: 20px;
+                }
+                .student-name {
+                    color: #2c3e50;
+                    font-size: 28px;
+                    font-weight: bold;
+                    margin: 20px 0;
+                }
+                .details {
+                    color: #34495e;
+                    font-size: 20px;
+                    margin: 10px 0;
+                }
+                .score {
+                    color: #27ae60;
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin: 20px 0;
+                }
+                .date {
+                    color: #7f8c8d;
+                    font-size: 18px;
+                    margin-top: 30px;
+                }
+                @media print {
+                    body {
+                        margin: 0;
+                        background: white;
+                    }
+                    .certificate {
+                        box-shadow: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate">
+                <img src="images/trophy.png" alt="Trophy" class="trophy-image">
+                <h1>Certificate of Achievement</h1>
+                <img src="medals/${medalType}.png" alt="Medal" class="medal-image">
+                <div class="student-name">${results.user}</div>
+                <div class="details">has successfully completed the assessment in</div>
+                <div class="details" style="font-weight: bold;">${results.subject}</div>
+                <div class="score">Score: ${results.percentage.toFixed(1)}%</div>
+                <div class="details">Achievement: ${getMotivationalMessage(medalType)}</div>
+                <div class="date">Date: ${results.date} | Time: ${results.time}</div>
+            </div>
+            <script>
+                window.onload = () => {
+                    window.print();
+                };
+            </script>
+        </body>
+        </html>
+    `);
+}
+
 // Function to show success story for high achievers
 function showSuccessStory(results) {
     const quizContainer = document.getElementById('quiz-container');
+    const medalType = getMedalType(results.percentage);
+    const motivationalMessage = getMotivationalMessage(medalType);
     
     // Add confetti script if not already added
     if (!document.querySelector('script[src*="canvas-confetti"]')) {
@@ -330,7 +462,14 @@ function showSuccessStory(results) {
     quizContainer.innerHTML = `
         <div class="success-story" style="background: linear-gradient(135deg, #0a3d62, #1e5799); padding: 20px; border-radius: 15px; color: white; text-align: center;">
             <div class="trophy-animation" style="margin: 40px 0;">
-                <img src="trophy.gif" alt="Trophy" style="width: 150px; animation: float 3s ease-in-out infinite;">
+                <img src="images/trophy.png" alt="Trophy" style="width: 200px; animation: float 3s ease-in-out infinite;">
+                <style>
+                    @keyframes float {
+                        0% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                        100% { transform: translateY(0px); }
+                    }
+                </style>
                 <h1 style="color: #ffeb3b; font-size: 36px; margin: 20px 0;">🌟 Your Success Gift! 🌟</h1>
             </div>
 
@@ -340,9 +479,21 @@ function showSuccessStory(results) {
                     Your exceptional performance in ${results.subject} has earned you a special reward!<br>
                     Scoring ${results.percentage.toFixed(1)}% shows your outstanding dedication and knowledge.
                 </p>
-                <div style="margin-top: 20px;">
-                    <p style="color: #ffeb3b; font-size: 20px;">🏆 Achievement Unlocked: Master of ${results.subject}! 🏆</p>
+            </div>
+
+            <div class="medal-showcase" style="background: rgba(255,215,0,0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                <div style="position: relative; display: inline-block;">
+                    <img src="medals/${medalType}.png" alt="Medal" style="width: 200px; margin-bottom: 20px;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 80%;">
+                        <div style="font-size: 19px; color: #1a1a1a; font-weight: bold; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">${results.user}</div>
+                        <div style="font-size: 16px; color: #333333; font-weight: 600;">${results.subject}</div>
+                    </div>
                 </div>
+                <h3 style="color: #ffeb3b; margin: 15px 0;">
+                    ${medalType === 'gold1' ? '🏆 Gold Medal of Excellence 🏆' : 
+                      medalType === 'Silver' ? '🥈 Silver Medal of Achievement 🥈' : 
+                      '🥉 Bronze Medal of Merit 🥉'}
+                </h3>
             </div>
 
             <div class="achievement-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">
@@ -360,39 +511,25 @@ function showSuccessStory(results) {
                 </div>
             </div>
 
-            <div class="special-reward" style="background: rgba(255,215,0,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h3 style="color: #ffeb3b; margin-bottom: 15px;">🎁 Your Special Rewards 🎁</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
-                        <p style="font-size: 20px;">🏅</p>
-                        <p>Digital Excellence Badge</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
-                        <p style="font-size: 20px;">📜</p>
-                        <p>Certificate of Mastery</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="motivational-message" style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin: 20px 0;">
                 <p style="font-size: 18px; line-height: 1.6;">
-                    "Success is not the destination, it's the journey. Keep learning, keep growing!"<br>
-                    Your achievement today is just the beginning of greater success ahead!
+                    "${motivationalMessage}"<br>
+                    Keep pushing your boundaries and reaching for the stars!
                 </p>
             </div>
 
             <div style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
-                <button class="nav-button" style="background: #4CAF50; color: white; padding: 12px 25px; border-radius: 25px;" 
-                        onclick="showDetailedResults(${JSON.stringify(results)})">
+                <button class="nav-button" style="background: #4CAF50; color: white; padding: 12px 25px; border-radius: 25px; cursor: pointer; border: none;" 
+                        onclick='showDetailedResults(${JSON.stringify(results).replace(/'/g, "\\'")})'>
                     Back to Report
                 </button>
-                <button class="nav-button" style="background: #2196F3; color: white; padding: 12px 25px; border-radius: 25px;" 
+                <button class="nav-button" style="background: #2196F3; color: white; padding: 12px 25px; border-radius: 25px; cursor: pointer; border: none;" 
                         onclick="window.location.href='subjects.html'">
                     Try Another Subject
                 </button>
-                <button class="nav-button" style="background: #ffeb3b; color: #333; padding: 12px 25px; border-radius: 25px;" 
-                        onclick="printResults()">
-                    Print Certificate
+                <button class="nav-button" style="background: #ffeb3b; color: #333; padding: 12px 25px; border-radius: 25px; cursor: pointer; border: none;" 
+                        onclick='printCertificate(${JSON.stringify(results).replace(/'/g, "\\'")},"${medalType}")'>
+                    Download Certificate
                 </button>
             </div>
         </div>
@@ -427,7 +564,7 @@ function showSuccessStory(results) {
                 }));
             }, 250);
         }
-    }, 1000); // Wait for confetti script to load
+    }, 1000);
 }
 
 // Function to show detailed results
