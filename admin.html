@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+        
+        <div class="admin-controls">
+            <div class="user-selection">
+                <label for="userSelect">Select User:</label>
+                <select id="userSelect">
+                    <option value="">Select User</option>
+                    <option value="Aryan_Singh">Aryan Singh</option>
+                    <option value="Aditya_Singh">Aditya Singh</option>
+                </select>
+            </div>
+            
+            <div class="subject-selection">
+                <label for="subjectSelect">Select Subject:</label>
+                <select id="subjectSelect">
+                    <option value="">Select Subject</option>
+                    <option value="General_Awareness">General Awareness</option>
+                    <option value="Science">Science</option>
+                    <option value="Math">Math</option>
+                    <option value="English">English</option>
+                </select>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="viewQuestions">View Questions</button>
+                <button id="refreshQuestions">Refresh Questions</button>
+                <button id="addQuestion">Add Question</button>
+            </div>
+        </div>
+        
+        <div id="questionDisplay"></div>
+        
+        <form id="addQuestionForm" class="question-form" style="display: none;">
+            <h3>Add New Question</h3>
+            <div>
+                <label for="question">Question:</label>
+                <input type="text" id="question" name="question" required>
+            </div>
+            <div>
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" name="option1" required>
+            </div>
+            <div>
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" name="option2" required>
+            </div>
+            <div>
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" name="option3" required>
+            </div>
+            <div>
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" name="option4" required>
+            </div>
+            <div>
+                <label for="answer">Correct Answer:</label>
+                <input type="text" id="answer" name="answer" required>
+            </div>
+            <div>
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty" required>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+            <div>
+                <label for="explanation">Explanation:</label>
+                <input type="text" id="explanation" name="explanation" required>
+            </div>
+            <button type="submit">Add Question</button>
+        </form>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html> 

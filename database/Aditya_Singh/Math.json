@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "question": "What is 2 + 2?",
+            "options": ["3", "4", "5", "6"],
+            "answer": "4",
+            "difficulty": "easy",
+            "explanation": "2 + 2 equals 4."
+        },
+        {
+            "question": "What is 5 × 3?",
+            "options": ["10", "15", "20", "25"],
+            "answer": "15",
+            "difficulty": "easy",
+            "explanation": "5 × 3 equals 15."
+        },
+        {
+            "question": "What is 10 - 4?",
+            "options": ["4", "5", "6", "7"],
+            "answer": "6",
+            "difficulty": "easy",
+            "explanation": "10 - 4 equals 6."
+        },
+        {
+            "question": "What is 8 ÷ 2?",
+            "options": ["2", "3", "4", "5"],
+            "answer": "4",
+            "difficulty": "easy",
+            "explanation": "8 divided by 2 equals 4."
+        },
+        {
+            "question": "What is the next number: 1, 2, 3, 4, ...?",
+            "options": ["4", "5", "6", "7"],
+            "answer": "5",
+            "difficulty": "easy",
+            "explanation": "The sequence increases by 1 each time, so after 4 comes 5."
+        }
+    ]
+} 

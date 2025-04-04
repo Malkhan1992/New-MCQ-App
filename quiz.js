@@ -7,421 +7,88 @@ if (!loggedInUser || !selectedSubject) {
     window.location.href = "subjects.html";
 }
 
-// Sample questions for each subject and user
-const allQuestions = {
-    "Aryan Singh": {
-        "General Awareness": [
-            {
-                "question": "Which Indian state has its capital in 'Dispur'?",
-                "options": ["Assam", "Arunachal Pradesh", "Meghalaya", "Nagaland"],
-                "answer": "Assam"
-            },
-            {
-                "question": "Who was the first Prime Minister of India?",
-                "options": ["Sardar Patel", "Mahatma Gandhi", "Jawaharlal Nehru", "Dr. Rajendra Prasad"],
-                "answer": "Jawaharlal Nehru"
-            },
-            {
-                "question": "Which is the oldest mountain range in India?",
-                "options": ["Himalayas", "Aravalli Range", "Vindhyas", "Satpura Range"],
-                "answer": "Aravalli Range"
-            },
-            {
-                "question": "Where is the Gateway of India located?",
-                "options": ["Delhi", "Mumbai", "Chennai", "Kolkata"],
-                "answer": "Mumbai"
-            },
-            {
-                "question": "Which Indian state is the largest producer of tea?",
-                "options": ["West Bengal", "Assam", "Kerala", "Tamil Nadu"],
-                "answer": "Assam"
-            },
-            {
-                "question": "What comes next in this pattern: ▲, ◼, ▲, ◼, ...?",
-                "options": ["▲", "◼", "○", "◇"],
-                "answer": "▲"
-            },
-            {
-                "question": "What is the main festival of Kerala?",
-                "options": ["Onam", "Diwali", "Pongal", "Holi"],
-                "answer": "Onam"
-            },
-            {
-                "question": "Which state is famous for the Charminar?",
-                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
-                "answer": "Telangana"
-            },
-            {
-                "question": "Name the current President of India.",
-                "options": ["Droupadi Murmu", "Ramnath Kovind", "Pranab Mukherjee", "Manmohan Singh"],
-                "answer": "Droupadi Murmu"
-            },
-            {
-                "question": "Which monument in Delhi is also called the 'Symbol of Love'?",
-                "options": ["India Gate", "Qutub Minar", "Lotus Temple", "None of the above"],
-                "answer": "None of the above"
-            }
-        ],
-        "Science": [
-            {
-                "question": "What is the smallest bone in the human body?",
-                "options": ["Femur", "Stapes", "Tibia", "Ulna"],
-                "answer": "Stapes"
-            },
-            {
-                "question": "Which organ produces insulin?",
-                "options": ["Liver", "Pancreas", "Kidneys", "Heart"],
-                "answer": "Pancreas"
-            },
-            {
-                "question": "What part of the brain controls memory?",
-                "options": ["Cerebrum", "Cerebellum", "Medulla", "Hippocampus"],
-                "answer": "Hippocampus"
-            },
-            {
-                "question": "What is the main function of white blood cells?",
-                "options": ["Carrying oxygen", "Fighting infections", "Producing energy", "Clotting blood"],
-                "answer": "Fighting infections"
-            },
-            {
-                "question": "Which element is essential for the formation of bones and teeth?",
-                "options": ["Calcium", "Iron", "Magnesium", "Potassium"],
-                "answer": "Calcium"
-            },
-            {
-                "question": "What organ is protected by the ribcage?",
-                "options": ["Lungs", "Brain", "Liver", "Eyes"],
-                "answer": "Lungs"
-            },
-            {
-                "question": "Which system in the body controls all other systems?",
-                "options": ["Circulatory system", "Nervous system", "Digestive system", "Respiratory system"],
-                "answer": "Nervous system"
-            },
-            {
-                "question": "Which gas do humans exhale during respiration?",
-                "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"],
-                "answer": "Carbon dioxide"
-            },
-            {
-                "question": "What part of the eye is responsible for vision?",
-                "options": ["Lens", "Pupil", "Retina", "Cornea"],
-                "answer": "Retina"
-            },
-            {
-                "question": "What causes the common cold?",
-                "options": ["Bacteria", "Virus", "Fungus", "Protozoa"],
-                "answer": "Virus"
-            }
-        ],
-        "Math": [
-            {
-                "question": "What is the sum of the first 5 odd numbers?",
-                "options": ["25", "15", "30", "35"],
-                "answer": "25"
-            },
-            {
-                "question": "Simplify: 15 × (3 + 2) ÷ 5.",
-                "options": ["12", "15", "9", "10"],
-                "answer": "15"
-            },
-            {
-                "question": "What is the square of 12?",
-                "options": ["144", "121", "169", "132"],
-                "answer": "144"
-            },
-            {
-                "question": "What is 64 ÷ 8?",
-                "options": ["7", "8", "9", "6"],
-                "answer": "8"
-            },
-            {
-                "question": "What is the place value of 2 in 7,421?",
-                "options": ["20", "200", "2", "2000"],
-                "answer": "200"
-            },
-            {
-                "question": "What is the product of 14 and 6?",
-                "options": ["60", "82", "84", "96"],
-                "answer": "84"
-            },
-            {
-                "question": "What is the cube of 3?",
-                "options": ["27", "9", "18", "36"],
-                "answer": "27"
-            },
-            {
-                "question": "What is the remainder when 50 is divided by 7?",
-                "options": ["5", "6", "3", "1"],
-                "answer": "1"
-            },
-            {
-                "question": "If 25 × 4 = 100, then what is 100 ÷ 4?",
-                "options": ["25", "20", "30", "15"],
-                "answer": "25"
-            },
-            {
-                "question": "What is the smallest prime number?",
-                "options": ["0", "1", "2", "3"],
-                "answer": "2"
-            }
-        ]
-    },    
-    
-    "Aditya Singh": {
-        "General Awareness": [
-            {
-                "question": "Which state has its capital at 'Itanagar'?",
-                "options": ["Arunachal Pradesh", "Assam", "Meghalaya", "Nagaland"],
-                "answer": "Arunachal Pradesh"
-            },
-            {
-                "question": "Which city is known as the 'Silicon Valley of India'?",
-                "options": ["Hyderabad", "Bengaluru", "Pune", "Chennai"],
-                "answer": "Bengaluru"
-            },
-            {
-                "question": "What comes next in this series: 5, 10, 15, 20...?",
-                "options": ["22", "25", "30", "35"],
-                "answer": "25"
-            },
-            {
-                "question": "Which is the largest state in India by area?",
-                "options": ["Rajasthan", "Madhya Pradesh", "Maharashtra", "Uttar Pradesh"],
-                "answer": "Rajasthan"
-            },
-            {
-                "question": "What is the national fruit of India?",
-                "options": ["Mango", "Apple", "Banana", "Guava"],
-                "answer": "Mango"
-            },
-            {
-                "question": "What comes next in this pattern: ▲, ○, ■, ▲, ○...?",
-                "options": ["○", "■", "▲", "◇"],
-                "answer": "■"
-            },
-            {
-                "question": "Which state is famous for the Charminar?",
-                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
-                "answer": "Telangana"
-            },
-            {
-                "question": "Which Indian city is called the 'City of Joy'?",
-                "options": ["Kolkata", "Mumbai", "Delhi", "Chennai"],
-                "answer": "Kolkata"
-            },
-            {
-                "question": "Who was the first female Prime Minister of India?",
-                "options": ["Indira Gandhi", "Pratibha Patil", "Sarojini Naidu", "Sushma Swaraj"],
-                "answer": "Indira Gandhi"
-            },
-            {
-                "question": "Which place is famous as the 'Land of Five Rivers'?",
-                "options": ["Punjab", "Haryana", "Rajasthan", "Uttar Pradesh"],
-                "answer": "Punjab"
-            }
-        ],
-        "Science": [
-            {
-                "question": "What is the main gas in the Earth's atmosphere?",
-                "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-                "answer": "Nitrogen"
-            },
-            {
-                "question": "Which organ produces bile to aid digestion?",
-                "options": ["Liver", "Pancreas", "Stomach", "Gallbladder"],
-                "answer": "Liver"
-            },
-            {
-                "question": "Which vitamin is produced in the skin when exposed to sunlight?",
-                "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
-                "answer": "Vitamin D"
-            },
-            {
-                "question": "What is the chemical symbol for water?",
-                "options": ["H2O", "O2", "CO2", "HO"],
-                "answer": "H2O"
-            },
-            {
-                "question": "What is the hardest substance in the human body?",
-                "options": ["Bone", "Enamel", "Keratin", "Cartilage"],
-                "answer": "Enamel"
-            },
-            {
-                "question": "Which gas is necessary for photosynthesis?",
-                "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Methane"],
-                "answer": "Carbon Dioxide"
-            },
-            {
-                "question": "What is the approximate temperature of the human body?",
-                "options": ["36°C", "37°C", "38°C", "35°C"],
-                "answer": "37°C"
-            },
-            {
-                "question": "Which layer of the Earth lies between the crust and the core?",
-                "options": ["Mantle", "Outer Core", "Inner Core", "Lithosphere"],
-                "answer": "Mantle"
-            },
-            {
-                "question": "What type of joint is present in the human elbow?",
-                "options": ["Hinge Joint", "Ball and Socket Joint", "Pivot Joint", "Gliding Joint"],
-                "answer": "Hinge Joint"
-            },
-            {
-                "question": "Which organ is responsible for pumping blood throughout the body?",
-                "options": ["Heart", "Lungs", "Brain", "Liver"],
-                "answer": "Heart"
-            }
-        ],
-        "Math": [
-        {
-            "question": "Add: 245 + 378",
-            "options": ["613", "623", "633", "643"],
-            "answer": "623"
-        },
-        {
-            "question": "Subtract: 975 - 438",
-            "options": ["537", "547", "537", "545"],
-            "answer": "537"
-        },
-        {
-            "question": "Multiply: 23 × 6",
-            "options": ["128", "138", "148", "138"],
-            "answer": "138"
-        },
-        {
-            "question": "Word Problem: Ravi has 45 apples, and his friend gives him 30 more apples. How many apples does Ravi have now?",
-            "options": ["75", "85", "65", "80"],
-            "answer": "75"
-        },
-        {
-            "question": "Word Problem: A train has 350 passengers. At the next station, 125 passengers get off, and 90 new passengers board the train. How many passengers are on the train now?",
-            "options": ["315", "325", "340", "365"],
-            "answer": "315"
-        },
-        {
-            "question": "Word Problem: A baker bakes 12 cakes each hour. How many cakes does the baker bake in 8 hours?",
-            "options": ["92", "96", "108", "112"],
-            "answer": "96"
-        },
-        {
-            "question": "Add: 1234 + 4321",
-            "options": ["5555", "5545", "5565", "5550"],
-            "answer": "5555"
-        },
-        {
-            "question": "Subtract: 2048 - 1537",
-            "options": ["511", "519", "521", "511"],
-            "answer": "511"
-        },
-        {
-            "question": "Multiply: 16 × 25",
-            "options": ["400", "425", "375", "450"],
-            "answer": "400"
-        },
-        {
-            "question": "Word Problem: Priya buys 3 packets of candies, each containing 15 candies. How many candies does Priya have in total?",
-            "options": ["30", "45", "60", "50"],
-            "answer": "45"
-        }
-    ],
-        "English": [
-            {
-                "question": "Which is a personal pronoun: She is reading a book.",
-                "options": ["She", "Book", "Reading", "Is"],
-                "answer": "She"
-            },
-            {
-                "question": "Which is a possessive pronoun: The pen is mine.",
-                "options": ["Mine", "Pen", "The", "Is"],
-                "answer": "Mine"
-            },
-            {
-                "question": "Pick the noun: The dog is barking.",
-                "options": ["Dog", "Is", "Barking", "The"],
-                "answer": "Dog"
-            },
-            {
-                "question": "Find the adjective: The bright star is visible.",
-                "options": ["Bright", "Star", "Visible", "Is"],
-                "answer": "Bright"
-            },
-            {
-                "question": "Which is a reflexive pronoun: He blamed himself for the mistake.",
-                "options": ["Himself", "Blamed", "He", "Mistake"],
-                "answer": "Himself"
-            },
-            {
-                "question": "Select the possessive pronoun: The bicycle is theirs.",
-                "options": ["Theirs", "Bicycle", "Is", "The"],
-                "answer": "Theirs"
-            },
-            {
-                "question": "Choose the noun: The birds are flying high.",
-                "options": ["Birds", "Flying", "High", "Are"],
-                "answer": "Birds"
-            },
-            {
-                "question": "Pick the adjective: The blue car is parked outside.",
-                "options": ["Blue", "Car", "Outside", "Parked"],
-                "answer": "Blue"
-            },
-            {
-                "question": "Identify the demonstrative pronoun: This is my bag.",
-                "options": ["This", "My", "Bag", "Is"],
-                "answer": "This"
-            },
-            {
-                "question": "Which is an abstract noun: Honesty is the best policy.",
-                "options": ["Honesty", "Policy", "Best", "Is"],
-                "answer": "Honesty"
-            }
-        ]
-    }
-};    
+// Base URL for API endpoints
+const BASE_URL = 'http://localhost:8000';
 
-// Use the questions assigned to the student
-const questions = allQuestions[loggedInUser][selectedSubject];
+// Quiz state variables
+let questions = [];
+let currentQuestionIndex = 0;
+let totalQuestions = 0;
+let userAnswers = [];
+let questionTimers = [];
+let questionTimeSpent = [];
+let questionCompleted = [];
+let timerInterval = null;
 
-// DOM elements and other variables remain the same
-const studentNameElement = document.getElementById("student-name");
-const subjectNameElement = document.getElementById("subject-name");
-const questionNumberElement = document.getElementById("question-number");
+// Get DOM elements
 const timerElement = document.getElementById("timer");
-const questionTextElement = document.getElementById("question-text");
 const optionsContainerElement = document.getElementById("options-container");
+const questionTextElement = document.getElementById("question-text");
+const questionNumberElement = document.getElementById("question-number");
 const prevButton = document.getElementById("prev-button");
 const nextButton = document.getElementById("next-button");
-const exitButton = document.getElementById("exit-button");
 const submitButton = document.getElementById("submit-button");
+const exitButton = document.getElementById("exit-button");
 
-// Quiz variables
-let currentQuestionIndex = 0;
-let timerInterval;
-const totalQuestions = questions.length;
+// Function to format subject name for file path
+function formatSubjectName(subject) {
+    return subject.replace(/\s+/g, '_');
+}
 
-// Track user answers, time spent, and question states
-let userAnswers = Array(totalQuestions).fill(null);
-let questionTimers = Array(totalQuestions).fill(90); // Time left for each question
-let questionTimeSpent = Array(totalQuestions).fill(0); // Time spent on each question
-let questionCompleted = Array(totalQuestions).fill(false); // Track if a question's time is up
+// Function to format user name for file path
+function formatUserName(user) {
+    return user.replace(/\s+/g, '_');
+}
 
-// The rest of the code remains the same...
+// Load questions from the database
+async function loadQuestions() {
+    try {
+        const user = formatUserName(loggedInUser);
+        const subject = formatSubjectName(selectedSubject);
+        
+        const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
+        if (!response.ok) {
+            throw new Error(`Failed to load questions: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        // Ensure only 10 questions are loaded
+        return data.questions.slice(0, 10) || [];
+    } catch (error) {
+        console.error('Error loading questions:', error);
+        return [];
+    }
+}
 
 // Initialize the quiz
-function initializeQuiz() {
+async function initializeQuiz() {
+    questions = await loadQuestions();
+    totalQuestions = questions.length;
+    
+    if (questions.length === 0) {
+        document.getElementById('quiz-container').innerHTML = `
+            <div class="error">
+                No questions available for this subject. Please contact the administrator.
+            </div>
+        `;
+        return;
+    }
+
+    // Initialize quiz state
+    currentQuestionIndex = 0;
+    userAnswers = new Array(totalQuestions).fill(-1);
+    questionTimers = new Array(totalQuestions).fill(90); // 90 seconds per question
+    questionTimeSpent = new Array(totalQuestions).fill(0);
+    questionCompleted = new Array(totalQuestions).fill(false);
+
     // Display student name and subject
+    const studentNameElement = document.getElementById("student-name");
+    const subjectNameElement = document.getElementById("subject-name");
     studentNameElement.textContent = loggedInUser;
     subjectNameElement.textContent = selectedSubject;
     
-    // Hide previous button on first question
-    updateNavigationButtons();
-    
     // Load the first question
-    loadQuestion(currentQuestionIndex);
-    
-    // Start the timer
-    startTimer();
+    loadQuestion(0);
 }
 
 // Load a question by index
@@ -509,7 +176,6 @@ function startTimer() {
     updateTimerDisplay();
     
     timerInterval = setInterval(() => {
-        // Directly decrement by 1 second each time
         timeLeft--;
         
         // Update time spent on this question
@@ -548,7 +214,7 @@ function startTimer() {
             // Update timer display
             timerElement.textContent = `Time Left - ${timeLeft} sec`;
         }
-    }, 1000); // Exactly 1 second interval
+    }, 1000);
 }
 
 // Update timer display based on current question
@@ -581,124 +247,333 @@ function autoMoveToNextQuestion() {
 
 // Update navigation buttons based on current question index
 function updateNavigationButtons() {
-    // Show/hide prev button
-    if (currentQuestionIndex === 0) {
-        prevButton.classList.add('hidden');
-    } else {
-        prevButton.classList.remove('hidden');
+    prevButton.style.display = currentQuestionIndex === 0 ? 'none' : 'block';
+    nextButton.style.display = currentQuestionIndex === totalQuestions - 1 ? 'none' : 'block';
+    submitButton.style.display = currentQuestionIndex === totalQuestions - 1 ? 'block' : 'none';
+}
+
+// Function to finish the quiz and show results
+function finishQuiz() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
     }
     
-    // Show/hide next and submit buttons
-    if (currentQuestionIndex === totalQuestions - 1) {
-        nextButton.classList.add('hidden');
-        submitButton.classList.remove('hidden');
-    } else {
-        nextButton.classList.remove('hidden');
-        submitButton.classList.add('hidden');
-    }
-}
-
-// Navigate to previous question
-function goToPreviousQuestion() {
-    if (currentQuestionIndex > 0) {
-        // Save current timer value before moving
-        clearInterval(timerInterval);
-        
-        // Move to previous question
-        currentQuestionIndex--;
-        loadQuestion(currentQuestionIndex);
-    }
-}
-
-// Navigate to next question
-function goToNextQuestion() {
-    if (currentQuestionIndex < totalQuestions - 1) {
-        // Save current timer value before moving
-        clearInterval(timerInterval);
-        
-        // Move to next question
-        currentQuestionIndex++;
-        loadQuestion(currentQuestionIndex);
-    }
-}
-
-// Calculate the final score with marking scheme
-function calculateScore() {
-    let totalMarks = 0;
-    let questionResults = [];
+    let score = 0;
+    let totalTimeSpent = 0;
+    let questionsAttempted = 0;
+    let wrongAnswers = 0;
     
-    userAnswers.forEach((selectedOptionIndex, questionIndex) => {
-        const question = questions[questionIndex];
-        const correctAnswer = question.answer;
-        
-        let result = {
-            question: question.question,
-            userAnswer: selectedOptionIndex !== null ? question.options[selectedOptionIndex] : "Not Answered",
-            correctAnswer: correctAnswer,
-            isCorrect: false,
-            marks: 0,
-            timeSpent: questionTimeSpent[questionIndex]
-        };
-        
-        // If answered
-        if (selectedOptionIndex !== null) {
-            const selectedOption = question.options[selectedOptionIndex];
-            
-            if (selectedOption === correctAnswer) {
-                // Correct answer: 2 marks
-                result.isCorrect = true;
-                result.marks = 2;
-                totalMarks += 2;
+    // Calculate score with negative marking
+    for (let i = 0; i < questions.length; i++) {
+        if (userAnswers[i] !== -1) {
+            questionsAttempted++;
+            const selectedAnswer = questions[i].options[userAnswers[i]];
+            if (selectedAnswer === questions[i].answer) {
+                score += 1;
             } else {
-                // Wrong answer: -0.5 marks
-                result.marks = -0.5;
-                totalMarks -= 0.5;
+                score -= 0.5; // Negative marking for wrong answers
+                wrongAnswers++;
             }
         }
-        
-        questionResults.push(result);
-    });
-    
-    // Ensure total marks don't go below 0
-    totalMarks = Math.max(0, totalMarks);
-    
-    // Calculate percentage
-    const maxPossibleMarks = totalQuestions * 2;
-    const percentage = (totalMarks / maxPossibleMarks) * 100;
-    
-    // Determine performance comment
-    let performanceComment;
-    if (percentage >= 85) {
-        performanceComment = "Excellent";
-    } else if (percentage >= 65) {
-        performanceComment = "Good";
-    } else if (percentage >= 50) {
-        performanceComment = "Average";
-    } else {
-        performanceComment = "Fail";
+        totalTimeSpent += questionTimeSpent[i] || 0;
     }
     
-    return {
-        totalMarks,
-        maxPossibleMarks,
-        percentage,
-        performanceComment,
-        questionResults
+    // Ensure score doesn't go below 0
+    score = Math.max(0, score);
+    const percentage = (score / questions.length) * 100;
+    const currentTime = new Date().toLocaleTimeString();
+    const currentDate = new Date().toLocaleDateString();
+
+    // Save results before showing celebration
+    const results = {
+        user: loggedInUser,
+        subject: selectedSubject,
+        score: score,
+        totalQuestions: questions.length,
+        percentage: percentage,
+        questionsAttempted: questionsAttempted,
+        wrongAnswers: wrongAnswers,
+        timeSpent: totalTimeSpent,
+        date: currentDate,
+        time: currentTime
     };
+    
+    // Store results in localStorage
+    let allResults;
+    try {
+        allResults = JSON.parse(localStorage.getItem('quizResults'));
+        if (!Array.isArray(allResults)) {
+            allResults = [];
+        }
+    } catch (error) {
+        allResults = [];
+    }
+    
+    allResults.push(results);
+    localStorage.setItem('quizResults', JSON.stringify(allResults));
+    
+    // Always show detailed report first
+    showDetailedResults(results);
 }
 
-// Finish the quiz
-function finishQuiz() {
-    clearInterval(timerInterval);
+// Function to show success story for high achievers
+function showSuccessStory(results) {
+    const quizContainer = document.getElementById('quiz-container');
     
-    // Calculate score and get detailed results
-    const results = calculateScore();
+    // Add confetti script if not already added
+    if (!document.querySelector('script[src*="canvas-confetti"]')) {
+        const confettiScript = document.createElement('script');
+        confettiScript.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js';
+        document.head.appendChild(confettiScript);
+    }
+
+    quizContainer.innerHTML = `
+        <div class="success-story" style="background: linear-gradient(135deg, #0a3d62, #1e5799); padding: 20px; border-radius: 15px; color: white; text-align: center;">
+            <div class="trophy-animation" style="margin: 40px 0;">
+                <img src="trophy.gif" alt="Trophy" style="width: 150px; animation: float 3s ease-in-out infinite;">
+                <h1 style="color: #ffeb3b; font-size: 36px; margin: 20px 0;">🌟 Your Success Gift! 🌟</h1>
+            </div>
+
+            <div class="success-message" style="background: rgba(76, 175, 80, 0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                <h2 style="color: #4CAF50; margin-bottom: 20px;">Congratulations ${results.user}! 🎉</h2>
+                <p style="font-size: 18px; line-height: 1.6;">
+                    Your exceptional performance in ${results.subject} has earned you a special reward!<br>
+                    Scoring ${results.percentage.toFixed(1)}% shows your outstanding dedication and knowledge.
+                </p>
+                <div style="margin-top: 20px;">
+                    <p style="color: #ffeb3b; font-size: 20px;">🏆 Achievement Unlocked: Master of ${results.subject}! 🏆</p>
+                </div>
+            </div>
+
+            <div class="achievement-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 24px; color: #4CAF50;">${results.score}/${results.totalQuestions}</div>
+                    <div>Perfect Score</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 24px; color: #4CAF50;">${results.percentage.toFixed(1)}%</div>
+                    <div>Excellence</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 24px; color: #4CAF50;">${Math.floor(results.timeSpent / 60)}:${(results.timeSpent % 60).toString().padStart(2, '0')}</div>
+                    <div>Record Time</div>
+                </div>
+            </div>
+
+            <div class="special-reward" style="background: rgba(255,215,0,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="color: #ffeb3b; margin-bottom: 15px;">🎁 Your Special Rewards 🎁</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                        <p style="font-size: 20px;">🏅</p>
+                        <p>Digital Excellence Badge</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                        <p style="font-size: 20px;">📜</p>
+                        <p>Certificate of Mastery</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivational-message" style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p style="font-size: 18px; line-height: 1.6;">
+                    "Success is not the destination, it's the journey. Keep learning, keep growing!"<br>
+                    Your achievement today is just the beginning of greater success ahead!
+                </p>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
+                <button class="nav-button" style="background: #4CAF50; color: white; padding: 12px 25px; border-radius: 25px;" 
+                        onclick="showDetailedResults(${JSON.stringify(results)})">
+                    Back to Report
+                </button>
+                <button class="nav-button" style="background: #2196F3; color: white; padding: 12px 25px; border-radius: 25px;" 
+                        onclick="window.location.href='subjects.html'">
+                    Try Another Subject
+                </button>
+                <button class="nav-button" style="background: #ffeb3b; color: #333; padding: 12px 25px; border-radius: 25px;" 
+                        onclick="printResults()">
+                    Print Certificate
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Start confetti animation
+    setTimeout(() => {
+        if (window.confetti) {
+            const duration = 15 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+                }));
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+                }));
+            }, 250);
+        }
+    }, 1000); // Wait for confetti script to load
+}
+
+// Function to show detailed results
+function showDetailedResults(results) {
+    // Calculate performance metrics
+    const correctAnswers = questions.filter((q, i) => userAnswers[i] !== -1 && q.options[userAnswers[i]] === q.answer).length;
+    const wrongAnswers = questions.filter((q, i) => userAnswers[i] !== -1 && q.options[userAnswers[i]] !== q.answer).length;
+    const unattempted = questions.length - (correctAnswers + wrongAnswers);
+    const accuracy = ((correctAnswers / (correctAnswers + wrongAnswers)) * 100) || 0;
     
-    // Store results in localStorage or sessionStorage for the result page
-    localStorage.setItem("quizResults", JSON.stringify(results));
-    
-    // Navigate to result page
-    window.location.href = "result.html";
+    // Generate question details table rows
+    let questionDetailsHTML = '';
+    questions.forEach((question, index) => {
+        const selectedAnswer = userAnswers[index] !== -1 ? questions[index].options[userAnswers[index]] : 'Not Attempted';
+        const isCorrect = selectedAnswer === question.answer;
+        const timeSpent = questionTimeSpent[index] || 0;
+        const marks = isCorrect ? '+1' : (selectedAnswer === 'Not Attempted' ? '0' : '-0.5');
+        
+        questionDetailsHTML += `
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <td style="padding: 12px;">${index + 1}</td>
+                <td style="padding: 12px;">${question.question}</td>
+                <td style="padding: 12px; color: ${selectedAnswer === 'Not Attempted' ? '#ff9800' : (isCorrect ? '#4CAF50' : '#f44336')}">${selectedAnswer}</td>
+                <td style="padding: 12px;">${question.answer}</td>
+                <td style="padding: 12px;">${timeSpent} sec</td>
+                <td style="padding: 12px; color: ${isCorrect ? '#4CAF50' : '#f44336'}">${marks}</td>
+            </tr>
+        `;
+    });
+
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = `
+        <div class="detailed-report" style="background: linear-gradient(135deg, #0a3d62, #1e5799); padding: 20px; border-radius: 15px; color: white;">
+            <div class="report-header" style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #ffeb3b; margin-bottom: 10px;">Detailed Performance Report</h1>
+                <div style="font-size: 18px; margin-bottom: 5px;">Student: ${results.user}</div>
+                <div style="font-size: 18px;">Subject: ${results.subject}</div>
+            </div>
+
+            <div class="performance-summary" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #ffeb3b; margin-bottom: 15px;">Score Summary</h3>
+                    <div style="display: grid; gap: 10px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Total Score:</span>
+                            <span style="color: #4CAF50">${results.score}/${results.totalQuestions}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Percentage:</span>
+                            <span style="color: #4CAF50">${results.percentage.toFixed(1)}%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Accuracy:</span>
+                            <span style="color: #4CAF50">${accuracy.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #ffeb3b; margin-bottom: 15px;">Question Analysis</h3>
+                    <div style="display: grid; gap: 10px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Correct Answers:</span>
+                            <span style="color: #4CAF50">${correctAnswers}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Wrong Answers:</span>
+                            <span style="color: #f44336">${wrongAnswers}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Not Attempted:</span>
+                            <span style="color: #ff9800">${unattempted}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="time-analysis" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <h3 style="color: #ffeb3b; margin-bottom: 15px;">Time Analysis</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;">
+                    <div>
+                        <div style="font-size: 24px; color: #4CAF50">${Math.floor(results.timeSpent / 60)}:${(results.timeSpent % 60).toString().padStart(2, '0')}</div>
+                        <div>Total Time</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 24px; color: #4CAF50">${(results.timeSpent / questions.length).toFixed(1)}</div>
+                        <div>Avg. Time per Question</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 24px; color: #4CAF50">${Math.max(...questionTimeSpent)}</div>
+                        <div>Max Time on Question</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-details" style="margin-bottom: 30px;">
+                <h3 style="color: #ffeb3b; margin-bottom: 15px;">Question-wise Analysis</h3>
+                <div style="overflow-x: auto; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 15px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: rgba(255,255,255,0.1);">
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Q#</th>
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Question</th>
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Your Answer</th>
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Correct Answer</th>
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Time</th>
+                                <th style="padding: 12px; text-align: left; color: #ffeb3b;">Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${questionDetailsHTML}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="report-footer" style="text-align: center; margin-top: 30px;">
+                <div style="margin-bottom: 20px;">
+                    <div>Date: ${results.date}</div>
+                    <div>Time: ${results.time}</div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    ${results.percentage >= 90 ? `
+                        <button class="success-gift-button" onclick='showSuccessStory(${JSON.stringify(results)})' 
+                                style="background: #ffeb3b; color: #333; padding: 12px 25px; border-radius: 25px; font-weight: bold; cursor: pointer;">
+                            🎁 Success Gift 🎁
+                        </button>
+                    ` : ''}
+                    <button class="nav-button" style="background: #2196F3; color: white; padding: 12px 25px; border-radius: 25px;" 
+                            onclick="window.location.href='subjects.html'">
+                        Back to Subjects
+                    </button>
+                    <button class="nav-button" style="background: #ffeb3b; color: #333; padding: 12px 25px; border-radius: 25px;" 
+                            onclick="printResults()">
+                        Print Report Card
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Function to print results
+function printResults() {
+    window.print();
 }
 
 // Exit the quiz
@@ -709,10 +584,29 @@ function exitQuiz() {
 }
 
 // Event listeners
-prevButton.addEventListener('click', goToPreviousQuestion);
-nextButton.addEventListener('click', goToNextQuestion);
-exitButton.addEventListener('click', exitQuiz);
-submitButton.addEventListener('click', finishQuiz);
+prevButton.addEventListener("click", () => {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion(currentQuestionIndex);
+    }
+});
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < totalQuestions - 1) {
+        currentQuestionIndex++;
+        loadQuestion(currentQuestionIndex);
+    }
+});
+
+// Remove the old event listener and add a new one with explicit function call
+submitButton.removeEventListener("click", finishQuiz);
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("Submit button clicked");
+    finishQuiz();
+});
+
+exitButton.addEventListener("click", exitQuiz);
 
 // Initialize the quiz when the page loads
 initializeQuiz();

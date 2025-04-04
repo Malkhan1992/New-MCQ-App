@@ -1,0 +1,39 @@
+{
+    "questions": [
+        {
+            "question": "What is the first letter of the alphabet?",
+            "options": ["A", "B", "C", "D"],
+            "answer": "A",
+            "difficulty": "easy",
+            "explanation": "A is the first letter of the alphabet."
+        },
+        {
+            "question": "Which word rhymes with 'cat'?",
+            "options": ["Dog", "Hat", "Bird", "Fish"],
+            "answer": "Hat",
+            "difficulty": "easy",
+            "explanation": "'Hat' rhymes with 'cat'."
+        },
+        {
+            "question": "What is the opposite of 'hot'?",
+            "options": ["warm", "cold", "cool", "freezing"],
+            "answer": "cold",
+            "difficulty": "easy",
+            "explanation": "The opposite of 'hot' is 'cold'."
+        },
+        {
+            "question": "Which word is a color?",
+            "options": ["run", "blue", "jump", "walk"],
+            "answer": "blue",
+            "difficulty": "easy",
+            "explanation": "'Blue' is a color."
+        },
+        {
+            "question": "What is the plural of 'book'?",
+            "options": ["Book", "Books", "Bookes", "Bookies"],
+            "answer": "Books",
+            "difficulty": "easy",
+            "explanation": "The plural of 'book' is 'books'."
+        }
+    ]
+} 

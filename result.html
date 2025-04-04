@@ -180,6 +180,23 @@
             background-color: #6090e0;
         }
         
+        .story-link {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        
+        .story-link:hover {
+            background-color: #45a049;
+        }
+        
         @media print {
             .buttons {
                 display: none;
@@ -246,6 +263,8 @@
             <button class="back-home" id="back-home">Back to Subjects</button>
             <button class="print-result" id="print-result" onclick="window.print()">Print Results</button>
         </div>
+        
+        <a href="success-story.html" class="story-link" id="story-link">View Your Success Story</a>
     </div>
 
     <script>
@@ -280,6 +299,11 @@
         // Add class based on performance
         if (quizResults.performanceComment) {
             performanceElem.classList.add(quizResults.performanceComment.toLowerCase());
+            
+            // Show story link for excellent performance
+            if (quizResults.performanceComment.toLowerCase() === "excellent") {
+                document.getElementById("story-link").style.display = "inline-block";
+            }
         }
         
         // Populate questions table

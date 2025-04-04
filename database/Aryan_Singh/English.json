@@ -1,0 +1,25 @@
+{
+    "questions": [
+        {
+            "question": "What is a synonym for 'happy'?",
+            "options": ["Sad", "Joyful", "Angry", "Tired"],
+            "answer": "Joyful",
+            "difficulty": "hard",
+            "explanation": "A synonym for 'happy' is 'joyful'."
+        },
+        {
+            "question": "What is the literary term for a comparison using 'like' or 'as'?",
+            "options": ["Metaphor", "Simile", "Hyperbole", "Personification"],
+            "answer": "Simile",
+            "difficulty": "expert",
+            "explanation": "A simile is a comparison using 'like' or 'as'."
+        },
+        {
+            "question": "What is the past tense of 'run'?",
+            "options": ["Running", "Ran", "Runs", "Run"],
+            "answer": "Ran",
+            "difficulty": "medium",
+            "explanation": "The past tense of 'run' is 'ran'."
+        }
+    ]
+} 

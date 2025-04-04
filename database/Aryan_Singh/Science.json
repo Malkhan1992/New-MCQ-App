@@ -1,0 +1,124 @@
+{
+    "questions": [
+        {
+            "question": "What is the largest organ in the human body?",
+            "options": [
+                "Heart",
+                "Liver",
+                "Skin",
+                "Brain"
+            ],
+            "answer": "Skin",
+            "difficulty": "easy",
+            "explanation": "The skin is the largest organ in the human body."
+        },
+        {
+            "question": "What is the boiling point of water?",
+            "options": [
+                "90°C",
+                "100°C",
+                "110°C",
+                "120°C"
+            ],
+            "answer": "100°C",
+            "difficulty": "easy",
+            "explanation": "Water boils at 100°C at standard pressure."
+        },
+        {
+            "question": "What is the process by which plants convert light energy into chemical energy?",
+            "options": [
+                "Respiration",
+                "Photosynthesis",
+                "Transpiration",
+                "Fermentation"
+            ],
+            "answer": "Photosynthesis",
+            "difficulty": "expert",
+            "explanation": "Photosynthesis is the process where plants use sunlight to synthesize foods with carbon dioxide and water."
+        },
+        {
+            "question": "What is the SI unit of force?",
+            "options": [
+                "Joule",
+                "Watt",
+                "Newton",
+                "Pascal"
+            ],
+            "answer": "Newton",
+            "difficulty": "expert",
+            "explanation": "The Newton (N) is the SI unit of force, named after Sir Isaac Newton."
+        },
+        {
+            "question": "What is the chemical formula for water?",
+            "options": [
+                "H2O",
+                "HO2",
+                "H2O2",
+                "H3O"
+            ],
+            "answer": "H2O",
+            "difficulty": "hard",
+            "explanation": "The chemical formula for water is H2O."
+        },
+        {
+            "question": "Which planet is known as the 'Red Planet'?",
+            "options": [
+                "Venus",
+                "Mars",
+                "Jupiter",
+                "Saturn"
+            ],
+            "answer": "Mars",
+            "difficulty": "medium",
+            "explanation": "Mars is known as the 'Red Planet' due to its reddish appearance."
+        },
+        {
+            "question": "What is the chemical symbol for sodium?",
+            "options": [
+                "Na",
+                "K",
+                "Ca",
+                "Mg"
+            ],
+            "answer": "Na",
+            "difficulty": "expert",
+            "explanation": "The chemical symbol for sodium is Na."
+        },
+        {
+            "question": "What do plants need to make their own food?",
+            "options": [
+                "Water",
+                "Sunlight",
+                "Carbon Dioxide",
+                "All of the above"
+            ],
+            "answer": "All of the above",
+            "difficulty": "easy",
+            "explanation": "Plants need water, sunlight, and carbon dioxide for photosynthesis."
+        },
+        {
+            "question": "What is the process by which plants release water vapor?",
+            "options": [
+                "Photosynthesis",
+                "Transpiration",
+                "Respiration",
+                "Evaporation"
+            ],
+            "answer": "Transpiration",
+            "difficulty": "hard",
+            "explanation": "Transpiration is the process by which plants release water vapor."
+        },
+        {
+            "question": "Which subatomic particle has a negative charge?",
+            "options": [
+                "Proton",
+                "Neutron",
+                "Electron",
+                "Positron"
+            ],
+            "answer": "Electron",
+            "difficulty": "expert",
+            "explanation": "Electrons are negatively charged subatomic particles that orbit the nucleus of an atom."
+        }
+    ]
+}

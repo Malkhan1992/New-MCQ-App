@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Success Story</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700&display=swap');
+        
+        .story-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            background: linear-gradient(to right, #0a3d62, #1e5799);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .congrats-text {
+            font-size: 36px;
+            color: #ffeb3b;
+            font-family: 'Comic Neue', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .story-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .story-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .story-image:hover {
+            transform: scale(1.05);
+        }
+
+        .story-text {
+            flex: 1;
+            min-width: 300px;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .character {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 3s infinite;
+        }
+
+        .character-1 {
+            top: 20px;
+            left: 20px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785210.png');
+        }
+
+        .character-2 {
+            top: 20px;
+            right: 20px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785211.png');
+        }
+
+        .character-3 {
+            bottom: 20px;
+            left: 20px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785212.png');
+        }
+
+        .character-4 {
+            bottom: 20px;
+            right: 20px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785213.png');
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .achievement-badge {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785214.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .next-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #ffeb3b;
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .next-button:hover {
+            transform: scale(1.1);
+            background: #ffd700;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffeb3b;
+            animation: confetti-fall 5s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <div class="character character-1"></div>
+        <div class="character character-2"></div>
+        <div class="character character-3"></div>
+        <div class="character character-4"></div>
+        
+        <div class="story-header">
+            <h1 class="congrats-text">Congratulations, <span id="student-name">Champion</span>! 🎉</h1>
+            <div class="achievement-badge"></div>
+        </div>
+
+        <div class="story-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/1785/1785215.png" alt="Success Story" class="story-image">
+            <div class="story-text">
+                <h2>Your Journey to Excellence</h2>
+                <p>Dear <span id="student-name-2">Champion</span>,</p>
+                <p>🌟 Wow! Your quiz performance was so amazing that even the questions were impressed! They're telling their question friends about how brilliantly you answered them! 🎯</p>
+                
+                <p>Here's a funny story: Once upon a time, there was a student who thought they knew everything. But then they took a quiz and realized they still had more to learn. That student? Well, they became the best student ever - just like you! 😄</p>
+                
+                <p>Your dedication to learning is like a superhero's power - it keeps growing stronger with every challenge you face! 🦸‍♂️</p>
+                
+                <p>Remember this: "Success is not about being the best, it's about being better than you were yesterday." And you, my friend, are getting better every single day! 💪</p>
+                
+                <p>Here's a little secret: The more you learn, the more you realize how much more there is to discover. It's like finding a treasure chest that keeps giving you more treasures! 🏆</p>
+                
+                <p>Keep shining bright like the star you are! Your journey is just beginning, and we can't wait to see what amazing things you'll achieve next! ✨</p>
+                
+                <p>P.S. Don't forget to celebrate your success - you've earned it! 🎉</p>
+            </div>
+        </div>
+
+        <button class="next-button" onclick="window.location.href='subjects.html'">Continue Your Journey</button>
+    </div>
+
+    <script>
+        // Get student name from localStorage
+        const studentName = localStorage.getItem("loggedInUser");
+        document.querySelectorAll("#student-name, #student-name-2").forEach(element => {
+            element.textContent = studentName || "Champion";
+        });
+        
+        // Create confetti effect
+        function createConfetti() {
+            const container = document.querySelector('.story-container');
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Random position
+            confetti.style.left = Math.random() * 100 + '%';
+            
+            // Random color
+            const colors = ['#ffeb3b', '#4CAF50', '#2196F3', '#FF9800', '#f44336'];
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Random size
+            const size = Math.random() * 10 + 5;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            
+            // Random animation duration
+            confetti.style.animationDuration = Math.random() * 3 + 3 + 's';
+            
+            container.appendChild(confetti);
+            
+            // Remove confetti after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // Create confetti every 200ms
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html> 

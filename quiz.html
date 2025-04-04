@@ -95,6 +95,10 @@
             cursor: pointer;
             transition: all 0.3s;
             border: 2px solid transparent;
+            text-align: left;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
         }
         
         .option:hover {
@@ -112,7 +116,44 @@
             margin-top: 30px;
         }
         
+        .left-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .right-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
         .nav-button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            background: #ffeb3b;
+            color: #333;
+        }
+        
+        .nav-button:hover {
+            background: #ffd700;
+        }
+        
+        .exit-button {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .exit-button:hover {
+            background: #ff4444;
+        }
+        
+        .submit-button {
+            background: #4CAF50 !important;
+            color: white !important;
             padding: 12px 25px;
             border-radius: 8px;
             font-weight: bold;
@@ -122,40 +163,13 @@
             border: none;
         }
         
-        .prev-button {
-            background-color: #80b3ff;
-            color: #333;
-        }
-        
-        .prev-button:hover {
-            background-color: #6090e0;
-        }
-        
-        .next-button, .submit-button {
-            background-color: #ffeb3b;
-            color: #333;
-        }
-        
-        .next-button:hover, .submit-button:hover {
-            background-color: #ffd700;
-        }
-        
-        .exit-button {
-            background-color: #ff6b6b;
-            color: white;
-        }
-        
-        .exit-button:hover {
-            background-color: #ff4444;
-        }
-        
-        .hidden {
-            display: none;
+        .submit-button:hover {
+            background: #45a049 !important;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="quiz-container" id="quiz-container">
         <div class="quiz-header">
             <div class="student-info">
                 <div class="student-name" id="student-name">Student Name</div>
@@ -175,10 +189,14 @@
         </div>
         
         <div class="button-container">
-            <button class="nav-button prev-button" id="prev-button">Previous</button>
-            <button class="nav-button exit-button" id="exit-button">Exit Quiz</button>
-            <button class="nav-button next-button" id="next-button">Next</button>
-            <button class="nav-button submit-button hidden" id="submit-button">Submit Quiz</button>
+            <div class="left-buttons">
+                <button class="nav-button" id="prev-button">Previous</button>
+                <button class="nav-button exit-button" id="exit-button">Exit Quiz</button>
+            </div>
+            <div class="right-buttons">
+                <button class="nav-button" id="next-button">Next</button>
+                <button class="submit-button" id="submit-button">Submit Quiz</button>
+            </div>
         </div>
     </div>
 

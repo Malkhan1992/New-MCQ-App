@@ -1,0 +1,53 @@
+{
+    "questions": [
+        {
+            "question": "What is the capital of India?",
+            "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
+            "answer": "Delhi",
+            "difficulty": "easy",
+            "explanation": "Delhi is the capital of India."
+        },
+        {
+            "question": "Which is the largest continent?",
+            "options": ["Africa", "Asia", "Europe", "North America"],
+            "answer": "Asia",
+            "difficulty": "easy",
+            "explanation": "Asia is the largest continent by area."
+        },
+        {
+            "question": "What is the national animal of India?",
+            "options": ["Lion", "Tiger", "Elephant", "Leopard"],
+            "answer": "Tiger",
+            "difficulty": "easy",
+            "explanation": "The Bengal Tiger is the national animal of India."
+        },
+        {
+            "question": "Who is known as the Father of the Nation in India?",
+            "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Subhash Chandra Bose", "Bhagat Singh"],
+            "answer": "Mahatma Gandhi",
+            "difficulty": "easy",
+            "explanation": "Mahatma Gandhi is called the Father of the Nation for his role in India's freedom struggle."
+        },
+        {
+            "question": "Which is the national bird of India?",
+            "options": ["Parrot", "Peacock", "Pigeon", "Sparrow"],
+            "answer": "Peacock",
+            "difficulty": "easy",
+            "explanation": "The Indian Peacock is the national bird of India."
+        },
+        {
+            "question": "What is the national flower of India?",
+            "options": ["Rose", "Lotus", "Sunflower", "Marigold"],
+            "answer": "Lotus",
+            "difficulty": "easy",
+            "explanation": "The Lotus is the national flower of India."
+        },
+        {
+            "question": "Which festival is known as the 'Festival of Lights'?",
+            "options": ["Holi", "Diwali", "Dussehra", "Raksha Bandhan"],
+            "answer": "Diwali",
+            "difficulty": "easy",
+            "explanation": "Diwali is called the Festival of Lights because people light lamps and candles."
+        }
+    ]
+} 

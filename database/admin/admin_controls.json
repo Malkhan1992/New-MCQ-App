@@ -1,0 +1,92 @@
+{
+    "users": {
+        "Aryan_Singh": {
+            "iq_level": "high",
+            "subjects": ["General_Awareness", "Science", "Math", "English"]
+        },
+        "Aditya_Singh": {
+            "iq_level": "standard",
+            "subjects": ["General_Awareness", "Science", "Math", "English"]
+        }
+    },
+    "question_pool": {
+        "General_Awareness": {
+            "easy": [],
+            "medium": [],
+            "hard": [],
+            "expert": []
+        },
+        "Science": {
+            "easy": [],
+            "medium": [],
+            "hard": [],
+            "expert": []
+        },
+        "Math": {
+            "easy": [],
+            "medium": [],
+            "hard": [],
+            "expert": []
+        },
+        "English": {
+            "easy": [],
+            "medium": [],
+            "hard": [],
+            "expert": []
+        }
+    },
+    "refresh_settings": {
+        "Aryan_Singh": {
+            "General_Awareness": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "Science": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "Math": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "English": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            }
+        },
+        "Aditya_Singh": {
+            "General_Awareness": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "Science": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "Math": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            },
+            "English": {
+                "easy": 5,
+                "medium": 5,
+                "hard": 5,
+                "expert": 5
+            }
+        }
+    }
+} 
