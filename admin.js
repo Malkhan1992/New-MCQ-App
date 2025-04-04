@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addBtn = document.getElementById('addQuestion');
     const questionDisplay = document.getElementById('questionDisplay');
     const addQuestionForm = document.getElementById('addQuestionForm');
+    const actionButtons = document.querySelector('.action-buttons');
 
     // Base URL for API endpoints
     const BASE_URL = 'http://localhost:8000';
@@ -50,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to load questions
     async function loadQuestions() {
         const user = userSelect.value;
-        const subject = subjectSelect.value;
+        const subject = formatSubjectName(subjectSelect.value);
+        const formattedUser = formatUserName(user);
         
         if (!user || !subject) {
             showError('Please select both user and subject');
@@ -61,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentRefreshedQuestions = null;
         
         try {
-            console.log(`Loading questions for ${user}/${subject}`);
-            const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
+            console.log(`Loading questions for ${formattedUser}/${subject}`);
+            const response = await fetch(`${BASE_URL}/database/${formattedUser}/${subject}.json`);
             if (!response.ok) {
                 if (response.status === 404) {
                     showError('No questions found. Please refresh to generate new questions.');
@@ -126,47 +128,67 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to confirm and save questions
     async function confirmQuestions(questions) {
         const user = userSelect.value;
-        const subject = subjectSelect.value;
+        const subject = formatSubjectName(subjectSelect.value);
+        const formattedUser = formatUserName(user);
 
         try {
-            // Create user directory if it doesn't exist
-            const dirResponse = await fetch(`${BASE_URL}/database/${user}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Create-Directory': 'true'
-                }
-            });
-
-            if (!dirResponse.ok) {
-                throw new Error('Failed to create directory');
-            }
-
-            // Update user's question file
-            const updateResponse = await fetch(`${BASE_URL}/database/${user}/${subject}.json`, {
-                method: 'PUT',
+            // First ensure the user directory exists
+            const createDirResponse = await fetch(`${BASE_URL}/create-directory`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ questions })
+                body: JSON.stringify({
+                    path: `database/${formattedUser}`
+                })
             });
-            
-            if (!updateResponse.ok) {
-                throw new Error(`Failed to update questions: ${updateResponse.status}`);
+
+            if (!createDirResponse.ok) {
+                throw new Error('Failed to create user directory structure');
             }
-            
+
+            // Now create or update the questions file
+            const questionsData = {
+                questions,
+                lastUpdated: new Date().toISOString(),
+                user: user,
+                subject: subjectSelect.value,
+                totalQuestions: questions.length
+            };
+
+            // Save the file
+            const saveResponse = await fetch(`${BASE_URL}/save-file`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    path: `database/${formattedUser}/${subject}.json`,
+                    content: questionsData
+                })
+            });
+
+            if (!saveResponse.ok) {
+                const errorText = await saveResponse.text();
+                console.error('Server response:', errorText);
+                throw new Error(`Failed to save questions file`);
+            }
+
             showSuccess(`Successfully added ${questions.length} questions to ${user}'s ${subject} quiz!`);
             currentRefreshedQuestions = null;
+
+            // Reload questions to show the updated list
+            setTimeout(loadQuestions, 1500);
         } catch (error) {
             console.error('Error saving questions:', error);
-            showError(`Error saving questions: ${error.message}`);
+            showError(`Error saving questions: ${error.message}. Please check the server connection and try again.`);
         }
     }
 
     // Function to refresh questions
     async function refreshQuestions() {
         const user = userSelect.value;
-        const subject = subjectSelect.value;
+        const subject = formatSubjectName(subjectSelect.value);
         
         if (!user || !subject) {
             showError('Please select both user and subject');
@@ -188,9 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const subjectQuestions = [];
             const difficultyLevels = ['easy', 'medium', 'hard', 'expert'];
             
+            // Format subject name to match pool structure
+            const formattedSubject = subject.replace(/\s+/g, '_');
+            console.log('Looking for subject:', formattedSubject);
+            
+            if (!pool[formattedSubject]) {
+                throw new Error(`No questions found for subject: ${subject}`);
+            }
+
             for (const difficulty of difficultyLevels) {
-                if (pool[subject]?.[difficulty]) {
-                    subjectQuestions.push(...pool[subject][difficulty].map(q => ({
+                if (pool[formattedSubject]?.[difficulty]) {
+                    subjectQuestions.push(...pool[formattedSubject][difficulty].map(q => ({
                         ...q,
                         difficulty
                     })));
@@ -203,13 +233,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(`Found ${subjectQuestions.length} questions for ${subject}`);
             
-            // Shuffle and select 10 questions
+            // Shuffle and select random questions (between 8 and 12)
+            const numQuestions = Math.floor(Math.random() * (12 - 8 + 1)) + 8;
             const selectedQuestions = [...subjectQuestions]
                 .sort(() => 0.5 - Math.random())
-                .slice(0, 10);
+                .slice(0, numQuestions);
 
             console.log('Selected questions:', selectedQuestions);
             currentRefreshedQuestions = selectedQuestions;
+            
+            // Show success message with question count
+            showSuccess(`Successfully loaded ${selectedQuestions.length} questions for ${subject}. Click "Add These Questions" to save them.`);
+            
+            // Display the questions
             displayQuestions(selectedQuestions, true);
         } catch (error) {
             console.error('Error refreshing questions:', error);
@@ -287,4 +323,72 @@ document.addEventListener('DOMContentLoaded', () => {
             showError(`Error adding question: ${error.message}`);
         }
     });
-}); 
+
+    // Add a new button to the action buttons
+    const checkQuestionsButton = document.createElement('button');
+    checkQuestionsButton.id = 'checkQuestions';
+    checkQuestionsButton.innerHTML = '📊 Check Questions Count';
+    checkQuestionsButton.style.background = '#9C27B0';
+    checkQuestionsButton.style.color = 'white';
+    checkQuestionsButton.onclick = checkAllQuestionsCount;
+    actionButtons.appendChild(checkQuestionsButton);
+});
+
+async function checkAllQuestionsCount() {
+    const users = ['Aryan_Singh', 'Aditya_Singh'];
+    const subjects = ['General_Awareness', 'Science', 'Math', 'English'];
+    const results = document.createElement('div');
+    results.className = 'question-count-report';
+    results.innerHTML = `
+        <h2 style="color: #FFC107; margin-bottom: 20px;">Questions Count Report</h2>
+        <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+    `;
+
+    for (const user of users) {
+        results.innerHTML += `<h3 style="color: #4CAF50; margin-top: 15px;">User: ${user}</h3>`;
+        for (const subject of subjects) {
+            try {
+                const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const count = data.questions ? data.questions.length : 0;
+                    const status = count === 10 ? '✅' : (count < 10 ? '❌' : '⚠️');
+                    const color = count === 10 ? '#4CAF50' : (count < 10 ? '#ff4444' : '#FFC107');
+                    results.innerHTML += `
+                        <div style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                            <span style="color: ${color}">
+                                ${status} ${subject}: ${count} questions
+                                ${count !== 10 ? `<span style="color: #ff4444"> (Need ${10 - count} more questions)</span>` : ''}
+                            </span>
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                            <span style="color: #ff4444">❌ ${subject}: No questions file found</span>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div style="margin: 10px 0; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                        <span style="color: #ff4444">❌ ${subject}: Error checking questions</span>
+                    </div>
+                `;
+            }
+        }
+    }
+
+    results.innerHTML += `
+        </div>
+        <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+            <p style="color: #FFC107; margin: 0;">Legend:</p>
+            <p style="margin: 5px 0;">✅ - Has exactly 10 questions</p>
+            <p style="margin: 5px 0;">❌ - Has less than 10 questions</p>
+            <p style="margin: 5px 0;">⚠️ - Has more than 10 questions</p>
+        </div>
+    `;
+
+    questionDisplay.innerHTML = '';
+    questionDisplay.appendChild(results);
+} 

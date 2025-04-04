@@ -3,6 +3,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
 
     let username = document.getElementById("username").value.trim();
     let password = document.getElementById("password").value.trim();
+    let errorMessage = document.getElementById("error-message");
 
     // Allowed student credentials
     const users = {
@@ -16,8 +17,9 @@ document.getElementById("login-form").addEventListener("submit", function(event)
         window.location.href = "subjects.html";
     } else {
         // ❌ Show error message
-        document.getElementById("error-message").innerText = "Invalid username or password";
-        document.getElementById("error-message").style.color = "red";
+        errorMessage.textContent = "Invalid username or password";
+        errorMessage.style.display = "block";
+        errorMessage.style.color = "red";
     }
 });
 let questions = {

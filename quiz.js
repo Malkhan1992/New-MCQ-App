@@ -58,16 +58,33 @@ async function loadQuestions() {
         if (!data || !Array.isArray(data.questions)) {
             throw new Error('Invalid question data format');
         }
+
+        // Ensure exactly 10 questions
+        if (data.questions.length < 10) {
+            throw new Error('Not enough questions available. Please contact the administrator.');
+        }
         
-        // Ensure only 10 questions are loaded
-        return data.questions.slice(0, 10) || [];
+        // Randomly select exactly 10 questions if there are more
+        let selectedQuestions = data.questions;
+        if (data.questions.length > 10) {
+            selectedQuestions = [];
+            const indices = new Set();
+            while (indices.size < 10) {
+                const randomIndex = Math.floor(Math.random() * data.questions.length);
+                if (!indices.has(randomIndex)) {
+                    indices.add(randomIndex);
+                    selectedQuestions.push(data.questions[randomIndex]);
+                }
+            }
+        }
+        
+        return selectedQuestions;
     } catch (error) {
         console.error('Error loading questions:', error);
         document.getElementById('quiz-container').innerHTML = `
             <div class="error" style="text-align: center; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 10px; margin: 20px;">
                 <h2 style="color: #ff6b6b; margin-bottom: 10px;">Error Loading Questions</h2>
-                <p style="color: white;">Unable to load questions for ${selectedSubject}.</p>
-                <p style="color: #aaa; font-size: 14px; margin-top: 10px;">Error: ${error.message}</p>
+                <p style="color: white;">${error.message}</p>
                 <button onclick="window.location.href='subjects.html'" 
                         style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer;">
                     Back to Subjects
@@ -353,6 +370,14 @@ function getMotivationalMessage(medalType) {
     }
 }
 
+// Function to get medal title based on medal type
+function getMedalTitle(medalType) {
+    if (medalType === 'gold1') return '🏆 Gold Medal of Excellence 🏆';
+    if (medalType === 'Silver') return '🥈 Silver Medal of Achievement 🥈';
+    if (medalType === 'Bronze') return '🥉 Bronze Medal of Merit 🥉';
+    return '';
+}
+
 // Function to print certificate
 function printCertificate(results, medalType) {
     // Create a new window for the certificate
@@ -408,6 +433,12 @@ function printCertificate(results, medalType) {
                     font-weight: bold;
                     margin: 20px 0;
                 }
+                .medal-title {
+                    color: #f1c40f;
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin: 15px 0;
+                }
                 .date {
                     color: #7f8c8d;
                     font-size: 18px;
@@ -429,6 +460,7 @@ function printCertificate(results, medalType) {
                 <img src="images/trophy.png" alt="Trophy" class="trophy-image">
                 <h1>Certificate of Achievement</h1>
                 <img src="medals/${medalType}.png" alt="Medal" class="medal-image">
+                <div class="medal-title">${getMedalTitle(medalType)}</div>
                 <div class="student-name">${results.user}</div>
                 <div class="details">has successfully completed the assessment in</div>
                 <div class="details" style="font-weight: bold;">${results.subject}</div>
@@ -489,11 +521,7 @@ function showSuccessStory(results) {
                         <div style="font-size: 16px; color: #333333; font-weight: 600;">${results.subject}</div>
                     </div>
                 </div>
-                <h3 style="color: #ffeb3b; margin: 15px 0;">
-                    ${medalType === 'gold1' ? '🏆 Gold Medal of Excellence 🏆' : 
-                      medalType === 'Silver' ? '🥈 Silver Medal of Achievement 🥈' : 
-                      '🥉 Bronze Medal of Merit 🥉'}
-                </h3>
+                <h3 style="color: #ffeb3b; margin: 15px 0;">${getMedalTitle(medalType)}</h3>
             </div>
 
             <div class="achievement-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">

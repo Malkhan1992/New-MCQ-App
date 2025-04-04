@@ -1,46 +1,128 @@
 {
-    "questions": [
-        {
-            "question": "What do plants need to make their own food?",
-            "options": ["Water", "Sunlight", "Carbon Dioxide", "All of the above"],
-            "answer": "All of the above",
-            "difficulty": "easy",
-            "explanation": "Plants need water, sunlight, and carbon dioxide for photosynthesis."
-        },
-        {
-            "question": "Which planet is closest to the Sun?",
-            "options": ["Venus", "Mars", "Mercury", "Earth"],
-            "answer": "Mercury",
-            "difficulty": "easy",
-            "explanation": "Mercury is the closest planet to the Sun."
-        },
-        {
-            "question": "What is the largest organ in the human body?",
-            "options": ["Heart", "Liver", "Skin", "Brain"],
-            "answer": "Skin",
-            "difficulty": "easy",
-            "explanation": "The skin is the largest organ in the human body."
-        },
-        {
-            "question": "What is the boiling point of water?",
-            "options": ["0°C", "50°C", "100°C", "150°C"],
-            "answer": "100°C",
-            "difficulty": "easy",
-            "explanation": "Water boils at 100 degrees Celsius at sea level."
-        },
-        {
-            "question": "Which animal is known as the 'King of the Jungle'?",
-            "options": ["Tiger", "Lion", "Elephant", "Giraffe"],
-            "answer": "Lion",
-            "difficulty": "easy",
-            "explanation": "The lion is often called the King of the Jungle because of its strength and majestic appearance."
-        },
-        {
-            "question": "What do we call the study of plants?",
-            "options": ["Zoology", "Botany", "Geology", "Biology"],
-            "answer": "Botany",
-            "difficulty": "easy",
-            "explanation": "Botany is the scientific study of plants."
-        }
-    ]
-} 
+  "questions": [
+    {
+      "question": "What is the atomic number of carbon?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "12"
+      ],
+      "answer": "6",
+      "difficulty": "hard",
+      "explanation": "The atomic number of carbon is 6."
+    },
+    {
+      "question": "What is the unit of electric current?",
+      "options": [
+        "Volt",
+        "Ampere",
+        "Watt",
+        "Ohm"
+      ],
+      "answer": "Ampere",
+      "difficulty": "medium",
+      "explanation": "The unit of electric current is Ampere."
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "options": [
+        "H2O",
+        "HO2",
+        "H2O2",
+        "H3O"
+      ],
+      "answer": "H2O",
+      "difficulty": "hard",
+      "explanation": "The chemical formula for water is H2O."
+    },
+    {
+      "question": "What is the unit of force?",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Newton",
+      "difficulty": "hard",
+      "explanation": "The unit of force is Newton."
+    },
+    {
+      "question": "What is the pH of pure water?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "7",
+      "difficulty": "medium",
+      "explanation": "Pure water has a pH of 7, which is neutral."
+    },
+    {
+      "question": "Which subatomic particle has a negative charge?",
+      "options": [
+        "Proton",
+        "Neutron",
+        "Electron",
+        "Positron"
+      ],
+      "answer": "Electron",
+      "difficulty": "expert",
+      "explanation": "Electrons are negatively charged subatomic particles that orbit the nucleus of an atom."
+    },
+    {
+      "question": "What is the SI unit of force?",
+      "options": [
+        "Joule",
+        "Watt",
+        "Newton",
+        "Pascal"
+      ],
+      "answer": "Newton",
+      "difficulty": "expert",
+      "explanation": "The Newton (N) is the SI unit of force, named after Sir Isaac Newton."
+    },
+    {
+      "question": "Which gas do plants release during photosynthesis?",
+      "options": [
+        "Carbon Dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "difficulty": "easy",
+      "explanation": "Plants release oxygen during photosynthesis."
+    },
+    {
+      "question": "What is the chemical symbol for silver?",
+      "options": [
+        "Ag",
+        "Au",
+        "Fe",
+        "Cu"
+      ],
+      "answer": "Ag",
+      "difficulty": "hard",
+      "explanation": "The chemical symbol for silver is Ag."
+    },
+    {
+      "question": "What is the boiling point of water?",
+      "options": [
+        "90°C",
+        "100°C",
+        "110°C",
+        "120°C"
+      ],
+      "answer": "100°C",
+      "difficulty": "easy",
+      "explanation": "Water boils at 100°C at standard pressure."
+    }
+  ],
+  "lastUpdated": "2025-04-04T11:32:47.905Z",
+  "user": "Aditya_Singh",
+  "subject": "Science",
+  "totalQuestions": 10
+}
