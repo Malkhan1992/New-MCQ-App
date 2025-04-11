@@ -1,124 +1,148 @@
 {
     "questions": [
-        {
-            "question": "What is the largest organ in the human body?",
-            "options": [
-                "Heart",
-                "Liver",
-                "Skin",
-                "Brain"
-            ],
-            "answer": "Skin",
-            "difficulty": "easy",
-            "explanation": "The skin is the largest organ in the human body."
-        },
-        {
-            "question": "What is the boiling point of water?",
-            "options": [
-                "90°C",
-                "100°C",
-                "110°C",
-                "120°C"
-            ],
-            "answer": "100°C",
-            "difficulty": "easy",
-            "explanation": "Water boils at 100°C at standard pressure."
-        },
-        {
-            "question": "What is the process by which plants convert light energy into chemical energy?",
-            "options": [
-                "Respiration",
-                "Photosynthesis",
-                "Transpiration",
-                "Fermentation"
-            ],
-            "answer": "Photosynthesis",
-            "difficulty": "expert",
-            "explanation": "Photosynthesis is the process where plants use sunlight to synthesize foods with carbon dioxide and water."
-        },
-        {
-            "question": "What is the SI unit of force?",
-            "options": [
-                "Joule",
-                "Watt",
-                "Newton",
-                "Pascal"
-            ],
-            "answer": "Newton",
-            "difficulty": "expert",
-            "explanation": "The Newton (N) is the SI unit of force, named after Sir Isaac Newton."
-        },
-        {
-            "question": "What is the chemical formula for water?",
-            "options": [
-                "H2O",
-                "HO2",
-                "H2O2",
-                "H3O"
-            ],
-            "answer": "H2O",
-            "difficulty": "hard",
-            "explanation": "The chemical formula for water is H2O."
-        },
-        {
-            "question": "Which planet is known as the 'Red Planet'?",
-            "options": [
-                "Venus",
-                "Mars",
-                "Jupiter",
-                "Saturn"
-            ],
-            "answer": "Mars",
-            "difficulty": "medium",
-            "explanation": "Mars is known as the 'Red Planet' due to its reddish appearance."
-        },
-        {
-            "question": "What is the chemical symbol for sodium?",
-            "options": [
-                "Na",
-                "K",
-                "Ca",
-                "Mg"
-            ],
-            "answer": "Na",
-            "difficulty": "expert",
-            "explanation": "The chemical symbol for sodium is Na."
-        },
-        {
-            "question": "What do plants need to make their own food?",
-            "options": [
-                "Water",
-                "Sunlight",
-                "Carbon Dioxide",
-                "All of the above"
-            ],
-            "answer": "All of the above",
-            "difficulty": "easy",
-            "explanation": "Plants need water, sunlight, and carbon dioxide for photosynthesis."
-        },
-        {
-            "question": "What is the process by which plants release water vapor?",
-            "options": [
-                "Photosynthesis",
-                "Transpiration",
-                "Respiration",
-                "Evaporation"
-            ],
-            "answer": "Transpiration",
-            "difficulty": "hard",
-            "explanation": "Transpiration is the process by which plants release water vapor."
-        },
-        {
-            "question": "Which subatomic particle has a negative charge?",
-            "options": [
-                "Proton",
-                "Neutron",
-                "Electron",
-                "Positron"
-            ],
-            "answer": "Electron",
-            "difficulty": "expert",
-            "explanation": "Electrons are negatively charged subatomic particles that orbit the nucleus of an atom."
-        }
-    ]
-}
+      {
+        "id": 1,
+        "question": "Which star is closest to Earth?",
+        "options": [
+          "Sirius",
+          "Proxima Centauri",
+          "Sun",
+          "Alpha Centauri"
+        ],
+        "answer": "Sun",
+        "explanation": "The Sun is the closest star to Earth and provides light and heat.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 2,
+        "question": "Which gas do plants release during photosynthesis?",
+        "options": [
+          "Oxygen",
+          "Carbon dioxide",
+          "Nitrogen",
+          "Hydrogen"
+        ],
+        "answer": "Oxygen",
+        "explanation": "Plants release oxygen as a byproduct of photosynthesis.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 3,
+        "question": "What is the hardest substance in the human body?",
+        "options": [
+          "Bones",
+          "Teeth enamel",
+          "Nails",
+          "Cartilage"
+        ],
+        "answer": "Teeth enamel",
+        "explanation": "Teeth enamel is the hardest substance in the human body.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 4,
+        "question": "What is the boiling point of water at sea level?",
+        "options": [
+          "50°C",
+          "75°C",
+          "100°C",
+          "120°C"
+        ],
+        "answer": "100°C",
+        "explanation": "At sea level, water boils at 100°C.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the name of the energy we get from the Sun?",
+        "options": [
+          "Solar energy",
+          "Wind energy",
+          "Hydro energy",
+          "Thermal energy"
+        ],
+        "answer": "Solar energy",
+        "explanation": "Solar energy is the energy we receive from the Sun.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 6,
+        "question": "Which layer of the Earth do we live on?",
+        "options": [
+          "Core",
+          "Mantle",
+          "Crust",
+          "Outer core"
+        ],
+        "answer": "Crust",
+        "explanation": "We live on the Earth's crust, which is the outermost layer.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 7,
+        "question": "Which planet is the hottest in the solar system?",
+        "options": [
+          "Mercury",
+          "Venus",
+          "Mars",
+          "Jupiter"
+        ],
+        "answer": "Venus",
+        "explanation": "Venus is the hottest planet due to its thick atmosphere that traps heat.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 8,
+        "question": "Which organ helps humans digest food?",
+        "options": [
+          "Heart",
+          "Stomach",
+          "Lungs",
+          "Brain"
+        ],
+        "answer": "Stomach",
+        "explanation": "The stomach helps in digesting food using digestive juices.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 9,
+        "question": "Which of these animals lays eggs?",
+        "options": [
+          "Cow",
+          "Dog",
+          "Frog",
+          "Rabbit"
+        ],
+        "answer": "Frog",
+        "explanation": "Frogs lay eggs in water to reproduce.",
+        "selected": false,
+        "timeSpent": 0
+      },
+      {
+        "id": 10,
+        "question": "Which part of the plant produces seeds?",
+        "options": [
+          "Root",
+          "Stem",
+          "Leaf",
+          "Flower"
+        ],
+        "answer": "Flower",
+        "explanation": "Flowers produce seeds, which help in plant reproduction.",
+        "selected": false,
+        "timeSpent": 0
+      }
+    ],
+    "totalQuestions": 10,
+    "subject": "Science",
+    "user": "Aryan_Singh",
+    "lastUpdated": "2025-04-11T06:46:18.209Z"
+  }

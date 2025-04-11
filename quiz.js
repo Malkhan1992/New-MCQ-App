@@ -46,59 +46,95 @@ async function loadQuestions() {
         const user = formatUserName(loggedInUser);
         const subject = formatSubjectName(selectedSubject);
         
-        // Load questions from the server
-        const response = await fetch(`http://localhost:8000/database/${user}/${subject}.json`);
+        const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
         if (!response.ok) {
             throw new Error(`Failed to load questions: ${response.status}`);
         }
         
         const data = await response.json();
+        questions = data.questions || [];
         
-        // Validate the data structure
-        if (!data || !Array.isArray(data.questions)) {
-            throw new Error('Invalid question data format');
+        if (questions.length === 0) {
+            throw new Error('No questions available for this subject');
+        }
+        
+        if (questions.length !== 10) {
+            throw new Error('Invalid number of questions. Please contact administrator.');
         }
 
-        // Ensure exactly 10 questions
-        if (data.questions.length < 10) {
-            throw new Error('Not enough questions available. Please contact the administrator.');
-        }
+        // Sort questions by ID to ensure correct order
+        questions.sort((a, b) => a.id - b.id);
+            
+        totalQuestions = questions.length;
         
-        // Randomly select exactly 10 questions if there are more
-        let selectedQuestions = data.questions;
-        if (data.questions.length > 10) {
-            selectedQuestions = [];
-            const indices = new Set();
-            while (indices.size < 10) {
-                const randomIndex = Math.floor(Math.random() * data.questions.length);
-                if (!indices.has(randomIndex)) {
-                    indices.add(randomIndex);
-                    selectedQuestions.push(data.questions[randomIndex]);
-                }
-            }
-        }
+        // Initialize quiz state
+        currentQuestionIndex = 0;
+        userAnswers = new Array(totalQuestions).fill(-1);
+        questionTimers = new Array(totalQuestions).fill(90);
+        questionTimeSpent = new Array(totalQuestions).fill(0);
+        questionCompleted = new Array(totalQuestions).fill(false);
+
+        // Display student name and subject
+        const studentNameElement = document.getElementById("student-name");
+        const subjectNameElement = document.getElementById("subject-name");
+        if (studentNameElement) studentNameElement.textContent = loggedInUser;
+        if (subjectNameElement) subjectNameElement.textContent = selectedSubject;
         
-        return selectedQuestions;
+        // Load the first question
+        loadQuestion(0);
     } catch (error) {
         console.error('Error loading questions:', error);
-        document.getElementById('quiz-container').innerHTML = `
-            <div class="error" style="text-align: center; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 10px; margin: 20px;">
-                <h2 style="color: #ff6b6b; margin-bottom: 10px;">Error Loading Questions</h2>
-                <p style="color: white;">${error.message}</p>
-                <button onclick="window.location.href='subjects.html'" 
-                        style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer;">
-                    Back to Subjects
-                </button>
-            </div>
-        `;
-        return [];
+        showError(`Error loading questions: ${error.message}`);
+    }
+}
+
+// Function to refresh questions
+async function refreshQuestions() {
+    const user = formatUserName(loggedInUser);
+    const subject = formatSubjectName(selectedSubject);
+    
+    if (!user || !subject) {
+        showError('Please select both user and subject');
+        return;
+    }
+
+    showLoading();
+    
+    try {
+        console.log('Loading question pool...');
+        const poolResponse = await fetch(`${BASE_URL}/database/admin/question_pool.json`);
+        if (!poolResponse.ok) {
+            throw new Error(`Failed to load question pool: ${poolResponse.status}`);
+        }
+        const pool = await poolResponse.json();
+        console.log('Question pool loaded:', pool);
+        
+        // Get all questions for the subject (direct array, no difficulty levels)
+        const subjectQuestions = pool[subject] || [];
+
+        if (subjectQuestions.length === 0) {
+            throw new Error(`No questions available for ${subject}`);
+        }
+
+        console.log(`Found ${subjectQuestions.length} questions for ${subject}`);
+        
+        // Shuffle and select 10 questions
+        const selectedQuestions = [...subjectQuestions]
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 10);
+
+        console.log('Selected questions:', selectedQuestions);
+        currentRefreshedQuestions = selectedQuestions;
+        displayQuestions(selectedQuestions, true);
+    } catch (error) {
+        console.error('Error refreshing questions:', error);
+        showError(`Error refreshing questions: ${error.message}`);
     }
 }
 
 // Initialize the quiz
 async function initializeQuiz() {
-    questions = await loadQuestions();
-    totalQuestions = questions.length;
+    await loadQuestions();
     
     if (questions.length === 0) {
         document.getElementById('quiz-container').innerHTML = `
@@ -109,19 +145,6 @@ async function initializeQuiz() {
         return;
     }
 
-    // Initialize quiz state
-    currentQuestionIndex = 0;
-    userAnswers = new Array(totalQuestions).fill(-1);
-    questionTimers = new Array(totalQuestions).fill(90); // 90 seconds per question
-    questionTimeSpent = new Array(totalQuestions).fill(0);
-    questionCompleted = new Array(totalQuestions).fill(false);
-
-    // Display student name and subject
-    const studentNameElement = document.getElementById("student-name");
-    const subjectNameElement = document.getElementById("subject-name");
-    studentNameElement.textContent = loggedInUser;
-    subjectNameElement.textContent = selectedSubject;
-    
     // Load the first question
     loadQuestion(0);
 }
@@ -370,14 +393,6 @@ function getMotivationalMessage(medalType) {
     }
 }
 
-// Function to get medal title based on medal type
-function getMedalTitle(medalType) {
-    if (medalType === 'gold1') return '🏆 Gold Medal of Excellence 🏆';
-    if (medalType === 'Silver') return '🥈 Silver Medal of Achievement 🥈';
-    if (medalType === 'Bronze') return '🥉 Bronze Medal of Merit 🥉';
-    return '';
-}
-
 // Function to print certificate
 function printCertificate(results, medalType) {
     // Create a new window for the certificate
@@ -433,12 +448,6 @@ function printCertificate(results, medalType) {
                     font-weight: bold;
                     margin: 20px 0;
                 }
-                .medal-title {
-                    color: #f1c40f;
-                    font-size: 24px;
-                    font-weight: bold;
-                    margin: 15px 0;
-                }
                 .date {
                     color: #7f8c8d;
                     font-size: 18px;
@@ -460,7 +469,6 @@ function printCertificate(results, medalType) {
                 <img src="images/trophy.png" alt="Trophy" class="trophy-image">
                 <h1>Certificate of Achievement</h1>
                 <img src="medals/${medalType}.png" alt="Medal" class="medal-image">
-                <div class="medal-title">${getMedalTitle(medalType)}</div>
                 <div class="student-name">${results.user}</div>
                 <div class="details">has successfully completed the assessment in</div>
                 <div class="details" style="font-weight: bold;">${results.subject}</div>
@@ -521,7 +529,11 @@ function showSuccessStory(results) {
                         <div style="font-size: 16px; color: #333333; font-weight: 600;">${results.subject}</div>
                     </div>
                 </div>
-                <h3 style="color: #ffeb3b; margin: 15px 0;">${getMedalTitle(medalType)}</h3>
+                <h3 style="color: #ffeb3b; margin: 15px 0;">
+                    ${medalType === 'gold1' ? '🏆 Gold Medal of Excellence 🏆' : 
+                      medalType === 'Silver' ? '🥈 Silver Medal of Achievement 🥈' : 
+                      '🥉 Bronze Medal of Merit 🥉'}
+                </h3>
             </div>
 
             <div class="achievement-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">

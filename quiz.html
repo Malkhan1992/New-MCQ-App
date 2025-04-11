@@ -36,7 +36,6 @@
             margin-bottom: 30px;
             border-bottom: 2px solid #ffeb3b;
             padding-bottom: 15px;
-            position: relative;
         }
         
         .student-info {
@@ -69,31 +68,6 @@
         .timer {
             font-size: 18px;
             color: #ffffff;
-        }
-
-        .logout-button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 8px 15px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-
-        .logout-button:hover {
-            background: #ff4444;
-        }
-
-        .logout-icon {
-            font-size: 16px;
         }
         
         .question-container {
@@ -205,9 +179,6 @@
                 <div class="question-number" id="question-number">Question 01</div>
                 <div class="timer" id="timer">Time Left - 90 sec</div>
             </div>
-            <button class="logout-button" onclick="logout()">
-                <span class="logout-icon">🚪</span> Logout
-            </button>
         </div>
         
         <div class="question-container">
@@ -230,13 +201,5 @@
     </div>
 
     <script src="quiz.js"></script>
-    <script>
-        function logout() {
-            if (confirm('Are you sure you want to logout? Your quiz progress will be lost.')) {
-                localStorage.removeItem('loggedInUser');
-                window.location.href = 'login.html';
-            }
-        }
-    </script>
 </body>
 </html>

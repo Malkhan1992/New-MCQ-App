@@ -1,128 +1,148 @@
 {
   "questions": [
     {
-      "question": "What is the atomic number of carbon?",
+      "id": 1,
+      "question": "Which part of the plant grows underground?",
       "options": [
-        "4",
-        "6",
-        "8",
-        "12"
+        "Leaf",
+        "Flower",
+        "Stem",
+        "Root"
       ],
-      "answer": "6",
-      "difficulty": "hard",
-      "explanation": "The atomic number of carbon is 6."
+      "answer": "Root",
+      "explanation": "Roots grow underground and absorb water and nutrients from the soil.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the unit of electric current?",
+      "id": 2,
+      "question": "What do plants need to make their food?",
       "options": [
-        "Volt",
-        "Ampere",
-        "Watt",
-        "Ohm"
+        "Sunlight, water, air",
+        "Milk, sunlight, air",
+        "Soil, milk, water",
+        "Air, fire, water"
       ],
-      "answer": "Ampere",
-      "difficulty": "medium",
-      "explanation": "The unit of electric current is Ampere."
+      "answer": "Sunlight, water, air",
+      "explanation": "Plants use sunlight, water, and carbon dioxide from air to make food through photosynthesis.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the chemical formula for water?",
+      "id": 3,
+      "question": "Which organ helps us see?",
       "options": [
-        "H2O",
-        "HO2",
-        "H2O2",
-        "H3O"
+        "Ear",
+        "Eye",
+        "Nose",
+        "Mouth"
       ],
-      "answer": "H2O",
-      "difficulty": "hard",
-      "explanation": "The chemical formula for water is H2O."
+      "answer": "Eye",
+      "explanation": "Our eyes help us see the world around us.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the unit of force?",
+      "id": 4,
+      "question": "Which organ in the human body helps us breathe?",
       "options": [
-        "Joule",
-        "Watt",
-        "Newton",
-        "Pascal"
+        "Heart",
+        "Lungs",
+        "Liver",
+        "Kidney"
       ],
-      "answer": "Newton",
-      "difficulty": "hard",
-      "explanation": "The unit of force is Newton."
+      "answer": "Lungs",
+      "explanation": "Lungs help us take in oxygen and remove carbon dioxide when we breathe.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the pH of pure water?",
+      "id": 5,
+      "question": "Which gas do humans need to breathe in to survive?",
       "options": [
-        "5",
-        "6",
-        "7",
-        "8"
-      ],
-      "answer": "7",
-      "difficulty": "medium",
-      "explanation": "Pure water has a pH of 7, which is neutral."
-    },
-    {
-      "question": "Which subatomic particle has a negative charge?",
-      "options": [
-        "Proton",
-        "Neutron",
-        "Electron",
-        "Positron"
-      ],
-      "answer": "Electron",
-      "difficulty": "expert",
-      "explanation": "Electrons are negatively charged subatomic particles that orbit the nucleus of an atom."
-    },
-    {
-      "question": "What is the SI unit of force?",
-      "options": [
-        "Joule",
-        "Watt",
-        "Newton",
-        "Pascal"
-      ],
-      "answer": "Newton",
-      "difficulty": "expert",
-      "explanation": "The Newton (N) is the SI unit of force, named after Sir Isaac Newton."
-    },
-    {
-      "question": "Which gas do plants release during photosynthesis?",
-      "options": [
-        "Carbon Dioxide",
         "Oxygen",
+        "Carbon dioxide",
         "Nitrogen",
         "Hydrogen"
       ],
       "answer": "Oxygen",
-      "difficulty": "easy",
-      "explanation": "Plants release oxygen during photosynthesis."
+      "explanation": "Humans need oxygen to survive, as it helps produce energy in the body.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the chemical symbol for silver?",
+      "id": 6,
+      "question": "Which of these is a non-living thing?",
       "options": [
-        "Ag",
-        "Au",
-        "Fe",
-        "Cu"
+        "Tree",
+        "Bird",
+        "Stone",
+        "Fish"
       ],
-      "answer": "Ag",
-      "difficulty": "hard",
-      "explanation": "The chemical symbol for silver is Ag."
+      "answer": "Stone",
+      "explanation": "A stone is non-living, unlike trees, birds, and fish which are living.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the boiling point of water?",
+      "id": 7,
+      "question": "What do humans wear to protect their eyes from the sun?",
       "options": [
-        "90°C",
-        "100°C",
-        "110°C",
-        "120°C"
+        "Glasses",
+        "Sunglasses",
+        "Goggles",
+        "Hats"
       ],
-      "answer": "100°C",
-      "difficulty": "easy",
-      "explanation": "Water boils at 100°C at standard pressure."
+      "answer": "Sunglasses",
+      "explanation": "Sunglasses are worn to protect eyes from sunlight.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "What do we use to measure temperature?",
+      "options": [
+        "Thermometer",
+        "Barometer",
+        "Compass",
+        "Scale"
+      ],
+      "answer": "Thermometer",
+      "explanation": "A thermometer is used to measure temperature.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "Which planet is called the Blue Planet?",
+      "options": [
+        "Mars",
+        "Earth",
+        "Saturn",
+        "Jupiter"
+      ],
+      "answer": "Earth",
+      "explanation": "Earth is called the Blue Planet because of its vast water bodies.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "What are the three states of water?",
+      "options": [
+        "Solid, liquid, gas",
+        "Hot, cold, warm",
+        "Liquid, steam, fire",
+        "Water, ice, snow"
+      ],
+      "answer": "Solid, liquid, gas",
+      "explanation": "Water exists in three states: solid (ice), liquid (water), and gas (steam).",
+      "selected": false,
+      "timeSpent": 0
     }
   ],
-  "lastUpdated": "2025-04-04T11:32:47.905Z",
-  "user": "Aditya_Singh",
+  "totalQuestions": 10,
   "subject": "Science",
-  "totalQuestions": 10
+  "user": "Aditya_Singh",
+  "lastUpdated": "2025-04-11T06:26:27.817Z"
 }

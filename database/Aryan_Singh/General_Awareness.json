@@ -1,18 +1,35 @@
 {
   "questions": [
     {
-      "question": "Who was the first Prime Minister of India?",
+      "id": 1,
+      "question": "Which is the largest desert in the world?",
       "options": [
-        "Mahatma Gandhi",
-        "Jawaharlal Nehru",
-        "Indira Gandhi",
-        "Rajiv Gandhi"
+        "Sahara Desert",
+        "Gobi Desert",
+        "Thar Desert",
+        "Kalahari Desert"
       ],
-      "answer": "Jawaharlal Nehru",
-      "difficulty": "medium",
-      "explanation": "Jawaharlal Nehru was the first Prime Minister of India."
+      "answer": "Sahara Desert",
+      "explanation": "The Sahara Desert in Africa is the largest desert in the world.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
+      "id": 2,
+      "question": "What is the national currency of India?",
+      "options": [
+        "Dollar",
+        "Euro",
+        "Rupee",
+        "Pound"
+      ],
+      "answer": "Rupee",
+      "explanation": "The Indian Rupee is the official currency of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
       "question": "What is the capital of India?",
       "options": [
         "Mumbai",
@@ -21,108 +38,111 @@
         "Chennai"
       ],
       "answer": "Delhi",
-      "difficulty": "easy",
-      "explanation": "Delhi is the capital of India."
+      "explanation": "Delhi is the capital city of India.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "Which is the largest desert in India?",
-      "options": [
-        "Thar",
-        "Rann of Kutch",
-        "Ladakh",
-        "Deccan"
-      ],
-      "answer": "Thar",
-      "difficulty": "expert",
-      "explanation": "The Thar Desert is the largest desert in India."
-    },
-    {
-      "question": "Which river is known as the 'Ganga of the South'?",
-      "options": [
-        "Krishna",
-        "Godavari",
-        "Kaveri",
-        "Tungabhadra"
-      ],
-      "answer": "Godavari",
-      "difficulty": "hard",
-      "explanation": "The Godavari is often referred to as the 'Ganga of the South'."
-    },
-    {
+      "id": 4,
       "question": "What is the national bird of India?",
       "options": [
         "Peacock",
         "Parrot",
-        "Pigeon",
-        "Sparrow"
+        "Sparrow",
+        "Eagle"
       ],
       "answer": "Peacock",
-      "difficulty": "medium",
-      "explanation": "The Peacock is the national bird of India."
+      "explanation": "The Indian Peacock is the national bird of India.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "Which is the largest continent?",
+      "id": 5,
+      "question": "Which country is known as the Land of the Rising Sun?",
       "options": [
-        "Africa",
-        "Asia",
-        "Europe",
-        "North America"
+        "India",
+        "China",
+        "Japan",
+        "South Korea"
       ],
-      "answer": "Asia",
-      "difficulty": "easy",
-      "explanation": "Asia is the largest continent by area."
+      "answer": "Japan",
+      "explanation": "Japan is called the Land of the Rising Sun because it is located in the easternmost part of Asia.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is the national animal of India?",
+      "id": 6,
+      "question": "What is the main source of energy for life on Earth?",
       "options": [
-        "Lion",
-        "Tiger",
-        "Elephant",
-        "Leopard"
+        "Moon",
+        "Sun",
+        "Stars",
+        "Wind"
       ],
-      "answer": "Tiger",
-      "difficulty": "easy",
-      "explanation": "The Bengal Tiger is the national animal of India."
+      "answer": "Sun",
+      "explanation": "The Sun is the primary source of energy for life on Earth.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "Which is the largest state in India by area?",
+      "id": 7,
+      "question": "Which is the tallest mountain in the world?",
       "options": [
-        "Maharashtra",
-        "Rajasthan",
-        "Madhya Pradesh",
-        "Uttar Pradesh"
-      ],
-      "answer": "Rajasthan",
-      "difficulty": "hard",
-      "explanation": "Rajasthan is the largest state in India by area."
-    },
-    {
-      "question": "Which is the largest waterfall in India?",
-      "options": [
-        "Jog",
-        "Dudhsagar",
-        "Athirappilly",
-        "Shivanasamudra"
-      ],
-      "answer": "Jog",
-      "difficulty": "expert",
-      "explanation": "Jog Falls is the largest waterfall in India."
-    },
-    {
-      "question": "Which is the highest mountain peak in India?",
-      "options": [
+        "Mount Everest",
         "K2",
-        "Kanchenjunga",
-        "Nanda Devi",
-        "Kamet"
+        "Kangchenjunga",
+        "Makalu"
       ],
-      "answer": "Kanchenjunga",
-      "difficulty": "hard",
-      "explanation": "Kanchenjunga is the highest mountain peak in India."
+      "answer": "Mount Everest",
+      "explanation": "Mount Everest is the tallest mountain in the world.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "Which is the largest country in the world by area?",
+      "options": [
+        "China",
+        "Russia",
+        "India",
+        "United States"
+      ],
+      "answer": "Russia",
+      "explanation": "Russia is the largest country by area.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "Which is the smallest continent by area?",
+      "options": [
+        "Australia",
+        "Europe",
+        "Antarctica",
+        "South America"
+      ],
+      "answer": "Australia",
+      "explanation": "Australia is the smallest continent in terms of area.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "Which country is famous for the Eiffel Tower?",
+      "options": [
+        "Italy",
+        "France",
+        "Germany",
+        "Spain"
+      ],
+      "answer": "France",
+      "explanation": "The Eiffel Tower is a famous landmark located in Paris, France.",
+      "selected": false,
+      "timeSpent": 0
     }
   ],
-  "lastUpdated": "2025-04-04T11:08:58.054Z",
-  "user": "Aryan_Singh",
+  "totalQuestions": 10,
   "subject": "General_Awareness",
-  "totalQuestions": 10
+  "user": "Aryan_Singh",
+  "lastUpdated": "2025-04-11T10:12:29.508Z"
 }

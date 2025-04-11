@@ -1,39 +1,124 @@
 {
     "questions": [
         {
-            "question": "What is 2 + 2?",
+            "question": "What is 7 + 5?",
+            "options": ["10", "12", "13", "15"],
+            "answer": "12",
+            "explanation": "Adding 7 and 5 gives 12."
+        },
+        {
+            "question": "What is 15 - 8?",
+            "options": ["7", "6", "8", "9"],
+            "answer": "7",
+            "explanation": "Subtracting 8 from 15 leaves 7."
+        },
+        {
+            "question": "What is 6 × 3?",
+            "options": ["9", "18", "21", "24"],
+            "answer": "18",
+            "explanation": "Multiplying 6 and 3 gives 18."
+        },
+        {
+            "question": "If you divide 20 by 5, what is the result?",
             "options": ["3", "4", "5", "6"],
             "answer": "4",
-            "difficulty": "easy",
-            "explanation": "2 + 2 equals 4."
+            "explanation": "20 divided by 5 equals 4."
         },
         {
-            "question": "What is 5 × 3?",
-            "options": ["10", "15", "20", "25"],
-            "answer": "15",
-            "difficulty": "easy",
-            "explanation": "5 × 3 equals 15."
-        },
-        {
-            "question": "What is 10 - 4?",
-            "options": ["4", "5", "6", "7"],
-            "answer": "6",
-            "difficulty": "easy",
-            "explanation": "10 - 4 equals 6."
-        },
-        {
-            "question": "What is 8 ÷ 2?",
+            "question": "How many sides does a triangle have?",
             "options": ["2", "3", "4", "5"],
-            "answer": "4",
-            "difficulty": "easy",
-            "explanation": "8 divided by 2 equals 4."
+            "answer": "3",
+            "explanation": "A triangle has 3 sides."
         },
         {
-            "question": "What is the next number: 1, 2, 3, 4, ...?",
+            "question": "Which number comes after 99?",
+            "options": ["98", "100", "101", "99"],
+            "answer": "100",
+            "explanation": "The number after 99 is 100."
+        },
+        {
+            "question": "What is the place value of 7 in 372?",
+            "options": ["7", "70", "700", "10"],
+            "answer": "70",
+            "explanation": "The place value of 7 in the tens place is 70."
+        },
+        {
+            "question": "What is the sum of 14 and 23?",
+            "options": ["27", "37", "47", "34"],
+            "answer": "37",
+            "explanation": "Adding 14 and 23 gives 37."
+        },
+        {
+            "question": "What is half of 50?",
+            "options": ["20", "25", "30", "35"],
+            "answer": "25",
+            "explanation": "Half of 50 is 25."
+        },
+        {
+            "question": "How many minutes are in an hour?",
+            "options": ["60", "30", "45", "90"],
+            "answer": "60",
+            "explanation": "There are 60 minutes in an hour."
+        },
+        {
+            "question": "What is the smallest 3-digit number?",
+            "options": ["100", "101", "99", "999"],
+            "answer": "100",
+            "explanation": "100 is the smallest 3-digit number."
+        },
+        {
+            "question": "What is the result of 12 × 2?",
+            "options": ["22", "24", "26", "28"],
+            "answer": "24",
+            "explanation": "Multiplying 12 and 2 gives 24."
+        },
+        {
+            "question": "Which shape has 4 equal sides?",
+            "options": ["Rectangle", "Square", "Triangle", "Circle"],
+            "answer": "Square",
+            "explanation": "A square has 4 equal sides."
+        },
+        {
+            "question": "What is 100 - 55?",
+            "options": ["40", "45", "50", "55"],
+            "answer": "45",
+            "explanation": "Subtracting 55 from 100 leaves 45."
+        },
+        {
+            "question": "If you add 10 to 90, what is the result?",
+            "options": ["100", "90", "80", "110"],
+            "answer": "100",
+            "explanation": "Adding 10 to 90 gives 100."
+        },
+        {
+            "question": "How many months are in a year?",
+            "options": ["10", "11", "12", "13"],
+            "answer": "12",
+            "explanation": "There are 12 months in a year."
+        },
+        {
+            "question": "What is 9 × 4?",
+            "options": ["35", "36", "37", "38"],
+            "answer": "36",
+            "explanation": "Multiplying 9 and 4 gives 36."
+        },
+        {
+            "question": "If a book has 120 pages, how many pages does half the book have?",
+            "options": ["30", "40", "60", "80"],
+            "answer": "60",
+            "explanation": "Half of 120 pages is 60 pages."
+        },
+        {
+            "question": "What is the result of 25 divided by 5?",
             "options": ["4", "5", "6", "7"],
             "answer": "5",
-            "difficulty": "easy",
-            "explanation": "The sequence increases by 1 each time, so after 4 comes 5."
+            "explanation": "25 divided by 5 equals 5."
+        },
+        {
+            "question": "How many days are there in a week?",
+            "options": ["5", "6", "7", "8"],
+            "answer": "7",
+            "explanation": "There are 7 days in a week."
         }
     ]
-} 
+}

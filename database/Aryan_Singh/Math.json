@@ -1,43 +1,120 @@
 {
   "questions": [
     {
-      "question": "What is the integral of 2x?",
+      "id": 1,
+      "question": "What is the product of 13 × 4?",
       "options": [
-        "x",
-        "x²",
-        "2x",
-        "2x²"
+        "50",
+        "52",
+        "54",
+        "56"
       ],
-      "answer": "x²",
-      "difficulty": "expert",
-      "explanation": "The integral of 2x is x²."
+      "answer": "52",
+      "explanation": "Multiplying 13 and 4 gives 52.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is 25% of 200?",
+      "id": 2,
+      "question": "A train is 450 meters long. If it travels 300 meters, how much is left to cover?",
       "options": [
+        "150 m",
+        "200 m",
+        "100 m",
+        "250 m"
+      ],
+      "answer": "150 m",
+      "explanation": "450 - 300 = 150 meters left to cover.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
+      "question": "What is 25 × 8?",
+      "options": [
+        "180",
+        "190",
+        "200",
+        "210"
+      ],
+      "answer": "200",
+      "explanation": "Multiplying 25 and 8 gives 200.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 4,
+      "question": "What is 672 - 345?",
+      "options": [
+        "327",
+        "337",
+        "347",
+        "357"
+      ],
+      "answer": "327",
+      "explanation": "Subtracting 345 from 672 results in 327.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 5,
+      "question": "What is 15 × 15?",
+      "options": [
+        "200",
+        "220",
+        "225",
+        "250"
+      ],
+      "answer": "225",
+      "explanation": "Multiplying 15 by 15 gives 225.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 6,
+      "question": "What is 3/4 of 20?",
+      "options": [
+        "10",
+        "15",
+        "18",
+        "20"
+      ],
+      "answer": "15",
+      "explanation": "3/4 of 20 is (3 × 20) ÷ 4 = 15.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 7,
+      "question": "What is 625 ÷ 25?",
+      "options": [
+        "15",
+        "20",
         "25",
-        "50",
-        "75",
-        "100"
+        "30"
       ],
-      "answer": "50",
-      "difficulty": "medium",
-      "explanation": "25% of 200 is 50."
+      "answer": "25",
+      "explanation": "Dividing 625 by 25 gives 25.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is 12 × 5?",
+      "id": 8,
+      "question": "What is 456 + 234?",
       "options": [
-        "50",
-        "55",
-        "60",
-        "65"
+        "670",
+        "690",
+        "700",
+        "790"
       ],
-      "answer": "60",
-      "difficulty": "medium",
-      "explanation": "12 × 5 equals 60."
+      "answer": "690",
+      "explanation": "Adding 456 and 234 gives 690.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is 10 - 4?",
+      "id": 9,
+      "question": "How many sides does a hexagon have?",
       "options": [
         "4",
         "5",
@@ -45,72 +122,27 @@
         "7"
       ],
       "answer": "6",
-      "difficulty": "easy",
-      "explanation": "10 - 4 equals 6."
+      "explanation": "A hexagon has 6 sides.",
+      "selected": false,
+      "timeSpent": 0
     },
     {
-      "question": "What is 20 × 15?",
+      "id": 10,
+      "question": "What is the sum of angles in a triangle?",
       "options": [
-        "250",
-        "275",
-        "300",
-        "325"
+        "180°",
+        "360°",
+        "90°",
+        "270°"
       ],
-      "answer": "300",
-      "difficulty": "expert",
-      "explanation": "20 × 15 equals 300."
-    },
-    {
-      "question": "What is the square root of 144?",
-      "options": [
-        "10",
-        "11",
-        "12",
-        "13"
-      ],
-      "answer": "12",
-      "difficulty": "expert",
-      "explanation": "The square root of 144 is 12."
-    },
-    {
-      "question": "What is the derivative of x²?",
-      "options": [
-        "x",
-        "2x",
-        "x²",
-        "2x²"
-      ],
-      "answer": "2x",
-      "difficulty": "expert",
-      "explanation": "The derivative of x² is 2x."
-    },
-    {
-      "question": "What is the square root of 16?",
-      "options": [
-        "2",
-        "4",
-        "6",
-        "8"
-      ],
-      "answer": "4",
-      "difficulty": "medium",
-      "explanation": "The square root of 16 is 4."
-    },
-    {
-      "question": "What is 5 × 3?",
-      "options": [
-        "10",
-        "15",
-        "20",
-        "25"
-      ],
-      "answer": "15",
-      "difficulty": "easy",
-      "explanation": "5 × 3 equals 15."
+      "answer": "180°",
+      "explanation": "The sum of angles in a triangle is always 180°.",
+      "selected": false,
+      "timeSpent": 0
     }
   ],
-  "lastUpdated": "2025-04-04T11:18:26.082Z",
-  "user": "Aryan_Singh",
+  "totalQuestions": 10,
   "subject": "Math",
-  "totalQuestions": 9
+  "user": "Aryan_Singh",
+  "lastUpdated": "2025-04-11T06:46:42.858Z"
 }
