@@ -1,14 +1,25 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    clean: true
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
@@ -19,12 +30,26 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/admin.html',
+      filename: 'admin.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/quiz.html',
+      filename: 'quiz.html'
+    })
+  ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public')
+      directory: path.join(__dirname, 'dist')
     },
     compress: true,
-    port: 8000,
-    historyApiFallback: true
+    port: 8080,
+    open: true
   }
 }; 
