@@ -1,25 +1,148 @@
 {
-    "questions": [
-        {
-            "question": "What is a synonym for 'happy'?",
-            "options": ["Sad", "Joyful", "Angry", "Tired"],
-            "answer": "Joyful",
-            "difficulty": "hard",
-            "explanation": "A synonym for 'happy' is 'joyful'."
-        },
-        {
-            "question": "What is the literary term for a comparison using 'like' or 'as'?",
-            "options": ["Metaphor", "Simile", "Hyperbole", "Personification"],
-            "answer": "Simile",
-            "difficulty": "expert",
-            "explanation": "A simile is a comparison using 'like' or 'as'."
-        },
-        {
-            "question": "What is the past tense of 'run'?",
-            "options": ["Running", "Ran", "Runs", "Run"],
-            "answer": "Ran",
-            "difficulty": "medium",
-            "explanation": "The past tense of 'run' is 'ran'."
-        }
-    ]
-} 
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a group of words that make complete sense called?",
+      "options": [
+        "Phrase",
+        "Clause",
+        "Sentence",
+        "Paragraph"
+      ],
+      "answer": "Sentence",
+      "explanation": "A sentence is a group of words that makes complete sense.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 2,
+      "question": "Choose the correct article: '____ apple a day keeps the doctor away.'",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "No article"
+      ],
+      "answer": "An",
+      "explanation": "'An' is used before words starting with a vowel sound like 'apple'.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the plural of 'child'?",
+      "options": [
+        "Childs",
+        "Children",
+        "Childes",
+        "Childrens"
+      ],
+      "answer": "Children",
+      "explanation": "'Children' is the correct plural form of 'child'.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the compound word in 'The sunflowers are beautiful'?",
+      "options": [
+        "Sunflowers",
+        "Beautiful",
+        "Are",
+        "The"
+      ],
+      "answer": "Sunflowers",
+      "explanation": "'Sunflowers' is a compound word made from 'sun' and 'flowers'.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 5,
+      "question": "Pick the correct spelling:",
+      "options": [
+        "Receve",
+        "Recieve",
+        "Receive",
+        "Receeve"
+      ],
+      "answer": "Receive",
+      "explanation": "'Receive' is the correct spelling.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 6,
+      "question": "What is the past tense of 'run'?",
+      "options": [
+        "Ran",
+        "Run",
+        "Running",
+        "Runned"
+      ],
+      "answer": "Ran",
+      "explanation": "'Ran' is the past tense of 'run'.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 7,
+      "question": "Which word is an adjective in this sentence: 'The blue car is fast.'?",
+      "options": [
+        "Blue",
+        "Car",
+        "Is",
+        "Fast"
+      ],
+      "answer": "Blue",
+      "explanation": "An adjective describes a noun. 'Blue' describes the car.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "Which word is a conjunction: 'She likes apples and oranges.'?",
+      "options": [
+        "Likes",
+        "Apples",
+        "And",
+        "She"
+      ],
+      "answer": "And",
+      "explanation": "A conjunction joins words or phrases. 'And' is the conjunction here.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "Identify the type of sentence: 'Hurray! We won the match.'",
+      "options": [
+        "Declarative",
+        "Interrogative",
+        "Imperative",
+        "Exclamatory"
+      ],
+      "answer": "Exclamatory",
+      "explanation": "This is an exclamatory sentence expressing strong emotion.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "Complete the sentence: 'They are _____ in the park.'",
+      "options": [
+        "Play",
+        "Plays",
+        "Playing",
+        "Played"
+      ],
+      "answer": "Playing",
+      "explanation": "'Playing' is the correct form to use here.",
+      "selected": false,
+      "timeSpent": 0
+    }
+  ],
+  "totalQuestions": 10,
+  "subject": "English",
+  "user": "Aryan_Singh",
+  "lastUpdated": "2025-04-11T06:47:18.248Z"
+}

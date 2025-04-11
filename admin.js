@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Base URL for API endpoints
     const BASE_URL = 'http://localhost:8000';
-    let currentRefreshedQuestions = null;
+    let allAvailableQuestions = [];
+    let previouslySelectedQuestions = new Set();
 
     // Function to format subject name for file path
     function formatSubjectName(subject) {
@@ -23,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to show loading state
     function showLoading() {
-        questionDisplay.innerHTML = '<div class="loading">Loading questions...</div>';
+        document.getElementById("questionDisplay").innerHTML = '<div class="loading">Loading questions...</div>';
     }
 
     // Function to show error message
     function showError(message) {
-        questionDisplay.innerHTML = `<div class="error">${message}</div>`;
+        document.getElementById("questionDisplay").innerHTML = `<div class="error">${message}</div>`;
     }
 
     // Function to show success message
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Function to load questions
+    // Function to load and display all questions
     async function loadQuestions() {
         const user = userSelect.value;
         const subject = subjectSelect.value;
@@ -58,112 +59,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         showLoading();
-        currentRefreshedQuestions = null;
         
         try {
-            console.log(`Loading questions for ${user}/${subject}`);
-            const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
+            const formattedUser = formatUserName(user);
+            const formattedSubject = formatSubjectName(subject);
+            const response = await fetch(`${BASE_URL}/database/${formattedUser}/${formattedSubject}.json`);
+            
             if (!response.ok) {
                 if (response.status === 404) {
-                    showError('No questions found. Please refresh to generate new questions.');
-                    return;
+                    throw new Error('No questions found for this subject. Please add some questions first.');
                 }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+            
             const data = await response.json();
-            console.log('Loaded questions:', data);
-            displayQuestions(data.questions || [], false);
+            const questions = data.questions || [];
+            
+            if (questions.length === 0) {
+                throw new Error('No questions found for this subject');
+            }
+            
+            // Store all questions globally
+            allAvailableQuestions = questions;
+            previouslySelectedQuestions.clear();
+            
+            // Display all questions
+            let html = `
+                <div class="questions-header">
+                    <h2>All Available Questions</h2>
+                    <p>Showing all ${questions.length} questions in the database</p>
+                </div>
+                <div class="question-list">
+            `;
+            
+            questions.forEach((q, index) => {
+                html += `
+                    <div class="question-item">
+                        <h3>Question ${index + 1}</h3>
+                        <p class="question-text"><strong>Q: </strong>${q.question}</p>
+                        <p class="options-label"><strong>Options:</strong></p>
+                        <ul class="options-list">
+                            ${q.options.map((opt, i) => `<li>${String.fromCharCode(65 + i)}. ${opt}</li>`).join('')}
+                        </ul>
+                        <p class="answer"><strong>Correct Answer: </strong>${q.answer}</p>
+                        <p class="explanation"><strong>Explanation: </strong>${q.explanation || 'No explanation provided.'}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            questionDisplay.innerHTML = html;
+            
+            // Add success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = `Viewing all ${questions.length} available questions`;
+            questionDisplay.insertBefore(successDiv, questionDisplay.firstChild);
+            
         } catch (error) {
             console.error('Error loading questions:', error);
             showError(`Error loading questions: ${error.message}`);
         }
     }
 
-    // Function to display questions
-    function displayQuestions(questions, isRefreshed = false) {
-        if (!questions || questions.length === 0) {
-            showError('No questions available for this subject');
-            return;
-        }
-
-        let html = `
-            <div class="questions-header">
-                <h2>${isRefreshed ? 'Refreshed' : 'Current'} Questions List</h2>
-                <p>Total Questions: ${questions.length}</p>
-            </div>
-            <div class="question-list">
-        `;
-        
-        questions.forEach((q, index) => {
-            html += `
-                <div class="question-item">
-                    <h3>Question ${index + 1}</h3>
-                    <p class="question-text"><strong>Q: </strong>${q.question}</p>
-                    <p class="options-label"><strong>Options:</strong></p>
-                    <ul class="options-list">
-                        ${q.options.map((opt, i) => `<li>${String.fromCharCode(65 + i)}. ${opt}</li>`).join('')}
-                    </ul>
-                    <p class="answer"><strong>Correct Answer: </strong>${q.answer}</p>
-                    <p class="difficulty"><strong>Difficulty: </strong>${q.difficulty}</p>
-                    <p class="explanation"><strong>Explanation: </strong>${q.explanation || 'No explanation provided.'}</p>
-                </div>
-            `;
-        });
-        html += '</div>';
-
-        if (isRefreshed) {
-            html += createConfirmButton();
-        }
-
-        questionDisplay.innerHTML = html;
-
-        if (isRefreshed) {
-            const confirmBtn = document.getElementById('confirmQuestions');
-            confirmBtn.addEventListener('click', () => confirmQuestions(questions));
-        }
-    }
-
-    // Function to confirm and save questions
-    async function confirmQuestions(questions) {
-        const user = userSelect.value;
-        const subject = subjectSelect.value;
-
-        try {
-            // Create user directory if it doesn't exist
-            const dirResponse = await fetch(`${BASE_URL}/database/${user}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Create-Directory': 'true'
-                }
-            });
-
-            if (!dirResponse.ok) {
-                throw new Error('Failed to create directory');
-            }
-
-            // Update user's question file
-            const updateResponse = await fetch(`${BASE_URL}/database/${user}/${subject}.json`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ questions })
-            });
-            
-            if (!updateResponse.ok) {
-                throw new Error(`Failed to update questions: ${updateResponse.status}`);
-            }
-            
-            showSuccess(`Successfully added ${questions.length} questions to ${user}'s ${subject} quiz!`);
-            currentRefreshedQuestions = null;
-        } catch (error) {
-            console.error('Error saving questions:', error);
-            showError(`Error saving questions: ${error.message}`);
-        }
-    }
-
-    // Function to refresh questions
+    // Function to refresh and get 10 questions
     async function refreshQuestions() {
         const user = userSelect.value;
         const subject = subjectSelect.value;
@@ -173,47 +132,201 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (allAvailableQuestions.length === 0) {
+            showError('Please view all questions first');
+            return;
+        }
+
         showLoading();
         
         try {
-            console.log('Loading question pool...');
-            const poolResponse = await fetch(`${BASE_URL}/database/admin/question_pool.json`);
-            if (!poolResponse.ok) {
-                throw new Error(`Failed to load question pool: ${poolResponse.status}`);
+            // Get available questions that weren't selected before
+            const availableQuestions = allAvailableQuestions.filter((_, index) => 
+                !previouslySelectedQuestions.has(index)
+            );
+
+            let selectedQuestions = [];
+            
+            if (availableQuestions.length >= 10) {
+                // If we have enough new questions, select 10 random ones
+                const shuffled = [...availableQuestions].sort(() => 0.5 - Math.random());
+                selectedQuestions = shuffled.slice(0, 10);
+                
+                // Add their indices to previously selected
+                allAvailableQuestions.forEach((q, index) => {
+                    if (selectedQuestions.includes(q)) {
+                        previouslySelectedQuestions.add(index);
+                    }
+                });
+            } else {
+                // If we don't have enough new questions, reset the selection and pick random 10
+                previouslySelectedQuestions.clear();
+                const shuffled = [...allAvailableQuestions].sort(() => 0.5 - Math.random());
+                selectedQuestions = shuffled.slice(0, 10);
             }
-            const pool = await poolResponse.json();
-            console.log('Question pool loaded:', pool);
+
+            // Display the selected questions with new serial numbers (1-10)
+            let html = `
+                <div class="questions-header">
+                    <h2>Selected Quiz Questions</h2>
+                    <p>These 10 questions have been selected. Review them and click "Confirm" to save for the quiz.</p>
+                </div>
+                <div class="question-list">
+            `;
             
-            // Get all questions for the subject
-            const subjectQuestions = [];
-            const difficultyLevels = ['easy', 'medium', 'hard', 'expert'];
+            selectedQuestions.forEach((q, index) => {
+                html += `
+                    <div class="question-item">
+                        <h3>Question ${index + 1}</h3>
+                        <p class="question-text"><strong>Q: </strong>${q.question}</p>
+                        <p class="options-label"><strong>Options:</strong></p>
+                        <ul class="options-list">
+                            ${q.options.map((opt, i) => `<li>${String.fromCharCode(65 + i)}. ${opt}</li>`).join('')}
+                        </ul>
+                        <p class="answer"><strong>Correct Answer: </strong>${q.answer}</p>
+                        <p class="explanation"><strong>Explanation: </strong>${q.explanation || 'No explanation provided.'}</p>
+                    </div>
+                `;
+            });
             
-            for (const difficulty of difficultyLevels) {
-                if (pool[subject]?.[difficulty]) {
-                    subjectQuestions.push(...pool[subject][difficulty].map(q => ({
-                        ...q,
-                        difficulty
-                    })));
+            html += `
+                </div>
+                <div class="confirm-button-container">
+                    <p class="info-text">Please review these 10 questions. You can get a new set or confirm these questions for the quiz.</p>
+                    <div class="button-group">
+                        <button id="refreshAgain" class="refresh-button">
+                            Get New Set
+                        </button>
+                        <button id="confirmQuestions" class="confirm-button">
+                            Confirm & Save These Questions
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Set the HTML content
+            questionDisplay.innerHTML = html;
+            
+            // Store current selection for saving
+            window.currentRefreshedQuestions = selectedQuestions;
+            
+            // Add event listeners to the new buttons
+            document.getElementById('confirmQuestions').addEventListener('click', () => {
+                if (confirm('Are you sure you want to save these 10 questions for the quiz? This will replace any existing questions.')) {
+                    confirmQuestions(selectedQuestions);
                 }
-            }
-
-            if (subjectQuestions.length === 0) {
-                throw new Error(`No questions available for ${subject}`);
-            }
-
-            console.log(`Found ${subjectQuestions.length} questions for ${subject}`);
+            });
+            document.getElementById('refreshAgain').addEventListener('click', refreshQuestions);
             
-            // Shuffle and select 10 questions
-            const selectedQuestions = [...subjectQuestions]
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 10);
-
-            console.log('Selected questions:', selectedQuestions);
-            currentRefreshedQuestions = selectedQuestions;
-            displayQuestions(selectedQuestions, true);
         } catch (error) {
             console.error('Error refreshing questions:', error);
             showError(`Error refreshing questions: ${error.message}`);
+        }
+    }
+
+    // Function to confirm and save questions
+    async function confirmQuestions(questions) {
+        const user = userSelect.value;
+        const subject = subjectSelect.value;
+
+        try {
+            const formattedUser = formatUserName(user);
+            const formattedSubject = formatSubjectName(subject);
+            
+            showLoading();
+            
+            // Ensure directories exist
+            await fetch(`${BASE_URL}/create-directory`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ path: 'database' })
+            });
+            
+            await fetch(`${BASE_URL}/create-directory`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ path: `database/${formattedUser}` })
+            });
+
+            // Format questions with new serial numbers 1-10
+            const formattedQuestions = questions.map((q, index) => ({
+                id: index + 1,
+                question: q.question,
+                options: q.options,
+                answer: q.answer,
+                explanation: q.explanation || '',
+                selected: false,
+                timeSpent: 0
+            }));
+            
+            // Save the file
+            const updateResponse = await fetch(`${BASE_URL}/save-file`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    path: `database/${formattedUser}/${formattedSubject}.json`,
+                    content: JSON.stringify({ 
+                        questions: formattedQuestions,
+                        totalQuestions: formattedQuestions.length,
+                        subject: subject,
+                        user: user,
+                        lastUpdated: new Date().toISOString()
+                    }, null, 2)
+                })
+            });
+            
+            if (!updateResponse.ok) {
+                throw new Error(`Failed to save questions: ${updateResponse.status}`);
+            }
+            
+            const successMessage = `Successfully saved 10 questions to ${user}'s ${subject} quiz!`;
+            
+            // Display the saved questions
+            let html = `
+                <div class="questions-header">
+                    <h2>Questions Saved Successfully</h2>
+                    <p>These 10 questions have been saved and will appear in the quiz in this order.</p>
+                </div>
+                <div class="question-list">
+            `;
+            
+            formattedQuestions.forEach((q) => {
+                html += `
+                    <div class="question-item">
+                        <h3>Question ${q.id}</h3>
+                        <p class="question-text"><strong>Q: </strong>${q.question}</p>
+                        <p class="options-label"><strong>Options:</strong></p>
+                        <ul class="options-list">
+                            ${q.options.map((opt, i) => `<li>${String.fromCharCode(65 + i)}. ${opt}</li>`).join('')}
+                        </ul>
+                        <p class="answer"><strong>Correct Answer: </strong>${q.answer}</p>
+                        <p class="explanation"><strong>Explanation: </strong>${q.explanation || 'No explanation provided.'}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            // Set the HTML content
+            questionDisplay.innerHTML = html;
+            
+            // Add success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = successMessage;
+            questionDisplay.insertBefore(successDiv, questionDisplay.firstChild);
+            
+            // Clear the current selection
+            window.currentRefreshedQuestions = null;
+            previouslySelectedQuestions.clear();
+        } catch (error) {
+            console.error('Error saving questions:', error);
+            showError(`Error saving questions: ${error.message}`);
         }
     }
 
@@ -237,48 +350,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.get('option4')
             ],
             answer: formData.get('answer'),
-            difficulty: formData.get('difficulty'),
             explanation: formData.get('explanation')
         };
 
         try {
+            const user = userSelect.value;
             const subject = subjectSelect.value;
-            if (!subject) {
-                throw new Error('Please select a subject');
+            
+            if (!user || !subject) {
+                throw new Error('Please select both user and subject');
             }
+            
+            // Format names for paths
+            const formattedUser = formatUserName(user);
+            const formattedSubject = formatSubjectName(subject);
 
-            // Load current pool
-            const poolResponse = await fetch(`${BASE_URL}/database/admin/question_pool.json`);
-            if (!poolResponse.ok) {
-                throw new Error('Failed to load question pool');
-            }
-            const pool = await poolResponse.json();
-
-            // Add new question to the pool
-            if (!pool[subject]) {
-                pool[subject] = {
-                    easy: [],
-                    medium: [],
-                    hard: [],
-                    expert: []
-                };
-            }
-
-            pool[subject][newQuestion.difficulty].push(newQuestion);
-
-            // Save updated pool
-            const updateResponse = await fetch(`${BASE_URL}/database/admin/question_pool.json`, {
-                method: 'PUT',
+            // Ensure directories exist
+            await fetch(`${BASE_URL}/create-directory`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(pool)
+                body: JSON.stringify({ path: 'database' })
             });
-
-            if (!updateResponse.ok) {
-                throw new Error('Failed to update question pool');
+            
+            await fetch(`${BASE_URL}/create-directory`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ path: `database/${formattedUser}` })
+            });
+            
+            // Try to load existing questions
+            let existingQuestions = [];
+            try {
+                const existingResponse = await fetch(`${BASE_URL}/database/${formattedUser}/${formattedSubject}.json`);
+                if (existingResponse.ok) {
+                    const data = await existingResponse.json();
+                    existingQuestions = data.questions || [];
+                }
+            } catch (error) {
+                console.log("No existing questions found, creating new file");
             }
-
+            
+            // Add new question
+            existingQuestions.push(newQuestion);
+            
+            // Save to user database
+            const saveResponse = await fetch(`${BASE_URL}/save-file`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    path: `database/${formattedUser}/${formattedSubject}.json`,
+                    content: JSON.stringify({ questions: existingQuestions }, null, 2)
+                })
+            });
+            
+            if (!saveResponse.ok) {
+                throw new Error(`Failed to save question: ${saveResponse.status}`);
+            }
+            
             showSuccess('Question added successfully!');
             addQuestionForm.reset();
             addQuestionForm.style.display = 'none';

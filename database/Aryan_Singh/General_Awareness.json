@@ -1,124 +1,148 @@
 {
-    "questions": [
-        {
-            "question": "Which is the largest ocean in the world?",
-            "options": [
-                "Atlantic",
-                "Indian",
-                "Pacific",
-                "Arctic"
-            ],
-            "answer": "Pacific",
-            "difficulty": "easy",
-            "explanation": "The Pacific Ocean is the largest ocean in the world."
-        },
-        {
-            "question": "What is the national animal of India?",
-            "options": [
-                "Lion",
-                "Tiger",
-                "Elephant",
-                "Leopard"
-            ],
-            "answer": "Tiger",
-            "difficulty": "easy",
-            "explanation": "The Bengal Tiger is the national animal of India."
-        },
-        {
-            "question": "Which Indian state was the first to implement the Panchayati Raj system?",
-            "options": [
-                "Rajasthan",
-                "Kerala",
-                "West Bengal",
-                "Maharashtra"
-            ],
-            "answer": "Rajasthan",
-            "difficulty": "expert",
-            "explanation": "Rajasthan was the first state to implement the Panchayati Raj system in 1959."
-        },
-        {
-            "question": "Which is the largest continent?",
-            "options": [
-                "Africa",
-                "Asia",
-                "Europe",
-                "North America"
-            ],
-            "answer": "Asia",
-            "difficulty": "easy",
-            "explanation": "Asia is the largest continent by area."
-        },
-        {
-            "question": "Which is the smallest state in India by area?",
-            "options": [
-                "Goa",
-                "Sikkim",
-                "Tripura",
-                "Mizoram"
-            ],
-            "answer": "Goa",
-            "difficulty": "hard",
-            "explanation": "Goa is the smallest state in India by area."
-        },
-        {
-            "question": "Which river is known as the 'Ganga of the South'?",
-            "options": [
-                "Krishna",
-                "Godavari",
-                "Kaveri",
-                "Tungabhadra"
-            ],
-            "answer": "Godavari",
-            "difficulty": "hard",
-            "explanation": "The Godavari is often referred to as the 'Ganga of the South'."
-        },
-        {
-            "question": "Who was the first Prime Minister of India?",
-            "options": [
-                "Mahatma Gandhi",
-                "Jawaharlal Nehru",
-                "Indira Gandhi",
-                "Rajiv Gandhi"
-            ],
-            "answer": "Jawaharlal Nehru",
-            "difficulty": "medium",
-            "explanation": "Jawaharlal Nehru was the first Prime Minister of India."
-        },
-        {
-            "question": "Which is the largest lake in India?",
-            "options": [
-                "Wular",
-                "Chilika",
-                "Dal",
-                "Sambhar"
-            ],
-            "answer": "Wular",
-            "difficulty": "expert",
-            "explanation": "Wular Lake is the largest lake in India."
-        },
-        {
-            "question": "Which is the largest delta in India?",
-            "options": [
-                "Ganga-Brahmaputra",
-                "Krishna-Godavari",
-                "Mahanadi",
-                "Kaveri"
-            ],
-            "answer": "Ganga-Brahmaputra",
-            "difficulty": "expert",
-            "explanation": "The Ganga-Brahmaputra delta is the largest delta in India."
-        },
-        {
-            "question": "What is the capital of India?",
-            "options": [
-                "Mumbai",
-                "Delhi",
-                "Kolkata",
-                "Chennai"
-            ],
-            "answer": "Delhi",
-            "difficulty": "easy",
-            "explanation": "Delhi is the capital of India."
-        }
-    ]
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which is the tallest mountain in the world?",
+      "options": [
+        "Mount Everest",
+        "K2",
+        "Kangchenjunga",
+        "Makalu"
+      ],
+      "answer": "Mount Everest",
+      "explanation": "Mount Everest is the tallest mountain in the world.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 2,
+      "question": "Which is the smallest continent by area?",
+      "options": [
+        "Australia",
+        "Europe",
+        "Antarctica",
+        "South America"
+      ],
+      "answer": "Australia",
+      "explanation": "Australia is the smallest continent in terms of area.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": [
+        "India",
+        "China",
+        "Japan",
+        "South Korea"
+      ],
+      "answer": "Japan",
+      "explanation": "Japan is called the Land of the Rising Sun because it is located in the easternmost part of Asia.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the national bird of India?",
+      "options": [
+        "Peacock",
+        "Parrot",
+        "Sparrow",
+        "Eagle"
+      ],
+      "answer": "Peacock",
+      "explanation": "The Indian Peacock is the national bird of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 5,
+      "question": "What is the national currency of India?",
+      "options": [
+        "Dollar",
+        "Euro",
+        "Rupee",
+        "Pound"
+      ],
+      "answer": "Rupee",
+      "explanation": "The Indian Rupee is the official currency of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 6,
+      "question": "Which is the largest desert in the world?",
+      "options": [
+        "Sahara Desert",
+        "Gobi Desert",
+        "Thar Desert",
+        "Kalahari Desert"
+      ],
+      "answer": "Sahara Desert",
+      "explanation": "The Sahara Desert in Africa is the largest desert in the world.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 7,
+      "question": "Which country is famous for the Eiffel Tower?",
+      "options": [
+        "Italy",
+        "France",
+        "Germany",
+        "Spain"
+      ],
+      "answer": "France",
+      "explanation": "The Eiffel Tower is a famous landmark located in Paris, France.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the capital of India?",
+      "options": [
+        "Mumbai",
+        "Delhi",
+        "Kolkata",
+        "Chennai"
+      ],
+      "answer": "Delhi",
+      "explanation": "Delhi is the capital city of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the main source of energy for life on Earth?",
+      "options": [
+        "Moon",
+        "Sun",
+        "Stars",
+        "Wind"
+      ],
+      "answer": "Sun",
+      "explanation": "The Sun is the primary source of energy for life on Earth.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "Which is the largest country in the world by area?",
+      "options": [
+        "China",
+        "Russia",
+        "India",
+        "United States"
+      ],
+      "answer": "Russia",
+      "explanation": "Russia is the largest country by area.",
+      "selected": false,
+      "timeSpent": 0
+    }
+  ],
+  "totalQuestions": 10,
+  "subject": "General_Awareness",
+  "user": "Aryan_Singh",
+  "lastUpdated": "2025-04-11T06:45:52.290Z"
 }

@@ -1,53 +1,147 @@
 {
-    "questions": [
-        {
-            "question": "What is the capital of India?",
-            "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
-            "answer": "Delhi",
-            "difficulty": "easy",
-            "explanation": "Delhi is the capital of India."
-        },
-        {
-            "question": "Which is the largest continent?",
-            "options": ["Africa", "Asia", "Europe", "North America"],
-            "answer": "Asia",
-            "difficulty": "easy",
-            "explanation": "Asia is the largest continent by area."
-        },
-        {
-            "question": "What is the national animal of India?",
-            "options": ["Lion", "Tiger", "Elephant", "Leopard"],
-            "answer": "Tiger",
-            "difficulty": "easy",
-            "explanation": "The Bengal Tiger is the national animal of India."
-        },
-        {
-            "question": "Who is known as the Father of the Nation in India?",
-            "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Subhash Chandra Bose", "Bhagat Singh"],
-            "answer": "Mahatma Gandhi",
-            "difficulty": "easy",
-            "explanation": "Mahatma Gandhi is called the Father of the Nation for his role in India's freedom struggle."
-        },
-        {
-            "question": "Which is the national bird of India?",
-            "options": ["Parrot", "Peacock", "Pigeon", "Sparrow"],
-            "answer": "Peacock",
-            "difficulty": "easy",
-            "explanation": "The Indian Peacock is the national bird of India."
-        },
-        {
-            "question": "What is the national flower of India?",
-            "options": ["Rose", "Lotus", "Sunflower", "Marigold"],
-            "answer": "Lotus",
-            "difficulty": "easy",
-            "explanation": "The Lotus is the national flower of India."
-        },
-        {
-            "question": "Which festival is known as the 'Festival of Lights'?",
-            "options": ["Holi", "Diwali", "Dussehra", "Raksha Bandhan"],
-            "answer": "Diwali",
-            "difficulty": "easy",
-            "explanation": "Diwali is called the Festival of Lights because people light lamps and candles."
-        }
-    ]
-} 
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which animal is known for its ability to change colors?",
+      "options": [
+        "Octopus",
+        "Chameleon",
+        "Crocodile",
+        "Turtle"
+      ],
+      "answer": "Chameleon",
+      "explanation": "Chameleons are known for their ability to change their skin color.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 2,
+      "question": "Which is the longest river in the world?",
+      "options": [
+        "Amazon",
+        "Nile",
+        "Ganga",
+        "Yangtze"
+      ],
+      "answer": "Nile",
+      "explanation": "The Nile is the longest river, flowing through northeastern Africa.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
+      "question": "What is the national currency of India?",
+      "options": [
+        "Dollar",
+        "Euro",
+        "Rupee",
+        "Pound"
+      ],
+      "answer": "Rupee",
+      "explanation": "The Indian Rupee is the official currency of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 4,
+      "question": "What is the tallest mountain in the world?",
+      "options": [
+        "Mount Everest",
+        "K2",
+        "Kangchenjunga",
+        "Makalu"
+      ],
+      "answer": "Mount Everest",
+      "explanation": "Mount Everest is the tallest mountain, with a height of 8,848 meters.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 5,
+      "question": "Which is the largest ocean in the world?",
+      "options": [
+        "Indian Ocean",
+        "Atlantic Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "answer": "Pacific Ocean",
+      "explanation": "The Pacific Ocean is the largest ocean, covering more area than all the land masses combined.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 6,
+      "question": "Which animal is the largest land animal?",
+      "options": [
+        "Elephant",
+        "Hippopotamus",
+        "Giraffe",
+        "Rhinoceros"
+      ],
+      "answer": "Elephant",
+      "explanation": "The elephant is the largest land animal, known for its size and strength.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 7,
+      "question": "Which bird is the national bird of India?",
+      "options": [
+        "Peacock",
+        "Sparrow",
+        "Eagle",
+        "Parrot"
+      ],
+      "answer": "Peacock",
+      "explanation": "The Indian Peacock is the national bird of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "Which monument in India is called the symbol of love?",
+      "options": [
+        "Red Fort",
+        "Taj Mahal",
+        "India Gate",
+        "Qutub Minar"
+      ],
+      "answer": "Taj Mahal",
+      "explanation": "The Taj Mahal is called the symbol of love as it was built by Shah Jahan in memory of his wife Mumtaz Mahal.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the national fruit of India?",
+      "options": [
+        "Banana",
+        "Mango",
+        "Apple",
+        "Guava"
+      ],
+      "answer": "Mango",
+      "explanation": "The mango is known as the national fruit of India.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "Which country is called the Land of the Rising Sun?",
+      "options": [
+        "India",
+        "China",
+        "Japan",
+        "South Korea"
+      ],
+      "answer": "Japan",
+      "explanation": "Japan is called the Land of the Rising Sun because it is located in the easternmost part of Asia.",
+      "selected": false,
+      "timeSpent": 0
+    }
+  ],
+  "totalQuestions": 10,
+  "subject": "General_Awareness",
+  "user": "Aditya_Singh"
+}

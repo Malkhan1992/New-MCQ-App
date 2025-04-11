@@ -1,46 +1,148 @@
 {
-    "questions": [
-        {
-            "question": "What do plants need to make their own food?",
-            "options": ["Water", "Sunlight", "Carbon Dioxide", "All of the above"],
-            "answer": "All of the above",
-            "difficulty": "easy",
-            "explanation": "Plants need water, sunlight, and carbon dioxide for photosynthesis."
-        },
-        {
-            "question": "Which planet is closest to the Sun?",
-            "options": ["Venus", "Mars", "Mercury", "Earth"],
-            "answer": "Mercury",
-            "difficulty": "easy",
-            "explanation": "Mercury is the closest planet to the Sun."
-        },
-        {
-            "question": "What is the largest organ in the human body?",
-            "options": ["Heart", "Liver", "Skin", "Brain"],
-            "answer": "Skin",
-            "difficulty": "easy",
-            "explanation": "The skin is the largest organ in the human body."
-        },
-        {
-            "question": "What is the boiling point of water?",
-            "options": ["0°C", "50°C", "100°C", "150°C"],
-            "answer": "100°C",
-            "difficulty": "easy",
-            "explanation": "Water boils at 100 degrees Celsius at sea level."
-        },
-        {
-            "question": "Which animal is known as the 'King of the Jungle'?",
-            "options": ["Tiger", "Lion", "Elephant", "Giraffe"],
-            "answer": "Lion",
-            "difficulty": "easy",
-            "explanation": "The lion is often called the King of the Jungle because of its strength and majestic appearance."
-        },
-        {
-            "question": "What do we call the study of plants?",
-            "options": ["Zoology", "Botany", "Geology", "Biology"],
-            "answer": "Botany",
-            "difficulty": "easy",
-            "explanation": "Botany is the scientific study of plants."
-        }
-    ]
-} 
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which part of the plant grows underground?",
+      "options": [
+        "Leaf",
+        "Flower",
+        "Stem",
+        "Root"
+      ],
+      "answer": "Root",
+      "explanation": "Roots grow underground and absorb water and nutrients from the soil.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 2,
+      "question": "What do plants need to make their food?",
+      "options": [
+        "Sunlight, water, air",
+        "Milk, sunlight, air",
+        "Soil, milk, water",
+        "Air, fire, water"
+      ],
+      "answer": "Sunlight, water, air",
+      "explanation": "Plants use sunlight, water, and carbon dioxide from air to make food through photosynthesis.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 3,
+      "question": "Which organ helps us see?",
+      "options": [
+        "Ear",
+        "Eye",
+        "Nose",
+        "Mouth"
+      ],
+      "answer": "Eye",
+      "explanation": "Our eyes help us see the world around us.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 4,
+      "question": "Which organ in the human body helps us breathe?",
+      "options": [
+        "Heart",
+        "Lungs",
+        "Liver",
+        "Kidney"
+      ],
+      "answer": "Lungs",
+      "explanation": "Lungs help us take in oxygen and remove carbon dioxide when we breathe.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 5,
+      "question": "Which gas do humans need to breathe in to survive?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "answer": "Oxygen",
+      "explanation": "Humans need oxygen to survive, as it helps produce energy in the body.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 6,
+      "question": "Which of these is a non-living thing?",
+      "options": [
+        "Tree",
+        "Bird",
+        "Stone",
+        "Fish"
+      ],
+      "answer": "Stone",
+      "explanation": "A stone is non-living, unlike trees, birds, and fish which are living.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 7,
+      "question": "What do humans wear to protect their eyes from the sun?",
+      "options": [
+        "Glasses",
+        "Sunglasses",
+        "Goggles",
+        "Hats"
+      ],
+      "answer": "Sunglasses",
+      "explanation": "Sunglasses are worn to protect eyes from sunlight.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 8,
+      "question": "What do we use to measure temperature?",
+      "options": [
+        "Thermometer",
+        "Barometer",
+        "Compass",
+        "Scale"
+      ],
+      "answer": "Thermometer",
+      "explanation": "A thermometer is used to measure temperature.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 9,
+      "question": "Which planet is called the Blue Planet?",
+      "options": [
+        "Mars",
+        "Earth",
+        "Saturn",
+        "Jupiter"
+      ],
+      "answer": "Earth",
+      "explanation": "Earth is called the Blue Planet because of its vast water bodies.",
+      "selected": false,
+      "timeSpent": 0
+    },
+    {
+      "id": 10,
+      "question": "What are the three states of water?",
+      "options": [
+        "Solid, liquid, gas",
+        "Hot, cold, warm",
+        "Liquid, steam, fire",
+        "Water, ice, snow"
+      ],
+      "answer": "Solid, liquid, gas",
+      "explanation": "Water exists in three states: solid (ice), liquid (water), and gas (steam).",
+      "selected": false,
+      "timeSpent": 0
+    }
+  ],
+  "totalQuestions": 10,
+  "subject": "Science",
+  "user": "Aditya_Singh",
+  "lastUpdated": "2025-04-11T06:26:27.817Z"
+}

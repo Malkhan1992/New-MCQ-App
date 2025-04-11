@@ -46,42 +46,95 @@ async function loadQuestions() {
         const user = formatUserName(loggedInUser);
         const subject = formatSubjectName(selectedSubject);
         
-        // Load questions from the server
-        const response = await fetch(`http://localhost:8000/database/${user}/${subject}.json`);
+        const response = await fetch(`${BASE_URL}/database/${user}/${subject}.json`);
         if (!response.ok) {
             throw new Error(`Failed to load questions: ${response.status}`);
         }
         
         const data = await response.json();
+        questions = data.questions || [];
         
-        // Validate the data structure
-        if (!data || !Array.isArray(data.questions)) {
-            throw new Error('Invalid question data format');
+        if (questions.length === 0) {
+            throw new Error('No questions available for this subject');
         }
         
-        // Ensure only 10 questions are loaded
-        return data.questions.slice(0, 10) || [];
+        if (questions.length !== 10) {
+            throw new Error('Invalid number of questions. Please contact administrator.');
+        }
+
+        // Sort questions by ID to ensure correct order
+        questions.sort((a, b) => a.id - b.id);
+            
+        totalQuestions = questions.length;
+        
+        // Initialize quiz state
+        currentQuestionIndex = 0;
+        userAnswers = new Array(totalQuestions).fill(-1);
+        questionTimers = new Array(totalQuestions).fill(90);
+        questionTimeSpent = new Array(totalQuestions).fill(0);
+        questionCompleted = new Array(totalQuestions).fill(false);
+
+        // Display student name and subject
+        const studentNameElement = document.getElementById("student-name");
+        const subjectNameElement = document.getElementById("subject-name");
+        if (studentNameElement) studentNameElement.textContent = loggedInUser;
+        if (subjectNameElement) subjectNameElement.textContent = selectedSubject;
+        
+        // Load the first question
+        loadQuestion(0);
     } catch (error) {
         console.error('Error loading questions:', error);
-        document.getElementById('quiz-container').innerHTML = `
-            <div class="error" style="text-align: center; padding: 20px; background: rgba(255,0,0,0.1); border-radius: 10px; margin: 20px;">
-                <h2 style="color: #ff6b6b; margin-bottom: 10px;">Error Loading Questions</h2>
-                <p style="color: white;">Unable to load questions for ${selectedSubject}.</p>
-                <p style="color: #aaa; font-size: 14px; margin-top: 10px;">Error: ${error.message}</p>
-                <button onclick="window.location.href='subjects.html'" 
-                        style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer;">
-                    Back to Subjects
-                </button>
-            </div>
-        `;
-        return [];
+        showError(`Error loading questions: ${error.message}`);
+    }
+}
+
+// Function to refresh questions
+async function refreshQuestions() {
+    const user = formatUserName(loggedInUser);
+    const subject = formatSubjectName(selectedSubject);
+    
+    if (!user || !subject) {
+        showError('Please select both user and subject');
+        return;
+    }
+
+    showLoading();
+    
+    try {
+        console.log('Loading question pool...');
+        const poolResponse = await fetch(`${BASE_URL}/database/admin/question_pool.json`);
+        if (!poolResponse.ok) {
+            throw new Error(`Failed to load question pool: ${poolResponse.status}`);
+        }
+        const pool = await poolResponse.json();
+        console.log('Question pool loaded:', pool);
+        
+        // Get all questions for the subject (direct array, no difficulty levels)
+        const subjectQuestions = pool[subject] || [];
+
+        if (subjectQuestions.length === 0) {
+            throw new Error(`No questions available for ${subject}`);
+        }
+
+        console.log(`Found ${subjectQuestions.length} questions for ${subject}`);
+        
+        // Shuffle and select 10 questions
+        const selectedQuestions = [...subjectQuestions]
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 10);
+
+        console.log('Selected questions:', selectedQuestions);
+        currentRefreshedQuestions = selectedQuestions;
+        displayQuestions(selectedQuestions, true);
+    } catch (error) {
+        console.error('Error refreshing questions:', error);
+        showError(`Error refreshing questions: ${error.message}`);
     }
 }
 
 // Initialize the quiz
 async function initializeQuiz() {
-    questions = await loadQuestions();
-    totalQuestions = questions.length;
+    await loadQuestions();
     
     if (questions.length === 0) {
         document.getElementById('quiz-container').innerHTML = `
@@ -92,19 +145,6 @@ async function initializeQuiz() {
         return;
     }
 
-    // Initialize quiz state
-    currentQuestionIndex = 0;
-    userAnswers = new Array(totalQuestions).fill(-1);
-    questionTimers = new Array(totalQuestions).fill(90); // 90 seconds per question
-    questionTimeSpent = new Array(totalQuestions).fill(0);
-    questionCompleted = new Array(totalQuestions).fill(false);
-
-    // Display student name and subject
-    const studentNameElement = document.getElementById("student-name");
-    const subjectNameElement = document.getElementById("subject-name");
-    studentNameElement.textContent = loggedInUser;
-    subjectNameElement.textContent = selectedSubject;
-    
     // Load the first question
     loadQuestion(0);
 }

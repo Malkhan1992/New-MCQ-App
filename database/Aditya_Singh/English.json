@@ -1,39 +1,191 @@
 {
     "questions": [
         {
-            "question": "What is the first letter of the alphabet?",
-            "options": ["A", "B", "C", "D"],
-            "answer": "A",
-            "difficulty": "easy",
-            "explanation": "A is the first letter of the alphabet."
+            "question": "Which word is a noun?",
+            "options": ["Run", "Apple", "Quickly", "Blue"],
+            "answer": "Apple",
+            "explanation": "A noun is a person, place, or thing. 'Apple' is a thing."
         },
         {
-            "question": "Which word rhymes with 'cat'?",
-            "options": ["Dog", "Hat", "Bird", "Fish"],
-            "answer": "Hat",
-            "difficulty": "easy",
-            "explanation": "'Hat' rhymes with 'cat'."
+            "question": "What is the opposite of 'big'?",
+            "options": ["Small", "Tall", "Wide", "Round"],
+            "answer": "Small",
+            "explanation": "The opposite of 'big' is 'small'."
         },
         {
-            "question": "What is the opposite of 'hot'?",
-            "options": ["warm", "cold", "cool", "freezing"],
-            "answer": "cold",
-            "difficulty": "easy",
-            "explanation": "The opposite of 'hot' is 'cold'."
+            "question": "Which word is a verb?",
+            "options": ["Jump", "Happy", "Soft", "Tree"],
+            "answer": "Jump",
+            "explanation": "A verb is an action word. 'Jump' shows an action."
         },
         {
-            "question": "Which word is a color?",
-            "options": ["run", "blue", "jump", "walk"],
-            "answer": "blue",
-            "difficulty": "easy",
-            "explanation": "'Blue' is a color."
+            "question": "What is the plural of 'child'?",
+            "options": ["Childs", "Children", "Childen", "Child"],
+            "answer": "Children",
+            "explanation": "The plural of 'child' is 'children'."
         },
         {
-            "question": "What is the plural of 'book'?",
-            "options": ["Book", "Books", "Bookes", "Bookies"],
-            "answer": "Books",
-            "difficulty": "easy",
-            "explanation": "The plural of 'book' is 'books'."
+            "question": "Which sentence is correct?",
+            "options": [
+                "He are running.",
+                "She is running.",
+                "They is running.",
+                "You am running."
+            ],
+            "answer": "She is running.",
+            "explanation": "The verb 'is' is correctly matched with 'she'."
+        },
+        {
+            "question": "Which word is a synonym for 'happy'?",
+            "options": ["Sad", "Angry", "Joyful", "Quiet"],
+            "answer": "Joyful",
+            "explanation": "'Joyful' means the same as 'happy'."
+        },
+        {
+            "question": "What type of word is 'quickly'?",
+            "options": ["Noun", "Verb", "Adverb", "Adjective"],
+            "answer": "Adverb",
+            "explanation": "'Quickly' describes how an action is done, making it an adverb."
+        },
+        {
+            "question": "How many vowels are there in the English alphabet?",
+            "options": ["4", "5", "6", "7"],
+            "answer": "5",
+            "explanation": "The vowels in English are A, E, I, O, and U."
+        },
+        {
+            "question": "Which word is a conjunction?",
+            "options": ["But", "Run", "Apple", "Soft"],
+            "answer": "But",
+            "explanation": "A conjunction connects words or sentences. 'But' is a conjunction."
+        },
+        {
+            "question": "Which word is a pronoun?",
+            "options": ["He", "Table", "Bright", "Jump"],
+            "answer": "He",
+            "explanation": "'He' is a pronoun used in place of a noun."
+        },
+        {
+            "question": "What is the opposite of 'fast'?",
+            "options": ["Slow", "Quick", "Big", "Small"],
+            "answer": "Slow",
+            "explanation": "The opposite of 'fast' is 'slow'."
+        },
+        {
+            "question": "What is a sentence?",
+            "options": [
+                "A group of words that makes sense.",
+                "A group of random words.",
+                "A question mark.",
+                "A single word."
+            ],
+            "answer": "A group of words that makes sense.",
+            "explanation": "A sentence is a group of words that conveys a complete idea."
+        },
+        {
+            "question": "Which of these words is an adjective?",
+            "options": ["Red", "Sing", "Book", "Bird"],
+            "answer": "Red",
+            "explanation": "An adjective describes a noun. 'Red' describes color."
+        },
+        {
+            "question": "Choose the correct spelling:",
+            "options": ["Freind", "Friend", "Frend", "Freiend"],
+            "answer": "Friend",
+            "explanation": "The correct spelling is 'friend'."
+        },
+        {
+            "question": "What is the past tense of 'eat'?",
+            "options": ["Eats", "Eaten", "Ate", "Eating"],
+            "answer": "Ate",
+            "explanation": "The past tense of 'eat' is 'ate'."
+        },
+        {
+            "question": "What punctuation mark is used at the end of a question?",
+            "options": ["Exclamation mark", "Period", "Comma", "Question mark"],
+            "answer": "Question mark",
+            "explanation": "A question mark is used at the end of a question."
+        },
+        {
+            "question": "Which is a compound word?",
+            "options": ["Apple", "Sunflower", "Run", "Blue"],
+            "answer": "Sunflower",
+            "explanation": "A compound word is made up of two words. 'Sunflower' is an example."
+        },
+        {
+            "question": "Which is a proper noun?",
+            "options": ["City", "Park", "Dog", "Mumbai"],
+            "answer": "Mumbai",
+            "explanation": "A proper noun is the name of a specific person, place, or thing. 'Mumbai' is an example."
+        },
+        {
+            "question": "What is the plural form of 'fox'?",
+            "options": ["Foxs", "Foxes", "Foes", "Fox"],
+            "answer": "Foxes",
+            "explanation": "The plural form of 'fox' is 'foxes'."
+        },
+        {
+            "question": "Which sentence uses 'their' correctly?",
+            "options": [
+                "They lost their keys.",
+                "Their is my book.",
+                "Their going to the park.",
+                "Can you their here?"
+            ],
+            "answer": "They lost their keys.",
+            "explanation": "'Their' shows possession. 'They lost their keys' is correct."
+        },
+        {
+            "question": "What is a synonym for 'quick'?",
+            "options": ["Slow", "Fast", "Small", "Bright"],
+            "answer": "Fast",
+            "explanation": "'Fast' means the same as 'quick'."
+        },
+        {
+            "question": "Which is an exclamatory sentence?",
+            "options": [
+                "What a beautiful day!",
+                "This is my book.",
+                "Where is he?",
+                "I want to play."
+            ],
+            "answer": "What a beautiful day!",
+            "explanation": "An exclamatory sentence expresses excitement or strong emotion."
+        },
+        {
+            "question": "What is the correct article for 'apple'?",
+            "options": ["An", "A", "The", "None"],
+            "answer": "An",
+            "explanation": "We use 'an' before a word that starts with a vowel sound, like 'apple'."
+        },
+        {
+            "question": "What is the collective noun for 'flowers'?",
+            "options": ["A group", "A bunch", "A pack", "A herd"],
+            "answer": "A bunch",
+            "explanation": "The collective noun for 'flowers' is 'a bunch'."
+        },
+        {
+            "question": "Which sentence is in future tense?",
+            "options": [
+                "I eat lunch.",
+                "I will eat lunch.",
+                "I am eating lunch.",
+                "I ate lunch."
+            ],
+            "answer": "I will eat lunch.",
+            "explanation": "Future tense indicates an action that will happen. 'I will eat lunch' is in future tense."
+        },
+        {
+            "question": "Which is a word family of 'play'?",
+            "options": ["Plays", "Player", "Playing", "All of the above"],
+            "answer": "All of the above",
+            "explanation": "Words like 'plays', 'player', and 'playing' all belong to the word family of 'play'."
+        },
+        {
+            "question": "What is the base word of 'beautiful'?",
+            "options": ["Beauty", "Beauties", "Beautify", "None"],
+            "answer": "Beauty",
+            "explanation": "'Beautiful' is derived from the base word 'beauty'."
         }
     ]
-} 
+}    
