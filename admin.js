@@ -7,29 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionDisplay = document.getElementById('questionDisplay');
     const addQuestionForm = document.getElementById('addQuestionForm');
 
-    // Base URL for API endpoints
-    const BASE_URL = 'http://localhost:8000';
+    // Use localStorage instead of server
     let allAvailableQuestions = [];
     let previouslySelectedQuestions = new Set();
 
-    // Function to format subject name for file path
+    // Function to format subject name for storage
     function formatSubjectName(subject) {
         return subject.replace(/\s+/g, '_');
     }
 
-    // Function to format user name for file path
+    // Function to format user name for storage
     function formatUserName(user) {
         return user.replace(/\s+/g, '_');
     }
 
     // Function to show loading state
     function showLoading() {
-        document.getElementById("questionDisplay").innerHTML = '<div class="loading">Loading questions...</div>';
+        questionDisplay.innerHTML = '<div class="loading">Loading questions...</div>';
     }
 
     // Function to show error message
     function showError(message) {
-        document.getElementById("questionDisplay").innerHTML = `<div class="error">${message}</div>`;
+        questionDisplay.innerHTML = `<div class="error">${message}</div>`;
     }
 
     // Function to show success message
@@ -63,16 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const formattedUser = formatUserName(user);
             const formattedSubject = formatSubjectName(subject);
-            const response = await fetch(`${BASE_URL}/database/${formattedUser}/${formattedSubject}.json`);
             
-            if (!response.ok) {
-                if (response.status === 404) {
-                    throw new Error('No questions found for this subject. Please add some questions first.');
-                }
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // Get questions from localStorage
+            const storageKey = `quiz_${formattedUser}_${formattedSubject}`;
+            const storedData = localStorage.getItem(storageKey);
+            
+            if (!storedData) {
+                throw new Error('No questions found for this subject. Please add some questions first.');
             }
             
-            const data = await response.json();
+            const data = JSON.parse(storedData);
             const questions = data.questions || [];
             
             if (questions.length === 0) {
@@ -204,7 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
-            // Set the HTML content
             questionDisplay.innerHTML = html;
             
             // Store current selection for saving
@@ -234,23 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const formattedSubject = formatSubjectName(subject);
             
             showLoading();
-            
-            // Ensure directories exist
-            await fetch(`${BASE_URL}/create-directory`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ path: 'database' })
-            });
-            
-            await fetch(`${BASE_URL}/create-directory`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ path: `database/${formattedUser}` })
-            });
 
             // Format questions with new serial numbers 1-10
             const formattedQuestions = questions.map((q, index) => ({
@@ -263,27 +244,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 timeSpent: 0
             }));
             
-            // Save the file
-            const updateResponse = await fetch(`${BASE_URL}/save-file`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    path: `database/${formattedUser}/${formattedSubject}.json`,
-                    content: JSON.stringify({ 
-                        questions: formattedQuestions,
-                        totalQuestions: formattedQuestions.length,
-                        subject: subject,
-                        user: user,
-                        lastUpdated: new Date().toISOString()
-                    }, null, 2)
-                })
-            });
-            
-            if (!updateResponse.ok) {
-                throw new Error(`Failed to save questions: ${updateResponse.status}`);
-            }
+            // Save to localStorage
+            const storageKey = `quiz_${formattedUser}_${formattedSubject}`;
+            localStorage.setItem(storageKey, JSON.stringify({ 
+                questions: formattedQuestions,
+                totalQuestions: formattedQuestions.length,
+                subject: subject,
+                user: user,
+                lastUpdated: new Date().toISOString()
+            }));
             
             const successMessage = `Successfully saved 10 questions to ${user}'s ${subject} quiz!`;
             
@@ -312,7 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             html += '</div>';
             
-            // Set the HTML content
             questionDisplay.innerHTML = html;
             
             // Add success message
@@ -361,57 +329,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Please select both user and subject');
             }
             
-            // Format names for paths
+            // Format names for storage
             const formattedUser = formatUserName(user);
             const formattedSubject = formatSubjectName(subject);
-
-            // Ensure directories exist
-            await fetch(`${BASE_URL}/create-directory`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ path: 'database' })
-            });
             
-            await fetch(`${BASE_URL}/create-directory`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ path: `database/${formattedUser}` })
-            });
-            
-            // Try to load existing questions
+            // Get existing questions from localStorage
+            const storageKey = `quiz_${formattedUser}_${formattedSubject}`;
             let existingQuestions = [];
-            try {
-                const existingResponse = await fetch(`${BASE_URL}/database/${formattedUser}/${formattedSubject}.json`);
-                if (existingResponse.ok) {
-                    const data = await existingResponse.json();
-                    existingQuestions = data.questions || [];
-                }
-            } catch (error) {
-                console.log("No existing questions found, creating new file");
+            const storedData = localStorage.getItem(storageKey);
+            if (storedData) {
+                const data = JSON.parse(storedData);
+                existingQuestions = data.questions || [];
             }
             
             // Add new question
             existingQuestions.push(newQuestion);
             
-            // Save to user database
-            const saveResponse = await fetch(`${BASE_URL}/save-file`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    path: `database/${formattedUser}/${formattedSubject}.json`,
-                    content: JSON.stringify({ questions: existingQuestions }, null, 2)
-                })
-            });
-            
-            if (!saveResponse.ok) {
-                throw new Error(`Failed to save question: ${saveResponse.status}`);
-            }
+            // Save to localStorage
+            localStorage.setItem(storageKey, JSON.stringify({ 
+                questions: existingQuestions,
+                totalQuestions: existingQuestions.length,
+                subject: subject,
+                user: user,
+                lastUpdated: new Date().toISOString()
+            }));
             
             showSuccess('Question added successfully!');
             addQuestionForm.reset();
