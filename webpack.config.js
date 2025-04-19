@@ -1,12 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    admin: './admin.js',
+    quiz: './quiz.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    clean: true
+    filename: '[name].bundle.js',
+    clean: true,
+    publicPath: './'
   },
   module: {
     rules: [
@@ -27,21 +33,43 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource'
+      },
+      {
+        test: /\.json$/,
+        type: 'json'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
-      template: './src/admin.html',
-      filename: 'admin.html'
+      template: './admin.html',
+      filename: 'admin.html',
+      chunks: ['admin']
     }),
     new HtmlWebpackPlugin({
-      template: './src/quiz.html',
-      filename: 'quiz.html'
+      template: './quiz.html',
+      filename: 'quiz.html',
+      chunks: ['quiz']
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'database',
+          to: 'database',
+          globOptions: {
+            ignore: ['**/*.md']
+          }
+        },
+        {
+          from: 'styles.css',
+          to: 'styles.css'
+        }
+      ]
     })
   ],
   devServer: {
@@ -50,6 +78,13 @@ module.exports = {
     },
     compress: true,
     port: 8080,
-    open: true
+    open: true,
+    historyApiFallback: true
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+    alias: {
+      '@database': path.resolve(__dirname, 'database')
+    }
   }
 }; 

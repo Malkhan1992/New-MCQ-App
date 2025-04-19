@@ -27,44 +27,68 @@ const nextButton = document.getElementById("next-button");
 const submitButton = document.getElementById("submit-button");
 const exitButton = document.getElementById("exit-button");
 
-// Function to format subject name for storage
-function formatSubjectName(subject) {
-    return subject.replace(/\s+/g, '_');
-}
-
-// Function to format user name for storage
-function formatUserName(user) {
-    return user.replace(/\s+/g, '_');
-}
-
-// Load questions from localStorage
+// Load questions from localStorage and JSON files
 async function loadQuestions() {
     try {
         const user = formatUserName(loggedInUser);
         const subject = formatSubjectName(selectedSubject);
         
-        // Get questions from localStorage
-        const storageKey = `quiz_${user}_${subject}`;
-        const storedData = localStorage.getItem(storageKey);
+        console.log('Loading quiz for:', {
+            user, 
+            subject,
+            formattedUser: user,
+            formattedSubject: subject
+        });
         
-        if (!storedData) {
+        let quizQuestions = [];
+        
+        // First try from questionPool (saved by admin)
+        const questionPoolData = localStorage.getItem('questionPool');
+        if (questionPoolData) {
+            try {
+                const questionPool = JSON.parse(questionPoolData);
+                
+                // First check if user-specific questions exist
+                if (questionPool[user] && questionPool[user][subject] && 
+                    questionPool[user][subject].questions && 
+                    questionPool[user][subject].questions.length > 0) {
+                    quizQuestions = questionPool[user][subject].questions;
+                    console.log('Using questions from admin pool for specific user');
+                }
+            } catch (e) {
+                console.warn('Failed to parse question pool:', e);
+            }
+        }
+        
+        // If no questions from admin pool, try from user's JSON file
+        if (quizQuestions.length === 0) {
+            try {
+                const response = await fetch(`database/${user}/${subject}.json`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.questions && data.questions.length > 0) {
+                        // Take random 10 questions if more are available
+                        quizQuestions = data.questions
+                            .sort(() => 0.5 - Math.random())
+                            .slice(0, 10);
+                        console.log('Using questions from user JSON file');
+                    }
+                }
+            } catch (e) {
+                console.warn('Failed to load questions from JSON:', e);
+            }
+        }
+        
+        if (quizQuestions.length === 0) {
             throw new Error('No questions available for this subject');
         }
         
-        const data = JSON.parse(storedData);
-        questions = data.questions || [];
+        // Assign questions and add ID if missing
+        questions = quizQuestions.map((q, index) => ({
+            ...q,
+            id: q.id || index + 1
+        }));
         
-        if (questions.length === 0) {
-            throw new Error('No questions available for this subject');
-        }
-        
-        if (questions.length !== 10) {
-            throw new Error('Invalid number of questions. Please contact administrator.');
-        }
-
-        // Sort questions by ID to ensure correct order
-        questions.sort((a, b) => a.id - b.id);
-            
         totalQuestions = questions.length;
         
         // Initialize quiz state
@@ -86,6 +110,20 @@ async function loadQuestions() {
         console.error('Error loading questions:', error);
         showError(`Error loading questions: ${error.message}`);
     }
+}
+
+// Helper functions for formatting names
+function formatSubjectName(subject) {
+    let formatted = subject.replace(/\s+/g, '_');
+    return formatted.split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('_');
+}
+
+function formatUserName(user) {
+    return user.split(' ')
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join('_');
 }
 
 // Initialize the quiz
@@ -225,39 +263,57 @@ function nextQuestion() {
 
 // Function to submit quiz
 function submitQuiz() {
-    clearInterval(timerInterval);
+        clearInterval(timerInterval);
     
     // Calculate results
     let correctAnswers = 0;
     let wrongAnswers = 0;
     let unattempted = 0;
     let totalTimeSpent = 0;
+    let totalMarks = 0;
     
-    const results = questions.map((q, index) => {
+    const questionResults = questions.map((q, index) => {
         const userAnswer = userAnswers[index];
         const isCorrect = userAnswer !== -1 && q.options[userAnswer] === q.answer;
+        const marks = isCorrect ? 1 : 0;
         
         if (userAnswer === -1) {
             unattempted++;
         } else if (isCorrect) {
             correctAnswers++;
-        } else {
-            wrongAnswers++;
+            totalMarks += marks;
+            } else {
+                wrongAnswers++;
         }
         
         totalTimeSpent += questionTimeSpent[index];
         
         return {
             question: q.question,
-            userAnswer: userAnswer === -1 ? 'Not Attempted' : q.options[userAnswer],
+            userAnswer: userAnswer === -1 ? 'Not Answered' : q.options[userAnswer],
             correctAnswer: q.answer,
             isCorrect,
             timeSpent: questionTimeSpent[index],
-            marks: isCorrect ? 1 : 0
+            marks: marks
         };
     });
     
-    // Save results to localStorage
+    // Calculate percentage
+    const percentage = (totalMarks / totalQuestions) * 100;
+    
+    // Determine performance comment
+    let performanceComment = "";
+    if (percentage >= 90) {
+        performanceComment = "Excellent";
+    } else if (percentage >= 70) {
+        performanceComment = "Good";
+    } else if (percentage >= 50) {
+        performanceComment = "Average";
+    } else {
+        performanceComment = "Fail";
+    }
+    
+    // Save results in original format for backwards compatibility
     const resultKey = `quiz_result_${formatUserName(loggedInUser)}_${formatSubjectName(selectedSubject)}_${Date.now()}`;
     localStorage.setItem(resultKey, JSON.stringify({
         user: loggedInUser,
@@ -267,12 +323,22 @@ function submitQuiz() {
         wrongAnswers,
         unattempted,
         timeSpent: totalTimeSpent,
-        questionResults: results,
+        questionResults: questionResults,
         date: new Date().toISOString()
     }));
     
+    // Save results in the format expected by result.html
+    localStorage.setItem("quizResults", JSON.stringify({
+        totalMarks: totalMarks,
+        maxPossibleMarks: totalQuestions,
+        percentage: percentage,
+        performanceComment: performanceComment,
+        questionResults: questionResults,
+        timeSpent: totalTimeSpent
+    }));
+    
     // Redirect to results page
-    window.location.href = `result.html?result=${resultKey}`;
+    window.location.href = `result.html`;
 }
 
 // Function to show error message

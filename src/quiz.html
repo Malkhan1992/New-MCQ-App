@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <div class="student-info">
+                <div class="student-name">Student: <span id="student-name">Student Name</span></div>
+                <div class="subject-name">Subject: <span id="subject-name">Subject Name</span></div>
+            </div>
+            <div class="timer" id="timer">01:30</div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-number" id="question-number">Question 01</div>
+            <div class="question-text" id="question-text">Loading question...</div>
+            <div class="options-container" id="options-container">
+                <!-- Options will be inserted here -->
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-button" class="nav-button">Previous</button>
+            <button id="next-button" class="nav-button">Next</button>
+            <button id="submit-button" class="submit-button" style="display: none;">Submit Quiz</button>
+        </div>
+
+        <button id="exit-button" class="exit-button">Exit Quiz</button>
+    </div>
+</body>
+</html> 

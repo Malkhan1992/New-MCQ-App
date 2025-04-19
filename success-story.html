@@ -8,18 +8,37 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700&display=swap');
         
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #a8d0e6, #dff6ff);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
         .story-container {
             max-width: 1000px;
             margin: 50px auto;
-            padding: 30px;
-            background: linear-gradient(to right, #0a3d62, #1e5799);
+            padding: 40px;
+            background: linear-gradient(135deg, #0a3d62, #1e5799);
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             color: white;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
-
+        
+        .background-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,235,59,0.1) 0%, rgba(10,61,98,0) 70%);
+        }
+        
         .story-header {
             text-align: center;
             margin-bottom: 40px;
@@ -27,11 +46,111 @@
         }
 
         .congrats-text {
-            font-size: 36px;
+            font-size: 42px;
             color: #ffeb3b;
             font-family: 'Comic Neue', cursive;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: bounce 2s infinite;
+            text-shadow: 2px 2px 10px rgba(255, 235, 59, 0.6);
+        }
+
+        .trophy-container {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .trophy-img {
+            width: 300px;
+            filter: drop-shadow(0 0 20px rgba(255, 235, 59, 0.9));
+        }
+        
+        .medal-container {
+            position: relative;
+            margin: 60px auto;
+            width: 220px;
+            height: 220px;
+            perspective: 1200px;
+        }
+        
+        .medal {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+        
+        .medal-front, .medal-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(255, 235, 59, 0.8);
+        }
+        
+        .medal-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .medal-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #daa520, #ffd700);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .medal-back .user-info {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .medal-back .subject-info {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .medal-ribbon {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(to right, #b71c1c, #e53935);
+            z-index: -1;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        
+        .medal-ribbon::before, .medal-ribbon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to right, #b71c1c, #e53935);
+        }
+        
+        .medal-ribbon::before {
+            left: -10px;
+            transform: rotate(15deg);
+            border-radius: 10px;
+        }
+        
+        .medal-ribbon::after {
+            right: -10px;
+            transform: rotate(-15deg);
+            border-radius: 10px;
         }
 
         .story-content {
@@ -40,102 +159,128 @@
             gap: 30px;
             justify-content: center;
             align-items: center;
-        }
-
-        .story-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-        }
-
-        .story-image:hover {
-            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .story-text {
             flex: 1;
             min-width: 300px;
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: left;
+        }
+        
+        .story-text h2 {
+            color: #ffeb3b;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .story-text p {
+            margin-bottom: 15px;
         }
 
         .character {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background-size: contain;
             background-repeat: no-repeat;
-            animation: float 3s infinite;
+            z-index: 1;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
         }
 
         .character-1 {
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
             background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785210.png');
+            animation-delay: 0.5s;
         }
 
         .character-2 {
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
             background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785211.png');
+            animation-delay: 1s;
         }
 
         .character-3 {
-            bottom: 20px;
-            left: 20px;
+            bottom: 10px;
+            left: 10px;
             background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785212.png');
+            animation-delay: 1.5s;
         }
 
         .character-4 {
-            bottom: 20px;
-            right: 20px;
+            bottom: 10px;
+            right: 10px;
             background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785213.png');
+            animation-delay: 2s;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+        }
+        
+        @keyframes rotateY {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(360deg); }
         }
 
-        .achievement-badge {
-            width: 150px;
-            height: 150px;
-            margin: 20px auto;
-            background-image: url('https://cdn-icons-png.flaticon.com/512/1785/1785214.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: spin 10s linear infinite;
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .next-button {
-            margin-top: 30px;
-            padding: 15px 30px;
+        .next-button, .certificate-button {
+            padding: 18px 35px;
             font-size: 18px;
             background: #ffeb3b;
             color: #333;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: transform 0.3s;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .next-button::before, .certificate-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+            z-index: -1;
         }
 
-        .next-button:hover {
-            transform: scale(1.1);
+        .next-button:hover, .certificate-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             background: #ffd700;
+        }
+        
+        .next-button:hover::before, .certificate-button:hover::before {
+            left: 100%;
         }
         
         .confetti {
@@ -143,17 +288,258 @@
             width: 10px;
             height: 10px;
             background-color: #ffeb3b;
-            animation: confetti-fall 5s linear infinite;
         }
         
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        /* Certificate styles */
+        .certificate {
+            display: none;
+            width: 800px;
+            height: 600px;
+            background: linear-gradient(to bottom right, #f5f5f5, #ffffff);
+            border: 2px solid #ffeb3b;
+            margin: 20px auto;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0yNSw3NSBMNTAsNTAgTDc1LDc1IEw1MCwxMDAgWiIgc3Ryb2tlPSIjZmZlYjNiIiBzdHJva2Utd2lkdGg9IjAuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+');
+            opacity: 0.1;
+        }
+        
+        /* Top and bottom borders */
+        .certificate-top-border, .certificate-bottom-border {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #ffeb3b;
+        }
+        
+        .certificate-top-border {
+            top: 0;
+        }
+        
+        .certificate-bottom-border {
+            bottom: 0;
+        }
+        
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #0a3d62;
+            padding-bottom: 15px;
+        }
+        
+        .certificate-welcome {
+            font-size: 18px;
+            color: #0a3d62;
+            margin-bottom: 5px;
+        }
+        
+        .certificate-title {
+            font-size: 36px;
+            color: #0a3d62;
+            font-family: 'Poppins', sans-serif;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .certificate-congrats {
+            font-size: 20px;
+            color: #4CAF50;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .trophy-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .certificate-trophy {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        
+        .medal-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .certificate-medal {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        
+        .medal-label {
+            font-weight: bold;
+            color: #0a3d62;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        
+        .certificate-body {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            margin: 15px 0;
+        }
+        
+        .certificate-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0a3d62;
+            margin: 15px 0;
+            border-bottom: 1px solid #ccc;
+            display: inline-block;
+            padding: 0 30px 5px;
+        }
+        
+        .certificate-text {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .certificate-highlights {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 90%;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .highlight-name {
+            font-weight: bold;
+            color: #0a3d62;
+            font-size: 20px;
+        }
+        
+        .highlight-subject {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .highlight-score {
+            color: #e53935;
+            font-weight: bold;
+        }
+        
+        .certificate-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            color: #0a3d62;
+        }
+        
+        .certificate-date {
+            font-size: 14px;
+            text-align: left;
+        }
+        
+        .signature-line {
+            width: 180px;
+            height: 1px;
+            background-color: #0a3d62;
+            margin-top: 30px;
+        }
+        
+        .signature-text {
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        /* Print styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            
+            .certificate, .certificate * {
+                visibility: visible;
+            }
+            
+            .certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+                padding: 1cm;
+                box-shadow: none;
+                width: 100%;
+                height: auto;
+                border: 12px double #ffeb3b !important;
+            }
+            
+            .certificate-top-border, .certificate-bottom-border {
+                visibility: visible !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .story-container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            .congrats-text {
+                font-size: 32px;
+            }
+            
+            .trophy-img {
+                width: 150px;
+            }
+            
+            .medal-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .story-content {
+                padding: 20px;
+            }
+            
+            .story-text {
+                font-size: 16px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .next-button, .certificate-button {
+                width: 100%;
+                max-width: 250px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="story-container">
+        <div class="background-glow"></div>
         <div class="character character-1"></div>
         <div class="character character-2"></div>
         <div class="character character-3"></div>
@@ -161,71 +547,187 @@
         
         <div class="story-header">
             <h1 class="congrats-text">Congratulations, <span id="student-name">Champion</span>! 🎉</h1>
-            <div class="achievement-badge"></div>
+        </div>
+        
+        <div class="trophy-container">
+            <img src="images/trophy.png" alt="Trophy" class="trophy-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2583/2583344.png'">
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0; font-size: 24px; color: #ffeb3b; font-weight: bold;">
+            <span id="medal-type-display">Bronze Medal</span>
+        </div>
+        
+        <div style="text-align: center; margin: 10px 0; font-size: 20px; color: white;">
+            Subject: <span id="subject-display">Subject</span> | 
+            Score: <span id="score-display">90%</span>
+        </div>
+        
+        <div class="medal-container">
+            <div class="medal">
+                <div class="medal-front">
+                    <img id="medal-image" src="medals/Bronze.png" alt="Medal" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2583/2583319.png'">
+                </div>
+                <div class="medal-back">
+                    <div class="user-info" id="medal-user">Student Name</div>
+                    <div class="subject-info" id="medal-subject">Subject Name</div>
+                    <div class="subject-info" id="medal-score">Score: 90%</div>
+                </div>
+            </div>
+            <div class="medal-ribbon"></div>
         </div>
 
         <div class="story-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/1785/1785215.png" alt="Success Story" class="story-image">
             <div class="story-text">
                 <h2>Your Journey to Excellence</h2>
                 <p>Dear <span id="student-name-2">Champion</span>,</p>
-                <p>🌟 Wow! Your quiz performance was so amazing that even the questions were impressed! They're telling their question friends about how brilliantly you answered them! 🎯</p>
+                <p id="praise-text">🌟 Wow! Your quiz performance was outstanding! You've achieved excellence and proven your mastery of the subject. Your dedication to learning and ability to apply knowledge is truly impressive.</p>
                 
-                <p>Here's a funny story: Once upon a time, there was a student who thought they knew everything. But then they took a quiz and realized they still had more to learn. That student? Well, they became the best student ever - just like you! 😄</p>
+                <p>Remember this: "Success is not final, failure is not fatal: It is the courage to continue that counts." Your journey of learning and growth continues, and we're excited to see what you'll achieve next!</p>
                 
-                <p>Your dedication to learning is like a superhero's power - it keeps growing stronger with every challenge you face! 🦸‍♂️</p>
+                <p>Your commitment to excellence has earned you this special recognition. Be proud of what you've accomplished and continue to strive for greatness in all your future endeavors.</p>
                 
-                <p>Remember this: "Success is not about being the best, it's about being better than you were yesterday." And you, my friend, are getting better every single day! 💪</p>
-                
-                <p>Here's a little secret: The more you learn, the more you realize how much more there is to discover. It's like finding a treasure chest that keeps giving you more treasures! 🏆</p>
-                
-                <p>Keep shining bright like the star you are! Your journey is just beginning, and we can't wait to see what amazing things you'll achieve next! ✨</p>
-                
-                <p>P.S. Don't forget to celebrate your success - you've earned it! 🎉</p>
+                <p>Keep shining bright like the star you are! ✨</p>
             </div>
         </div>
 
-        <button class="next-button" onclick="window.location.href='subjects.html'">Continue Your Journey</button>
+        <div class="buttons-container">
+            <button class="certificate-button" id="download-certificate">Download Certificate</button>
+            <button class="next-button" onclick="window.location.href='subjects.html'">Continue Your Journey</button>
+        </div>
+    </div>
+    
+    <!-- Certificate Template -->
+    <div class="certificate" id="certificate">
+        <div class="certificate-top-border"></div>
+        <div class="certificate-bottom-border"></div>
+        
+        <div class="certificate-header">
+            <div class="certificate-welcome">Welcome, <span id="cert-welcome-name">Student Name</span>!</div>
+            <div class="certificate-title">Certificate of Excellence</div>
+            <div class="certificate-congrats">Congratulations on Your Outstanding Achievement!</div>
+        </div>
+        
+        <div class="trophy-section">
+            <img class="certificate-trophy" src="images/trophy.png" alt="Trophy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2583/2583344.png'">
+        </div>
+        
+        <div class="medal-section">
+            <img id="cert-medal-img" class="certificate-medal" src="medals/Bronze.png" alt="Medal" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2583/2583319.png'">
+            <div class="medal-label" id="medal-type-label">Gold Medal</div>
+        </div>
+        
+        <div class="certificate-body">
+            <p class="certificate-text">This certifies that</p>
+            <p class="certificate-name" id="cert-name">Student Name</p>
+            
+            <div class="certificate-highlights">
+                <span class="highlight-name" id="highlight-name">Aryan Singh</span> has demonstrated excellent knowledge in 
+                <span class="highlight-subject" id="highlight-subject">Math</span> with a score of 
+                <span class="highlight-score" id="highlight-score">100%</span>.
+            </div>
+        </div>
+        
+        <div class="certificate-footer">
+            <div class="certificate-date">
+                <div id="cert-date">Date: January 1, 2023</div>
+                <div id="cert-time">Time: 12:00:00</div>
+            </div>
+            <div class="certificate-signature">
+                <div class="signature-line"></div>
+                <div class="signature-text">Authorized Signature</div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Get student name from localStorage
-        const studentName = localStorage.getItem("loggedInUser");
+        // Get quiz information from localStorage
+        const studentName = localStorage.getItem("loggedInUser") || "Champion";
+        const selectedSubject = localStorage.getItem("selectedSubject") || "Quiz";
+        const quizResults = JSON.parse(localStorage.getItem("quizResults") || "{}");
+        const percentage = quizResults.percentage || 0;
+        
+        // Update student name
         document.querySelectorAll("#student-name, #student-name-2").forEach(element => {
-            element.textContent = studentName || "Champion";
+            element.textContent = studentName;
         });
         
-        // Create confetti effect
-        function createConfetti() {
-            const container = document.querySelector('.story-container');
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            
-            // Random position
-            confetti.style.left = Math.random() * 100 + '%';
-            
-            // Random color
-            const colors = ['#ffeb3b', '#4CAF50', '#2196F3', '#FF9800', '#f44336'];
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            // Random size
-            const size = Math.random() * 10 + 5;
-            confetti.style.width = size + 'px';
-            confetti.style.height = size + 'px';
-            
-            // Random animation duration
-            confetti.style.animationDuration = Math.random() * 3 + 3 + 's';
-            
-            container.appendChild(confetti);
-            
-            // Remove confetti after animation
-            setTimeout(() => {
-                confetti.remove();
-            }, 5000);
+        // Update medal based on percentage
+        const medalImage = document.getElementById("medal-image");
+        const certMedalImg = document.getElementById("cert-medal-img");
+        const medalLabel = document.getElementById("medal-type-label");
+        let medalType = "";
+        
+        if (percentage >= 96) {
+            medalImage.src = "medals/gold1.png";
+            certMedalImg.src = "medals/gold1.png";
+            medalType = "Gold";
+            medalLabel.textContent = "Gold Medal";
+            document.getElementById("medal-type-display").textContent = "Gold Medal";
+            document.getElementById("praise-text").textContent = "🌟 EXTRAORDINARY! You've achieved absolute mastery with your near-perfect score! Your exceptional performance places you among the elite few who truly understand this subject at the highest level. What an incredible achievement!";
+        } else if (percentage >= 91) {
+            medalImage.src = "medals/Silver.png";
+            certMedalImg.src = "medals/Silver.png";
+            medalType = "Silver";
+            medalLabel.textContent = "Silver Medal";
+            document.getElementById("medal-type-display").textContent = "Silver Medal";
+            document.getElementById("praise-text").textContent = "🌟 OUTSTANDING! Your quiz performance was remarkable! You've demonstrated an exceptional understanding of the subject matter and your dedication to excellence shines through in your impressive score.";
+        } else {
+            medalImage.src = "medals/Bronze.png";
+            certMedalImg.src = "medals/Bronze.png";
+            medalType = "Bronze";
+            medalLabel.textContent = "Bronze Medal";
+            document.getElementById("medal-type-display").textContent = "Bronze Medal";
+            document.getElementById("praise-text").textContent = "🌟 EXCELLENT! Your quiz performance was truly impressive! You've shown great understanding of the subject and your hard work has definitely paid off. Keep up the great work!";
         }
         
-        // Create confetti every 200ms
-        setInterval(createConfetti, 200);
+        // Update subject and score display
+        document.getElementById("subject-display").textContent = selectedSubject;
+        document.getElementById("score-display").textContent = percentage + "%";
+        
+        // Update medal back information
+        document.getElementById("medal-user").textContent = studentName;
+        document.getElementById("medal-subject").textContent = selectedSubject;
+        document.getElementById("medal-score").textContent = `Score: ${percentage}%`;
+        
+        // Set up certificate information
+        document.getElementById("cert-welcome-name").textContent = studentName;
+        document.getElementById("cert-name").textContent = studentName;
+        document.getElementById("highlight-name").textContent = studentName;
+        document.getElementById("highlight-subject").textContent = selectedSubject;
+        document.getElementById("highlight-score").textContent = `${percentage}%`;
+        
+        // Create confetti effect but don't animate story page elements
+        function createConfetti() {
+            // DO NOTHING - animation removed
+            return;
+        }
+        
+        // Handle certificate download
+        document.getElementById('download-certificate').addEventListener('click', function() {
+            const certificate = document.getElementById('certificate');
+            
+            // Update date and time on certificate
+            const now = new Date();
+            document.getElementById('cert-date').textContent = 'Date: ' + now.toLocaleDateString();
+            document.getElementById('cert-time').textContent = 'Time: ' + now.toLocaleTimeString();
+            
+            // Display certificate
+            certificate.style.display = 'block';
+            
+            // Print the certificate
+            setTimeout(() => {
+                window.print();
+                // Hide certificate after printing
+                setTimeout(() => {
+                    certificate.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+        
+        // Redirect if percentage is less than 86%
+        if (percentage < 86) {
+            window.location.href = 'result.html';
+        }
     </script>
 </body>
 </html> 
