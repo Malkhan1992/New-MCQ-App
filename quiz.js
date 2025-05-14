@@ -163,7 +163,7 @@ const allQuestions = {
             {
                 "question": "What is the place value of 2 in 7,421?",
                 "options": ["20", "200", "2", "2000"],
-                "answer": "200"
+                "answer": "20"
             },
             {
                 "question": "What is the product of 14 and 6?",
