@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement Certificate</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .certificate-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px;
+            position: relative;
+        }
+        
+        .certificate {
+            background: #fff9e6 url('parchment-texture.png') center/cover;
+            border: 15px solid #d4a76a;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .attempt-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #d4a76a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        .certificate::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('ornamental-border.png') center/contain no-repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .certificate-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .certificate-logo {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        
+        .certificate-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: #8B4513;
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .certificate-text {
+            font-size: 16px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .certificate-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            font-weight: bold;
+            color: #003366;
+            margin: 20px 0;
+            padding: 10px 0;
+            border-top: 2px solid #d4a76a;
+            border-bottom: 2px solid #d4a76a;
+        }
+        
+        .certificate-details {
+            margin: 25px 0;
+        }
+        
+        .certificate-score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B4513;
+            margin: 15px 0;
+        }
+        
+        .medal-display {
+            margin: 20px auto;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .medal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+        }
+        
+        .certificate-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .signature {
+            width: 150px;
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #333;
+            margin: 5px auto;
+            width: 100px;
+        }
+        
+        .certificate-date {
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .medal-info {
+            font-size: 18px;
+            color: #8B4513;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        .quiz-timing {
+            font-size: 16px;
+            color: #666;
+            margin: 10px 0;
+        }
+        
+        .retry-info {
+            font-size: 16px;
+            color: #666;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff9e6;
+            border: 1px solid #d4a76a;
+            border-radius: 5px;
+        }
+        
+        .buttons {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .print-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .print-btn:hover {
+            background-color: #3e8e41;
+        }
+        
+        .back-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        
+        .back-btn:hover {
+            background-color: #0b7dda;
+        }
+        
+        @media print {
+            body {
+                background: none;
+            }
+            
+            .buttons {
+                display: none;
+            }
+            
+            .certificate {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="certificate">
+            <div class="certificate-content">
+                <img src="trophy.png" alt="Quiz Master" class="certificate-logo">
+                <h1 class="certificate-title">Certificate of Achievement</h1>
+                <p class="certificate-text">This is to certify that</p>
+                
+                <div class="certificate-name" id="cert-student-name">Student Name</div>
+                
+                <div class="certificate-details">
+                    <p>has successfully completed the</p>
+                    <h3 id="cert-subject">Subject Quiz</h3>
+                    <p>with outstanding performance and demonstrated excellence</p>
+                </div>
+                
+                <div class="certificate-score">
+                    Score: <span id="cert-score">0</span>%
+                </div>
+                
+                <div class="medal-display">
+                    <img src="" alt="Achievement Medal" class="medal-img" id="cert-medal">
+                </div>
+                
+                <div class="medal-info" id="medal-info">
+                    Awarded: <span id="medal-type">Gold Medal</span>
+                </div>
+                
+                <div class="quiz-timing" id="quiz-timing">
+                    Time taken: <span id="time-taken">0 minutes</span>
+                </div>
+                
+                <div class="attempt-badge" id="attempt-badge">1</div>
+                
+                <div class="certificate-footer">
+                    <div class="signature">
+                        <div class="signature-line"></div>
+                        <p>Quiz Master</p>
+                    </div>
+                    <div class="signature">
+                        <div class="signature-line"></div>
+                        <p>Date: <span id="signature-date"></span></p>
+                    </div>
+                </div>
+                
+                <div class="certificate-date" id="cert-date"></div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button class="print-btn" onclick="window.print()">Print Certificate</button>
+            <button class="back-btn" id="back-btn">Back to Results</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get data from localStorage
+            const loggedInUser = localStorage.getItem("loggedInUser") || "Student";
+            const selectedSubject = localStorage.getItem("selectedSubject") || "Subject";
+            const quizResults = JSON.parse(localStorage.getItem("quizResults") || "{}");
+            const percentage = Math.round(quizResults.percentage || 0);
+            const timeTaken = localStorage.getItem("quizTimeTaken") || "0";
+            const medalType = localStorage.getItem("medalType") || "Gold";
+            const attemptNumber = localStorage.getItem("currentAttempt") || "1";
+            const quizCompletionTimestamp = localStorage.getItem("quizCompletionTimestamp");
+            
+            // Set certificate content
+            document.getElementById("cert-student-name").textContent = loggedInUser;
+            document.getElementById("cert-subject").textContent = selectedSubject + " Quiz";
+            document.getElementById("cert-score").textContent = percentage;
+            document.getElementById("time-taken").textContent = timeTaken;
+            document.getElementById("medal-type").textContent = medalType + " Medal";
+            document.getElementById("attempt-badge").textContent = attemptNumber;
+            
+            // Set medal image based on medal type
+            const medalImg = document.getElementById("cert-medal");
+            switch(medalType.toLowerCase()) {
+                case "gold":
+                    medalImg.src = "gold1.png";
+                    break;
+                case "silver":
+                    medalImg.src = "Silver.png";
+                    break;
+                case "bronze":
+                    medalImg.src = "Bronze.png";
+                    break;
+                default:
+                    medalImg.src = "trophy.png";
+            }
+            
+            let completedDate;
+            if (quizCompletionTimestamp) {
+                completedDate = new Date(quizCompletionTimestamp);
+            } else {
+                completedDate = new Date(); // fallback to now
+            }
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            const formattedDate = completedDate.toLocaleDateString('en-US', dateOptions);
+            const formattedTime = completedDate.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById("signature-date").textContent = formattedDate;
+            document.getElementById("cert-date").textContent = `Issued on ${formattedDate} at ${formattedTime}`;
+            
+            // Back button functionality
+            document.getElementById("back-btn").addEventListener("click", function() {
+                window.location.href = "result.html";
+            });
+
+            console.log("Read quizCompletionTimestamp:", quizCompletionTimestamp);
+        });
+    </script>
+</body>
+</html>
