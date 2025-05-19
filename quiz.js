@@ -36,374 +36,455 @@ if (!loggedInUser || !selectedSubject) {
 const allQuestions = {
     "Aryan Singh": {
         "General Awareness": [
-            {
-                "question": "Which Indian state has its capital in 'Dispur'?",
-                "options": ["Assam", "Arunachal Pradesh", "Meghalaya", "Nagaland"],
-                "answer": "Assam"
-            },
-            {
-                "question": "Who was the first Prime Minister of India?",
-                "options": ["Sardar Patel", "Mahatma Gandhi", "Jawaharlal Nehru", "Dr. Rajendra Prasad"],
-                "answer": "Jawaharlal Nehru"
-            },
-            {
-                "question": "Which is the oldest mountain range in India?",
-                "options": ["Himalayas", "Aravalli Range", "Vindhyas", "Satpura Range"],
-                "answer": "Aravalli Range"
-            },
-            {
-                "question": "Where is the Gateway of India located?",
-                "options": ["Delhi", "Mumbai", "Chennai", "Kolkata"],
-                "answer": "Mumbai"
-            },
-            {
-                "question": "Which Indian state is the largest producer of tea?",
-                "options": ["West Bengal", "Assam", "Kerala", "Tamil Nadu"],
-                "answer": "Assam"
-            },
-            {
-                "question": "What comes next in this pattern: ▲, ◼, ▲, ◼, ...?",
-                "options": ["▲", "◼", "○", "◇"],
-                "answer": "▲"
-            },
-            {
-                "question": "What is the main festival of Kerala?",
-                "options": ["Onam", "Diwali", "Pongal", "Holi"],
-                "answer": "Onam"
-            },
-            {
-                "question": "Which state is famous for the Charminar?",
-                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
-                "answer": "Telangana"
-            },
-            {
-                "question": "Name the current President of India.",
-                "options": ["Droupadi Murmu", "Ramnath Kovind", "Pranab Mukherjee", "Manmohan Singh"],
-                "answer": "Droupadi Murmu"
-            },
-            {
-                "question": "Which monument in Delhi is also called the 'Symbol of Love'?",
-                "options": ["India Gate", "Qutub Minar", "Lotus Temple", "None of the above"],
-                "answer": "None of the above"
-            }
-        ],
+    {
+        "question": "Which state in India is called the 'Land of Five Rivers'?",
+        "options": ["Punjab", "Kerala", "Gujarat", "Odisha"],
+        "answer": "Punjab"
+    },
+    {
+        "question": "What is the currency of India?",
+        "options": ["Dollar", "Euro", "Rupee", "Yen"],
+        "answer": "Rupee"
+    },
+    {
+        "question": "Why do we wear cotton clothes in summer?",
+        "options": ["They look nice", "They keep us cool", "They are heavy", "They are colorful"],
+        "answer": "They keep us cool"
+    },
+    {
+        "question": "Which planet is famous for its rings?",
+        "options": ["Mars", "Jupiter", "Saturn", "Neptune"],
+        "answer": "Saturn"
+    },
+    {
+        "question": "What is the name of India's National Anthem?",
+        "options": ["Vande Mataram", "Jana Gana Mana", "Sare Jahan Se Achha", "Inquilab Zindabad"],
+        "answer": "Jana Gana Mana"
+    },
+    {
+        "question": "Which natural disaster is measured on the Richter scale?",
+        "options": ["Flood", "Cyclone", "Earthquake", "Tsunami"],
+        "answer": "Earthquake"
+    },
+    {
+        "question": "Who is known as the 'Missile Man of India'?",
+        "options": ["APJ Abdul Kalam", "Ratan Tata", "C.V. Raman", "Narendra Modi"],
+        "answer": "APJ Abdul Kalam"
+    },
+    {
+        "question": "Which part of the computer shows pictures and videos?",
+        "options": ["Keyboard", "Mouse", "Monitor", "Printer"],
+        "answer": "Monitor"
+    },
+    {
+        "question": "What do we call a group of stars that forms a pattern?",
+        "options": ["Planet", "Comet", "Galaxy", "Constellation"],
+        "answer": "Constellation"
+    },
+    {
+        "question": "Which famous leader said, 'You must be the change you wish to see in the world'?",
+        "options": ["Bhagat Singh", "Mahatma Gandhi", "Subhash Chandra Bose", "Jawaharlal Nehru"],
+        "answer": "Mahatma Gandhi"
+    }
+],
+
         "Science": [
-            {
-                "question": "What is the smallest bone in the human body?",
-                "options": ["Femur", "Stapes", "Tibia", "Ulna"],
-                "answer": "Stapes"
-            },
-            {
-                "question": "Which organ produces insulin?",
-                "options": ["Liver", "Pancreas", "Kidneys", "Heart"],
-                "answer": "Pancreas"
-            },
-            {
-                "question": "What part of the brain controls memory?",
-                "options": ["Cerebrum", "Cerebellum", "Medulla", "Hippocampus"],
-                "answer": "Hippocampus"
-            },
-            {
-                "question": "What is the main function of white blood cells?",
-                "options": ["Carrying oxygen", "Fighting infections", "Producing energy", "Clotting blood"],
-                "answer": "Fighting infections"
-            },
-            {
-                "question": "Which element is essential for the formation of bones and teeth?",
-                "options": ["Calcium", "Iron", "Magnesium", "Potassium"],
-                "answer": "Calcium"
-            },
-            {
-                "question": "What organ is protected by the ribcage?",
-                "options": ["Lungs", "Brain", "Liver", "Eyes"],
-                "answer": "Lungs"
-            },
-            {
-                "question": "Which system in the body controls all other systems?",
-                "options": ["Circulatory system", "Nervous system", "Digestive system", "Respiratory system"],
-                "answer": "Nervous system"
-            },
-            {
-                "question": "Which gas do humans exhale during respiration?",
-                "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"],
-                "answer": "Carbon dioxide"
-            },
-            {
-                "question": "What part of the eye is responsible for vision?",
-                "options": ["Lens", "Pupil", "Retina", "Cornea"],
-                "answer": "Retina"
-            },
-            {
-                "question": "What causes the common cold?",
-                "options": ["Bacteria", "Virus", "Fungus", "Protozoa"],
-                "answer": "Virus"
-            }
+    {
+        "question": "Why do astronauts wear special suits in space?",
+        "options": ["To look cool", "To float better", "To breathe and stay safe", "To run faster"],
+        "answer": "To breathe and stay safe"
+    },
+    {
+        "question": "Which part of the plant turns sunlight into food?",
+        "options": ["Roots", "Stem", "Leaves", "Flower"],
+        "answer": "Leaves"
+    },
+    {
+        "question": "Which of the following is *not* a sense organ?",
+        "options": ["Skin", "Brain", "Tongue", "Ear"],
+        "answer": "Brain"
+    },
+    {
+        "question": "What causes iron to rust?",
+        "options": ["Sunlight", "Wind", "Air and water", "Electricity"],
+        "answer": "Air and water"
+    },
+    {
+        "question": "Which simple machine is used in a seesaw?",
+        "options": ["Wheel and axle", "Pulley", "Lever", "Screw"],
+        "answer": "Lever"
+    },
+    {
+        "question": "What do we call the gas that plants need to make food?",
+        "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+        "answer": "Carbon dioxide"
+    },
+    {
+        "question": "Which planet has a giant red spot and is made of gas?",
+        "options": ["Earth", "Jupiter", "Mars", "Mercury"],
+        "answer": "Jupiter"
+    },
+    {
+        "question": "What kind of energy is stored in food?",
+        "options": ["Sound energy", "Kinetic energy", "Chemical energy", "Light energy"],
+        "answer": "Chemical energy"
+    },
+    {
+        "question": "Why do your pupils get smaller in bright light?",
+        "options": ["To cry", "To focus better", "To protect your eyes", "To help you see colors"],
+        "answer": "To protect your eyes"
+    },
+    {
+        "question": "What helps bats 'see' in the dark using sound?",
+        "options": ["Infrared vision", "Flashlight", "Echolocation", "Night vision goggles"],
+        "answer": "Echolocation"
+    }
+],
+
+       "Math": [
+    {
+        "question": "Write the numeral for: Forty three crore twenty lakh fifty thousand one hundred eleven",
+        "options": ["432050111", "4302050111", "4320050111", "430205011"],
+        "answer": "432050111"
+    },
+    {
+        "question": "Write the numeral for: Seventy two crore five lakh nine thousand twenty",
+        "options": ["720509020", "7205090020", "7020509020", "7200509020"],
+        "answer": "720509020"
+    },
+    {
+        "question": "Write the numeral for: Ninety six crore eighteen lakh twenty three thousand four hundred eighty five",
+        "options": ["961823485", "9061823485", "9618230485", "9618234585"],
+        "answer": "961823485"
+    },
+    {
+        "question": "Write the numeral for: Fifty five crore one lakh eighty thousand three hundred ten",
+        "options": ["550180310", "5500180310", "5501800310", "5051800310"],
+        "answer": "550180310"
+    },
+    {
+        "question": "Write the numeral for: Sixty crore ten lakh ten thousand ten",
+        "options": ["601010010", "6001010010", "610010010", "6010100010"],
+        "answer": "601010010"
+    },
+    {
+        "question": "Write in words: 430508921",
+        "options": [
+            "Four crore thirty lakh fifty eight thousand nine hundred twenty one",
+            "Forty three crore five lakh eight thousand nine hundred twenty one",
+            "Forty three crore five lakh eighty nine thousand twenty one",
+            "Forty three crore five lakh eight thousand nine hundred twenty one"
         ],
-        "Math": [
-            {
-                "question": "What is the sum of the first 5 odd numbers?",
-                "options": ["25", "15", "30", "35"],
-                "answer": "25"
-            },
-            {
-                "question": "Simplify: 15 × (3 + 2) ÷ 5.",
-                "options": ["12", "15", "9", "10"],
-                "answer": "15"
-            },
-            {
-                "question": "What is the square of 12?",
-                "options": ["144", "121", "169", "132"],
-                "answer": "144"
-            },
-            {
-                "question": "What is 64 ÷ 8?",
-                "options": ["7", "8", "9", "6"],
-                "answer": "8"
-            },
-            {
-                "question": "What is the place value of 2 in 7,421?",
-                "options": ["20", "200", "2", "2000"],
-                "answer": "20"
-            },
-            {
-                "question": "What is the product of 14 and 6?",
-                "options": ["60", "82", "84", "96"],
-                "answer": "84"
-            },
-            {
-                "question": "What is the cube of 3?",
-                "options": ["27", "9", "18", "36"],
-                "answer": "27"
-            },
-            {
-                "question": "What is the remainder when 50 is divided by 7?",
-                "options": ["5", "6", "3", "1"],
-                "answer": "1"
-            },
-            {
-                "question": "If 25 × 4 = 100, then what is 100 ÷ 4?",
-                "options": ["25", "20", "30", "15"],
-                "answer": "25"
-            },
-            {
-                "question": "What is the smallest prime number?",
-                "options": ["0", "1", "2", "3"],
-                "answer": "2"
-            }
-        ]
+        "answer": "Forty three crore five lakh eight thousand nine hundred twenty one"
+    },
+    {
+        "question": "Write in words: 965004016",
+        "options": [
+            "Ninety six crore fifty lakh four thousand sixteen",
+            "Ninety six crore five lakh four thousand sixteen",
+            "Nine crore sixty five lakh four thousand sixteen",
+            "Ninety six crore fifty lakh forty thousand sixteen"
+        ],
+        "answer": "Ninety six crore fifty lakh four thousand sixteen"
+    },
+    {
+        "question": "Write in words: 728341001",
+        "options": [
+            "Seventy two crore eighty three lakh forty one thousand one",
+            "Seven crore twenty eight lakh three thousand four hundred one",
+            "Seventy two crore eighty four lakh thirty one thousand one",
+            "Seventy two crore eighty three lakh forty one thousand one"
+        ],
+        "answer": "Seventy two crore eighty three lakh forty one thousand one"
+    },
+    {
+        "question": "Write in words: 810020009",
+        "options": [
+            "Eighty one crore two lakh nine",
+            "Eighty crore ten lakh twenty thousand nine",
+            "Eighty one crore two lakh twenty thousand nine",
+            "Eighty one crore twenty lakh nine"
+        ],
+        "answer": "Eighty one crore two lakh twenty thousand nine"
+    },
+    {
+        "question": "Write in words: 990100101",
+        "options": [
+            "Ninety nine crore one lakh one hundred one",
+            "Ninety nine crore ten lakh one hundred one",
+            "Ninety nine crore one lakh one thousand one",
+            "Ninety nine crore one lakh one thousand and one"
+        ],
+        "answer": "Ninety nine crore ten lakh one hundred one"
+    }
+],
+        "English":[
+    {
+        "question": "In the sentence 'The teacher gave her students a difficult assignment,' identify the noun and adjective.",
+        "options": ["teacher - difficult", "teacher - assignment", "students - difficult", "assignment - students"],
+        "answer": "teacher - difficult"
+    },
+    {
+        "question": "Which of the following sentences contains a collective noun?",
+        "options": ["The committee met to discuss the issue.", "The sun is shining brightly.", "She reads books every evening.", "The dog ran quickly."],
+        "answer": "The committee met to discuss the issue."
+    },
+    {
+        "question": "Identify the pronoun and adjective in the sentence: 'They are excited about their new project.'",
+        "options": ["They - new", "They - excited", "their - new", "They - excited - new"],
+        "answer": "They - excited"
+    },
+    {
+        "question": "Which sentence contains a possessive noun?",
+        "options": ["The students completed their assignments.", "The girl's books were on the table.", "The teacher explained the lesson.", "The children played in the park."],
+        "answer": "The girl's books were on the table."
+    },
+    {
+        "question": "Which of the following words is a concrete noun?",
+        "options": ["happiness", "intelligence", "apple", "courage"],
+        "answer": "apple"
+    },
+    {
+        "question": "Choose the correct pronoun to replace the noun: 'I spoke to my friend. ____ is very kind.'",
+        "options": ["He", "They", "It", "She"],
+        "answer": "He"
+    },
+    {
+        "question": "Which of the following sentences uses an adjective correctly?",
+        "options": ["The building was higher than the tree.", "The girls are running happily.", "The red ball bounced away.", "She laughed quickly."],
+        "answer": "The red ball bounced away."
+    },
+    {
+        "question": "In the sentence 'The hungry dog eagerly ate the food given to it by its owner,' which word is an adjective?",
+        "options": ["dog", "hungry", "food", "owner"],
+        "answer": "hungry"
+    },
+    {
+        "question": "In the sentence 'Everyone admired the bold, creative ideas presented by the team,' which words are adjectives?",
+        "options": ["Everyone - admired", "bold - creative", "ideas - team", "admired - ideas"],
+        "answer": "bold - creative"
+    },
+    {
+        "question": "Which sentence contains a reflexive pronoun?",
+        "options": ["She made herself a cup of tea.", "The dog is barking loudly.", "I saw him at the store.", "They played basketball after school."],
+        "answer": "She made herself a cup of tea."
+    }
+],
+
     },    
     
     "Aditya Singh": {
-        "General Awareness": [
-            {
-                "question": "Which state has its capital at 'Itanagar'?",
-                "options": ["Arunachal Pradesh", "Assam", "Meghalaya", "Nagaland"],
-                "answer": "Arunachal Pradesh"
-            },
-            {
-                "question": "Which city is known as the 'Silicon Valley of India'?",
-                "options": ["Hyderabad", "Bengaluru", "Pune", "Chennai"],
-                "answer": "Bengaluru"
-            },
-            {
-                "question": "What comes next in this series: 5, 10, 15, 20...?",
-                "options": ["22", "25", "30", "35"],
-                "answer": "25"
-            },
-            {
-                "question": "Which is the largest state in India by area?",
-                "options": ["Rajasthan", "Madhya Pradesh", "Maharashtra", "Uttar Pradesh"],
-                "answer": "Rajasthan"
-            },
-            {
-                "question": "What is the national fruit of India?",
-                "options": ["Mango", "Apple", "Banana", "Guava"],
-                "answer": "Mango"
-            },
-            {
-                "question": "What comes next in this pattern: ▲, ○, ■, ▲, ○...?",
-                "options": ["○", "■", "▲", "◇"],
-                "answer": "■"
-            },
-            {
-                "question": "Which state is famous for the Charminar?",
-                "options": ["Karnataka", "Telangana", "Andhra Pradesh", "Tamil Nadu"],
-                "answer": "Telangana"
-            },
-            {
-                "question": "Which Indian city is called the 'City of Joy'?",
-                "options": ["Kolkata", "Mumbai", "Delhi", "Chennai"],
-                "answer": "Kolkata"
-            },
-            {
-                "question": "Who was the first female Prime Minister of India?",
-                "options": ["Indira Gandhi", "Pratibha Patil", "Sarojini Naidu", "Sushma Swaraj"],
-                "answer": "Indira Gandhi"
-            },
-            {
-                "question": "Which place is famous as the 'Land of Five Rivers'?",
-                "options": ["Punjab", "Haryana", "Rajasthan", "Uttar Pradesh"],
-                "answer": "Punjab"
-            }
-        ],
-        "Science": [
-            {
-                "question": "What is the main gas in the Earth's atmosphere?",
-                "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-                "answer": "Nitrogen"
-            },
-            {
-                "question": "Which organ produces bile to aid digestion?",
-                "options": ["Liver", "Pancreas", "Stomach", "Gallbladder"],
-                "answer": "Liver"
-            },
-            {
-                "question": "Which vitamin is produced in the skin when exposed to sunlight?",
-                "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
-                "answer": "Vitamin D"
-            },
-            {
-                "question": "What is the chemical symbol for water?",
-                "options": ["H2O", "O2", "CO2", "HO"],
-                "answer": "H2O"
-            },
-            {
-                "question": "What is the hardest substance in the human body?",
-                "options": ["Bone", "Enamel", "Keratin", "Cartilage"],
-                "answer": "Enamel"
-            },
-            {
-                "question": "Which gas is necessary for photosynthesis?",
-                "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Methane"],
-                "answer": "Carbon Dioxide"
-            },
-            {
-                "question": "What is the approximate temperature of the human body?",
-                "options": ["36°C", "37°C", "38°C", "35°C"],
-                "answer": "37°C"
-            },
-            {
-                "question": "Which layer of the Earth lies between the crust and the core?",
-                "options": ["Mantle", "Outer Core", "Inner Core", "Lithosphere"],
-                "answer": "Mantle"
-            },
-            {
-                "question": "What type of joint is present in the human elbow?",
-                "options": ["Hinge Joint", "Ball and Socket Joint", "Pivot Joint", "Gliding Joint"],
-                "answer": "Hinge Joint"
-            },
-            {
-                "question": "Which organ is responsible for pumping blood throughout the body?",
-                "options": ["Heart", "Lungs", "Brain", "Liver"],
-                "answer": "Heart"
-            }
-        ],
-        "Math": [
+    "General Awareness": [
         {
-            "question": "Add: 245 + 378",
-            "options": ["613", "623", "633", "643"],
-            "answer": "623"
+            "question": "Which state has its capital at 'Bhopal'?",
+            "options": ["Madhya Pradesh", "Uttar Pradesh", "Haryana", "Maharashtra"],
+            "answer": "Madhya Pradesh"
         },
         {
-            "question": "Subtract: 975 - 438",
-            "options": ["537", "547", "537", "545"],
-            "answer": "537"
+            "question": "Which animal is known as the 'Ship of the Desert'?",
+            "options": ["Camel", "Horse", "Elephant", "Donkey"],
+            "answer": "Camel"
         },
         {
-            "question": "Multiply: 23 × 6",
-            "options": ["128", "138", "148", "138"],
-            "answer": "138"
+            "question": "What is the currency of India?",
+            "options": ["Rupee", "Dollar", "Yen", "Euro"],
+            "answer": "Rupee"
         },
         {
-            "question": "Word Problem: Ravi has 45 apples, and his friend gives him 30 more apples. How many apples does Ravi have now?",
-            "options": ["75", "85", "65", "80"],
-            "answer": "75"
+            "question": "What is the national flower of India?",
+            "options": ["Lotus", "Rose", "Tulip", "Sunflower"],
+            "answer": "Lotus"
         },
         {
-            "question": "Word Problem: A train has 350 passengers. At the next station, 125 passengers get off, and 90 new passengers board the train. How many passengers are on the train now?",
-            "options": ["315", "325", "340", "365"],
-            "answer": "315"
+            "question": "Which country is famous for the Great Wall?",
+            "options": ["China", "India", "Russia", "USA"],
+            "answer": "China"
         },
         {
-            "question": "Word Problem: A baker bakes 12 cakes each hour. How many cakes does the baker bake in 8 hours?",
-            "options": ["92", "96", "108", "112"],
+            "question": "Which bird is known for its ability to mimic human speech?",
+            "options": ["Parrot", "Crow", "Pigeon", "Sparrow"],
+            "answer": "Parrot"
+        },
+        {
+            "question": "What comes next in this sequence: 2, 4, 6, 8, ...?",
+            "options": ["10", "12", "14", "16"],
+            "answer": "10"
+        },
+        {
+            "question": "Which Indian city is known as the 'Pink City'?",
+            "options": ["Jaipur", "Mumbai", "Delhi", "Chennai"],
+            "answer": "Jaipur"
+        },
+        {
+            "question": "Which is the largest continent by area?",
+            "options": ["Asia", "Africa", "Europe", "North America"],
+            "answer": "Asia"
+        },
+        {
+            "question": "Which animal is the largest mammal in the world?",
+            "options": ["Blue Whale", "Elephant", "Shark", "Giraffe"],
+            "answer": "Blue Whale"
+        }
+    ],
+    "Science": [
+        {
+            "question": "Which planet is closest to the Sun?",
+            "options": ["Mercury", "Venus", "Earth", "Mars"],
+            "answer": "Mercury"
+        },
+        {
+            "question": "Which of the following is a herbivore?",
+            "options": ["Lion", "Elephant", "Tiger", "Wolf"],
+            "answer": "Elephant"
+        },
+        {
+            "question": "What is the solid part of the Earth called?",
+            "options": ["Crust", "Core", "Mantle", "Clouds"],
+            "answer": "Crust"
+        },
+        {
+            "question": "Which organ helps us to breathe?",
+            "options": ["Lungs", "Heart", "Kidney", "Brain"],
+            "answer": "Lungs"
+        },
+        {
+            "question": "What do plants need for photosynthesis?",
+            "options": ["Water, Air, Sunlight", "Water, Air, Soil", "Sunlight, Air, Soil", "Water, Soil, Minerals"],
+            "answer": "Water, Air, Sunlight"
+        },
+        {
+            "question": "Which is the largest organ in the human body?",
+            "options": ["Skin", "Liver", "Heart", "Lungs"],
+            "answer": "Skin"
+        },
+        {
+            "question": "Which of the following is a form of water?",
+            "options": ["Vapor", "Ice", "Liquid", "All of the above"],
+            "answer": "All of the above"
+        },
+        {
+            "question": "Which organ is responsible for pumping blood throughout the body?",
+            "options": ["Heart", "Liver", "Stomach", "Lungs"],
+            "answer": "Heart"
+        },
+        {
+            "question": "What is the source of energy for the Earth?",
+            "options": ["Sun", "Wind", "Water", "Soil"],
+            "answer": "Sun"
+        },
+        {
+            "question": "What type of tree produces acorns?",
+            "options": ["Oak", "Pine", "Maple", "Birch"],
+            "answer": "Oak"
+        }
+    ],
+    "Math": [
+        {
+            "question": "Add: 158 + 347",
+            "options": ["505", "465", "497", "505"],
+            "answer": "505"
+        },
+        {
+            "question": "Subtract: 984 - 567",
+            "options": ["417", "427", "437", "457"],
+            "answer": "417"
+        },
+        {
+            "question": "Multiply: 13 × 7",
+            "options": ["91", "102", "92", "103"],
+            "answer": "91"
+        },
+        {
+            "question": "Word Problem: Sara buys 25 pencils. She gives 10 pencils to her friend. How many pencils does she have now?",
+            "options": ["15", "20", "30", "18"],
+            "answer": "15"
+        },
+        {
+            "question": "Word Problem: A box contains 8 rows of books, with 12 books in each row. How many books are there in total?",
+            "options": ["96", "80", "72", "108"],
             "answer": "96"
         },
         {
-            "question": "Add: 1234 + 4321",
-            "options": ["5555", "5545", "5565", "5550"],
-            "answer": "5555"
+            "question": "What is the product of 24 × 6?",
+            "options": ["144", "148", "146", "150"],
+            "answer": "144"
         },
         {
-            "question": "Subtract: 2048 - 1537",
-            "options": ["511", "519", "521", "511"],
-            "answer": "511"
+            "question": "Add: 184 + 629",
+            "options": ["803", "813", "823", "833"],
+            "answer": "813"
         },
         {
-            "question": "Multiply: 16 × 25",
-            "options": ["400", "425", "375", "450"],
-            "answer": "400"
+            "question": "Subtract: 1500 - 764",
+            "options": ["736", "746", "734", "724"],
+            "answer": "736"
         },
         {
-            "question": "Word Problem: Priya buys 3 packets of candies, each containing 15 candies. How many candies does Priya have in total?",
-            "options": ["30", "45", "60", "50"],
-            "answer": "45"
+            "question": "Multiply: 25 × 11",
+            "options": ["275", "250", "280", "300"],
+            "answer": "275"
+        },
+        {
+            "question": "Word Problem: A farmer has 56 apples. He sells 23 apples. How many apples does the farmer have left?",
+            "options": ["33", "43", "53", "45"],
+            "answer": "33"
         }
     ],
-        "English": [
-            {
-                "question": "Which is a personal pronoun: She is reading a book.",
-                "options": ["She", "Book", "Reading", "Is"],
-                "answer": "She"
-            },
-            {
-                "question": "Which is a possessive pronoun: The pen is mine.",
-                "options": ["Mine", "Pen", "The", "Is"],
-                "answer": "Mine"
-            },
-            {
-                "question": "Pick the noun: The dog is barking.",
-                "options": ["Dog", "Is", "Barking", "The"],
-                "answer": "Dog"
-            },
-            {
-                "question": "Find the adjective: The bright star is visible.",
-                "options": ["Bright", "Star", "Visible", "Is"],
-                "answer": "Bright"
-            },
-            {
-                "question": "Which is a reflexive pronoun: He blamed himself for the mistake.",
-                "options": ["Himself", "Blamed", "He", "Mistake"],
-                "answer": "Himself"
-            },
-            {
-                "question": "Select the possessive pronoun: The bicycle is theirs.",
-                "options": ["Theirs", "Bicycle", "Is", "The"],
-                "answer": "Theirs"
-            },
-            {
-                "question": "Choose the noun: The birds are flying high.",
-                "options": ["Birds", "Flying", "High", "Are"],
-                "answer": "Birds"
-            },
-            {
-                "question": "Pick the adjective: The blue car is parked outside.",
-                "options": ["Blue", "Car", "Outside", "Parked"],
-                "answer": "Blue"
-            },
-            {
-                "question": "Identify the demonstrative pronoun: This is my bag.",
-                "options": ["This", "My", "Bag", "Is"],
-                "answer": "This"
-            },
-            {
-                "question": "Which is an abstract noun: Honesty is the best policy.",
-                "options": ["Honesty", "Policy", "Best", "Is"],
-                "answer": "Honesty"
-            }
-        ]
-    }
-};    
+    "English": [
+        {
+            "question": "Which word is a noun? 'The dog is barking loudly.'",
+            "options": ["Dog", "Barking", "Loudly", "Is"],
+            "answer": "Dog"
+        },
+        {
+            "question": "Which word is a pronoun? 'She is going to the market.'",
+            "options": ["Going", "She", "Market", "To"],
+            "answer": "She"
+        },
+        {
+            "question": "Which word is an adjective? 'The tall man is running fast.'",
+            "options": ["Tall", "Man", "Running", "Fast"],
+            "answer": "Tall"
+        },
+        {
+            "question": "Identify the pronoun in the sentence: 'They are playing football.'",
+            "options": ["They", "Football", "Playing", "Are"],
+            "answer": "They"
+        },
+        {
+            "question": "Which of the following is a possessive pronoun? 'This book is mine.'",
+            "options": ["Mine", "This", "Book", "Is"],
+            "answer": "Mine"
+        },
+        {
+            "question": "Choose the correct adjective: 'She has a ____ dress.'",
+            "options": ["Beautiful", "Beautifully", "Beautify", "Beauties"],
+            "answer": "Beautiful"
+        },
+        {
+            "question": "Pick the noun in the sentence: 'The children played with their toys.'",
+            "options": ["Children", "Played", "With", "Toys"],
+            "answer": "Children"
+        },
+        {
+            "question": "Which word is a reflexive pronoun? 'She looked at herself in the mirror.'",
+            "options": ["She", "Looked", "At", "Herself"],
+            "answer": "Herself"
+        },
+        {
+            "question": "Choose the correct demonstrative pronoun: '____ is my favorite color.'",
+            "options": ["This", "That", "These", "Those"],
+            "answer": "This"
+        },
+        {
+            "question": "Which of the following is an abstract noun? 'Kindness is important.'",
+            "options": ["Kindness", "Is", "Important", "None of the above"],
+            "answer": "Kindness"
+        }
+    ]
+}
+};
+
 
 // Use the questions assigned to the student
 const questions = allQuestions[loggedInUser][selectedSubject];
