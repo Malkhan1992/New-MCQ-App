@@ -3,7 +3,7 @@ let loggedInUser = localStorage.getItem("loggedInUser");
 let selectedSubject = localStorage.getItem("selectedSubject");
 
 // Question version tracking
-const QUESTION_VERSION = "3.0"; // Update this when questions are updated
+const QUESTION_VERSION = "4.0"; // Update this when questions are updated
 const VERSION_KEY = `questionVersion_${loggedInUser}_${selectedSubject}`;
 const ATTEMPT_KEY = `attemptCount_${loggedInUser}_${selectedSubject}`;
 
